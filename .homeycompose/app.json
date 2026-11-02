@@ -1,5 +1,5 @@
 {
-  "id": "com.melpump.homey",
+  "id": "io.github.marlark.melpump",
   "version": "1.1.0",
   "compatibility": ">=12.1.0",
   "sdk": 3,
@@ -35,5 +35,11 @@
   "author": {
     "name": "Ted Dÿring",
     "email": "teddyhq@hotmail.com"
-  }
+  },
+  "homepage": "https://github.com/Marlark/melpump-homey",
+  "support": "https://github.com/Marlark/melpump-homey/issues",
+  "bugs": {
+    "url": "https://github.com/Marlark/melpump-homey/issues"
+  },
+  "source": "https://github.com/Marlark/melpump-homey"
 }

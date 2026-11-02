@@ -1,5 +1,5 @@
 {
-  "name": "com.melpump.homey",
+  "name": "io.github.marlark.melpump",
   "version": "1.1.0",
   "description": "Homey Pro app for MelPump.com heat pumps",
   "main": "app.js",

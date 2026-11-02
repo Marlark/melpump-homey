@@ -4,7 +4,7 @@ Monitor and control your heat pump from Homey Pro through [MelPump](https://melp
 
 ![MelPump for Homey](assets/images/xlarge.png)
 
-**App ID:** `com.melpump.homey` · **SDK:** Homey Apps SDK v3 · **Homey:** Homey Pro, firmware ≥ 12.1.0 · **License:** MIT · **Languages:** English, Nederlands, Svenska, Deutsch, Dansk, Norsk
+**App ID:** `io.github.marlark.melpump` · **SDK:** Homey Apps SDK v3 · **Homey:** Homey Pro, firmware ≥ 12.1.0 · **License:** MIT · **Languages:** English, Nederlands, Svenska, Deutsch, Dansk, Norsk
 
 ---
 
