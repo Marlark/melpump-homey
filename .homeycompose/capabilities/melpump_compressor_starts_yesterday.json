@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Compressor starts yesterday",
+    "nl": "Compressorstarts gisteren",
+    "sv": "Kompressorstarter igår",
+    "de": "Verdichterstarts gestern",
+    "da": "Kompressorstarter i går",
+    "no": "Kompressorstarter i går"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/compressor.svg"
+}

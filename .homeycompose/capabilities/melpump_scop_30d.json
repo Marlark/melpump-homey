@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "SCOP last 30 days",
+    "nl": "SCOP laatste 30 dagen",
+    "sv": "SCOP senaste 30 dagarna",
+    "de": "SCOP letzte 30 Tage",
+    "da": "SCOP seneste 30 dage",
+    "no": "SCOP siste 30 dager"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

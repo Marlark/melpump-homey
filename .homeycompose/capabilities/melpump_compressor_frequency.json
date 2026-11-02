@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Compressor frequency",
+    "nl": "Compressorfrequentie",
+    "sv": "Kompressorfrekvens",
+    "de": "Verdichterfrequenz",
+    "da": "Kompressorfrekvens",
+    "no": "Kompressorfrekvens"
+  },
+  "units": {
+    "en": "Hz"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/compressor.svg"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy hot water yesterday",
+    "nl": "Energie warm water gisteren",
+    "sv": "Energi varmvatten igår",
+    "de": "Energie Warmwasser gestern",
+    "da": "Energi varmt vand i går",
+    "no": "Energi varmtvann i går"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/hot_water.svg"
+}

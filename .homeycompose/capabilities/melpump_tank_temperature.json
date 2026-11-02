@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Tank water temperature",
+    "nl": "Boilertemperatuur",
+    "sv": "Varmvattentemperatur",
+    "de": "Speichertemperatur",
+    "da": "Tanktemperatur",
+    "no": "Tanktemperatur"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/hot_water.svg"
+}

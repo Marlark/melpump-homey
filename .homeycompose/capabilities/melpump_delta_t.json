@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Flow/return difference",
+    "nl": "Verschil aanvoer/retour",
+    "sv": "Skillnad fram/retur",
+    "de": "Differenz Vor-/Rücklauf",
+    "da": "Forskel frem/retur",
+    "no": "Forskjell tur/retur"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/delta_t.svg"
+}

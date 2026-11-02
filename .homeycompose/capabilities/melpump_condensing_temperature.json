@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Condensing temperature",
+    "nl": "Condensatietemperatuur",
+    "sv": "Kondenseringstemperatur",
+    "de": "Kondensationstemperatur",
+    "da": "Kondenseringstemperatur",
+    "no": "Kondenseringstemperatur"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/condensing.svg"
+}

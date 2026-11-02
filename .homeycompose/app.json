@@ -1,0 +1,39 @@
+{
+  "id": "com.melpump.homey",
+  "version": "1.1.0",
+  "compatibility": ">=12.1.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "MelPump",
+    "nl": "MelPump",
+    "sv": "MelPump",
+    "de": "MelPump",
+    "da": "MelPump",
+    "no": "MelPump"
+  },
+  "description": {
+    "en": "Monitor and control your heat pump through MelPump.com",
+    "nl": "Bewaak en bedien je warmtepomp via MelPump.com",
+    "sv": "Övervaka och styr din värmepump via MelPump.com",
+    "de": "Überwache und steuere deine Wärmepumpe über MelPump.com",
+    "da": "Overvåg og styr din varmepumpe via MelPump.com",
+    "no": "Overvåk og styr varmepumpen din via MelPump.com"
+  },
+  "category": [
+    "climate"
+  ],
+  "brandColor": "#0E7C66",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Ted Dÿring",
+    "email": "teddyhq@hotmail.com"
+  }
+}

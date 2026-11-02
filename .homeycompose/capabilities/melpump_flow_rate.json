@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Flow rate",
+    "nl": "Debiet",
+    "sv": "Flöde",
+    "de": "Durchfluss",
+    "da": "Flow",
+    "no": "Gjennomstrømning"
+  },
+  "units": {
+    "en": "l/min"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/flow.svg"
+}

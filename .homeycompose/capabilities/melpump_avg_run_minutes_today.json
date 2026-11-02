@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Average compressor run today",
+    "nl": "Gemiddelde compressorlooptijd vandaag",
+    "sv": "Medelkörtid kompressor idag",
+    "de": "Mittlere Verdichterlaufzeit heute",
+    "da": "Gennemsnitlig kompressordrift i dag",
+    "no": "Gjennomsnittlig kompressordrift i dag"
+  },
+  "units": {
+    "en": "min"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/compressor.svg"
+}

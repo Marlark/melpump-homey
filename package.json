@@ -1,0 +1,16 @@
+{
+  "name": "com.melpump.homey",
+  "version": "1.1.0",
+  "description": "Homey Pro app for MelPump.com heat pumps",
+  "main": "app.js",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "npm run test:translations && npm run test:unit",
+    "test:translations": "node scripts/check-translations.js",
+    "test:unit": "node --test \"test/*.test.js\""
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

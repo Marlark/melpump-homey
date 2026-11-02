@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Saving mode (dynamic pricing)",
+    "nl": "Bespaarmodus (dynamische prijzen)",
+    "sv": "Sparläge (dynamiskt elpris)",
+    "de": "Sparmodus (dynamische Preise)",
+    "da": "Sparetilstand (dynamisk elpris)",
+    "no": "Sparemodus (dynamisk strømpris)"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Saving mode activated",
+    "nl": "Bespaarmodus geactiveerd",
+    "sv": "Sparläge aktiverat",
+    "de": "Sparmodus aktiviert",
+    "da": "Sparetilstand aktiveret",
+    "no": "Sparemodus aktivert"
+  },
+  "insightsTitleFalse": {
+    "en": "Saving mode deactivated",
+    "nl": "Bespaarmodus gedeactiveerd",
+    "sv": "Sparläge avaktiverat",
+    "de": "Sparmodus deaktiviert",
+    "da": "Sparetilstand deaktiveret",
+    "no": "Sparemodus deaktivert"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/saving.svg"
+}

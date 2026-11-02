@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Night mode on/off",
+    "nl": "Nachtmodus aan/uit",
+    "sv": "Nattläge på/av",
+    "de": "Nachtmodus ein/aus",
+    "da": "Nattilstand til/fra",
+    "no": "Nattmodus på/av"
+  },
+  "getable": true,
+  "setable": true,
+  "insights": false,
+  "uiComponent": "toggle",
+  "icon": "/assets/capabilities/night.svg"
+}

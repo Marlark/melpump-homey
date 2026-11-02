@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP in saving mode yesterday",
+    "nl": "COP in bespaarmodus gisteren",
+    "sv": "COP i sparläge igår",
+    "de": "COP im Sparmodus gestern",
+    "da": "COP i sparetilstand i går",
+    "no": "COP i sparemodus i går"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

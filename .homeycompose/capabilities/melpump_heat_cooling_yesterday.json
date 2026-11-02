@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Cooling produced yesterday",
+    "nl": "Koeling geproduceerd gisteren",
+    "sv": "Kyla producerad igår",
+    "de": "Erzeugte Kühlung gestern",
+    "da": "Produceret køling i går",
+    "no": "Produsert kjøling i går"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cooling.svg"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy this year",
+    "nl": "Energie dit jaar",
+    "sv": "Energi i år",
+    "de": "Energie dieses Jahr",
+    "da": "Energi i år",
+    "no": "Energi i år"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/energy.svg"
+}

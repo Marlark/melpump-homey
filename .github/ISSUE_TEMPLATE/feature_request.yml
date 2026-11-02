@@ -1,0 +1,36 @@
+name: Feature request
+description: Suggest something new, a new language or a better translation.
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of request?
+      options:
+        - New feature or Flow card
+        - Change to an existing feature
+        - Dashboard widget
+        - New language
+        - Translation correction
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: For a language or translation, say which language and, for a correction, the current and the better text.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: What would you use it for?
+      description: The situation or automation it helps with. This helps to find the best way to build it.
+
+  - type: markdown
+    attributes:
+      value: |
+        The app can only do what the [MelPump API](https://melpump.com/api/doc) offers, and melpump.com
+        allows 100 requests per hour per heat pump, so not everything can be polled more often.

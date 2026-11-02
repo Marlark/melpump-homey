@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Target flow temperature",
+    "nl": "Doelaanvoertemperatuur",
+    "sv": "Önskad framledning",
+    "de": "Soll-Vorlauftemperatur",
+    "da": "Ønsket fremløbstemperatur",
+    "no": "Ønsket turtemperatur"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/target_flow.svg"
+}

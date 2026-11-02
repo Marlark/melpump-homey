@@ -1,0 +1,6 @@
+*.md
+.git
+.vscode
+scripts
+test
+.github

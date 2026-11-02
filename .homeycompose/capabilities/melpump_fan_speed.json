@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Fan speed",
+    "nl": "Ventilatortoerental",
+    "sv": "Fläktvarvtal",
+    "de": "Lüfterdrehzahl",
+    "da": "Blæserhastighed",
+    "no": "Viftehastighet"
+  },
+  "units": {
+    "en": "rpm"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/fan.svg"
+}

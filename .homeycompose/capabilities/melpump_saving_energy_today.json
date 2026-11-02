@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy in saving mode today",
+    "nl": "Energie in bespaarmodus vandaag",
+    "sv": "Energi i sparläge idag",
+    "de": "Energie im Sparmodus heute",
+    "da": "Energi i sparetilstand i dag",
+    "no": "Energi i sparemodus i dag"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/saving.svg"
+}

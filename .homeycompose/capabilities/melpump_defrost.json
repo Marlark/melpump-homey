@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Defrosting",
+    "nl": "Ontdooien",
+    "sv": "Avfrostning",
+    "de": "Abtauen",
+    "da": "Afrimer",
+    "no": "Avriming"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Defrost started",
+    "nl": "Ontdooien gestart",
+    "sv": "Avfrostning startade",
+    "de": "Abtauen gestartet",
+    "da": "Afrimning startet",
+    "no": "Avriming startet"
+  },
+  "insightsTitleFalse": {
+    "en": "Defrost ended",
+    "nl": "Ontdooien beëindigd",
+    "sv": "Avfrostning avslutades",
+    "de": "Abtauen beendet",
+    "da": "Afrimning afsluttet",
+    "no": "Avriming avsluttet"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/defrost.svg"
+}

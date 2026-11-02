@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Booster heater on today",
+    "nl": "Bijverwarming aan vandaag",
+    "sv": "Tillskottsvärme på idag",
+    "de": "Zusatzheizung an heute",
+    "da": "Tilskudsvarme tændt i dag",
+    "no": "Tilleggsvarme på i dag"
+  },
+  "units": {
+    "en": "min"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/heater.svg"
+}

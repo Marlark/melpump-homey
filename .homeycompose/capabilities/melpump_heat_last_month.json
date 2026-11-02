@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Heat produced last month",
+    "nl": "Warmte geproduceerd vorige maand",
+    "sv": "Värme producerad förra månaden",
+    "de": "Erzeugte Wärme letzten Monat",
+    "da": "Produceret varme sidste måned",
+    "no": "Produsert varme forrige måned"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/heat.svg"
+}

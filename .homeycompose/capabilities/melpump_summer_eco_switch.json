@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Summer eco on/off",
+    "nl": "Zomer-eco aan/uit",
+    "sv": "Sommar-eco på/av",
+    "de": "Sommer-Eco ein/aus",
+    "da": "Sommer-eco til/fra",
+    "no": "Sommer-eco på/av"
+  },
+  "getable": true,
+  "setable": true,
+  "insights": false,
+  "uiComponent": "toggle",
+  "icon": "/assets/capabilities/summer.svg"
+}

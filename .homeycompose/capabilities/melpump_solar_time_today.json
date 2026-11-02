@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Solar mode today",
+    "nl": "Zonnemodus vandaag",
+    "sv": "Solläge idag",
+    "de": "Solarmodus heute",
+    "da": "Soltilstand i dag",
+    "no": "Solmodus i dag"
+  },
+  "units": {
+    "en": "h"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/solar.svg"
+}

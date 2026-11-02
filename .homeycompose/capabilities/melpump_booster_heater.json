@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Booster heater",
+    "nl": "Bijverwarming",
+    "sv": "Tillskottsvärme",
+    "de": "Zusatzheizung",
+    "da": "Tilskudsvarme",
+    "no": "Tilleggsvarme"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Booster heater on",
+    "nl": "Bijverwarming aan",
+    "sv": "Tillskottsvärme på",
+    "de": "Zusatzheizung ein",
+    "da": "Tilskudsvarme til",
+    "no": "Tilleggsvarme på"
+  },
+  "insightsTitleFalse": {
+    "en": "Booster heater off",
+    "nl": "Bijverwarming uit",
+    "sv": "Tillskottsvärme av",
+    "de": "Zusatzheizung aus",
+    "da": "Tilskudsvarme fra",
+    "no": "Tilleggsvarme av"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/heater.svg"
+}

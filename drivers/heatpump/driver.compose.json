@@ -1,0 +1,218 @@
+{
+  "name": {
+    "en": "Heat Pump",
+    "nl": "Warmtepomp",
+    "sv": "Värmepump",
+    "de": "Wärmepumpe",
+    "da": "Varmepumpe",
+    "no": "Varmepumpe"
+  },
+  "class": "heatpump",
+  "capabilities": [
+    "measure_temperature",
+    "target_temperature",
+    "melpump_mode",
+    "melpump_operation_state",
+    "melpump_smart_energy_switch",
+    "melpump_night_mode_switch",
+    "melpump_summer_eco_switch",
+    "melpump_holiday_switch",
+    "melpump_holiday_until",
+    "melpump_quiet_switch",
+    "measure_cop",
+    "melpump_cop_yesterday",
+    "measure_power",
+    "meter_power",
+    "melpump_heat_output",
+    "melpump_heat_produced_yesterday",
+    "melpump_cop_heating_yesterday",
+    "melpump_cop_hot_water_yesterday",
+    "melpump_energy_heating_yesterday",
+    "melpump_energy_hot_water_yesterday",
+    "melpump_heat_heating_yesterday",
+    "melpump_heat_hot_water_yesterday",
+    "melpump_energy_cooling_yesterday",
+    "melpump_heat_cooling_yesterday",
+    "melpump_cop_cooling_yesterday",
+    "melpump_scop_30d",
+    "melpump_energy_this_month",
+    "melpump_heat_this_month",
+    "melpump_cop_this_month",
+    "melpump_energy_last_month",
+    "melpump_heat_last_month",
+    "melpump_cop_last_month",
+    "melpump_energy_this_year",
+    "melpump_heat_this_year",
+    "melpump_cop_this_year",
+    "melpump_outdoor_avg_yesterday",
+    "measure_temperature.outdoor",
+    "melpump_tank_temperature",
+    "target_temperature.tank",
+    "melpump_last_legionella",
+    "measure_temperature.flow",
+    "melpump_target_flow_temperature",
+    "measure_temperature.return",
+    "melpump_delta_t",
+    "melpump_zone_active",
+    "melpump_compressor_frequency",
+    "melpump_compressor_starts_today",
+    "melpump_compressor_starts_yesterday",
+    "melpump_compressor_hours_today",
+    "melpump_compressor_hours_yesterday",
+    "melpump_avg_run_minutes_today",
+    "melpump_flow_rate",
+    "melpump_saving_mode",
+    "melpump_saving_time_today",
+    "melpump_saving_time_yesterday",
+    "melpump_saving_energy_today",
+    "melpump_saving_energy_yesterday",
+    "melpump_saving_share_yesterday",
+    "melpump_cop_saving_yesterday",
+    "melpump_cop_normal_yesterday",
+    "melpump_night_mode",
+    "melpump_solar_mode",
+    "melpump_solar_forced_until",
+    "melpump_solar_time_today",
+    "melpump_solar_time_yesterday",
+    "melpump_solar_energy_today",
+    "melpump_solar_energy_yesterday",
+    "melpump_solar_share_yesterday",
+    "melpump_cop_solar_yesterday",
+    "melpump_summer_eco",
+    "melpump_defrost",
+    "melpump_defrosts_today",
+    "melpump_defrost_minutes_today",
+    "melpump_immersion_minutes_today",
+    "melpump_booster_minutes_today",
+    "melpump_immersion_heater",
+    "melpump_booster_heater",
+    "alarm_generic",
+    "melpump_last_alarm",
+    "melpump_alarms_today",
+    "melpump_alarms_unacknowledged",
+    "melpump_last_seen"
+  ],
+  "capabilitiesOptions": {
+    "measure_temperature": {
+      "title": {
+        "en": "Room temperature",
+        "nl": "Kamertemperatuur",
+        "sv": "Rumstemperatur",
+        "de": "Raumtemperatur",
+        "da": "Rumtemperatur",
+        "no": "Romtemperatur"
+      }
+    },
+    "target_temperature": {
+      "min": 10,
+      "max": 30,
+      "step": 0.5
+    },
+    "measure_temperature.outdoor": {
+      "title": {
+        "en": "Outdoor temperature",
+        "nl": "Buitentemperatuur",
+        "sv": "Utetemperatur",
+        "de": "Außentemperatur",
+        "da": "Udetemperatur",
+        "no": "Utetemperatur"
+      }
+    },
+    "target_temperature.tank": {
+      "title": {
+        "en": "Target hot water temperature",
+        "nl": "Doeltemperatuur warm water",
+        "sv": "Önskad varmvattentemperatur",
+        "de": "Soll-Warmwassertemperatur",
+        "da": "Ønsket varmtvandstemperatur",
+        "no": "Ønsket varmtvannstemperatur"
+      },
+      "min": 30,
+      "max": 80,
+      "step": 1
+    },
+    "measure_temperature.flow": {
+      "title": {
+        "en": "Flow temperature",
+        "nl": "Aanvoertemperatuur",
+        "sv": "Framledningstemperatur",
+        "de": "Vorlauftemperatur",
+        "da": "Fremløbstemperatur",
+        "no": "Turtemperatur"
+      }
+    },
+    "measure_temperature.return": {
+      "title": {
+        "en": "Return temperature",
+        "nl": "Retourtemperatuur",
+        "sv": "Returtemperatur",
+        "de": "Rücklauftemperatur",
+        "da": "Returtemperatur",
+        "no": "Returtemperatur"
+      }
+    },
+    "measure_power": {
+      "title": {
+        "en": "Power (estimated)",
+        "nl": "Vermogen (geschat)",
+        "sv": "Effekt (uppskattad)",
+        "de": "Leistung (geschätzt)",
+        "da": "Effekt (anslået)",
+        "no": "Effekt (estimert)"
+      },
+      "approximated": true
+    },
+    "meter_power": {
+      "title": {
+        "en": "Energy used",
+        "nl": "Energieverbruik",
+        "sv": "Energiförbrukning",
+        "de": "Energieverbrauch",
+        "da": "Energiforbrug",
+        "no": "Energiforbruk"
+      }
+    },
+    "alarm_generic": {
+      "title": {
+        "en": "Heat pump error",
+        "nl": "Storing warmtepomp",
+        "sv": "Fel på värmepumpen",
+        "de": "Wärmepumpenstörung",
+        "da": "Fejl på varmepumpen",
+        "no": "Feil på varmepumpen"
+      }
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "images": {
+    "small": "/drivers/heatpump/assets/images/small.png",
+    "large": "/drivers/heatpump/assets/images/large.png",
+    "xlarge": "/drivers/heatpump/assets/images/xlarge.png"
+  },
+  "pair": [
+    {
+      "id": "start"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "start"
+    }
+  ]
+}

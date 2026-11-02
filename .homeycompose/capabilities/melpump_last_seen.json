@@ -1,0 +1,16 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Last data from heat pump",
+    "nl": "Laatste gegevens van warmtepomp",
+    "sv": "Senaste data från värmepumpen",
+    "de": "Letzte Daten der Wärmepumpe",
+    "da": "Seneste data fra varmepumpen",
+    "no": "Siste data fra varmepumpen"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/clock.svg"
+}

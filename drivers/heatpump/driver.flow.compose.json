@@ -1,0 +1,3405 @@
+{
+  "triggers": [
+    {
+      "id": "cop_changed",
+      "title": {
+        "en": "COP changed",
+        "nl": "COP is veranderd",
+        "sv": "COP har ändrats",
+        "de": "COP hat sich geändert",
+        "da": "COP er ændret",
+        "no": "COP er endret"
+      },
+      "tokens": [
+        {
+          "name": "cop",
+          "type": "number",
+          "title": {
+            "en": "COP",
+            "nl": "COP",
+            "sv": "COP",
+            "de": "COP",
+            "da": "COP",
+            "no": "COP"
+          },
+          "example": 3.8
+        }
+      ]
+    },
+    {
+      "id": "saving_mode_activated",
+      "title": {
+        "en": "Saving mode activated",
+        "nl": "Bespaarmodus geactiveerd",
+        "sv": "Sparläge aktiverat",
+        "de": "Sparmodus aktiviert",
+        "da": "Sparetilstand aktiveret",
+        "no": "Sparemodus aktivert"
+      }
+    },
+    {
+      "id": "saving_mode_deactivated",
+      "title": {
+        "en": "Saving mode deactivated",
+        "nl": "Bespaarmodus gedeactiveerd",
+        "sv": "Sparläge avaktiverat",
+        "de": "Sparmodus deaktiviert",
+        "da": "Sparetilstand deaktiveret",
+        "no": "Sparemodus deaktivert"
+      }
+    },
+    {
+      "id": "smart_energy_switched_on",
+      "title": {
+        "en": "Smart Energy switched on",
+        "nl": "Smart Energy ingeschakeld",
+        "sv": "Smart Energy slogs på",
+        "de": "Smart Energy eingeschaltet",
+        "da": "Smart Energy slået til",
+        "no": "Smart Energy slått på"
+      },
+      "hint": {
+        "en": "When the Smart Energy function is switched on, e.g. in the MelPump app. Use \"Saving mode activated\" for when it starts adjusting the heat pump.",
+        "nl": "Wanneer de functie Smart Energy wordt ingeschakeld, bijv. in de MelPump-app. Gebruik \"Bespaarmodus geactiveerd\" voor wanneer hij de warmtepomp begint aan te passen.",
+        "sv": "När funktionen Smart Energy slås på, t.ex. i MelPump-appen. Använd \"Sparläge aktiverat\" för när den börjar styra värmepumpen.",
+        "de": "Wenn die Funktion Smart Energy eingeschaltet wird, z. B. in der MelPump-App. Verwende „Sparmodus aktiviert“, wenn sie beginnt, die Wärmepumpe anzupassen.",
+        "da": "Når funktionen Smart Energy slås til, f.eks. i MelPump-appen. Brug \"Sparetilstand aktiveret\" til, når den begynder at styre varmepumpen.",
+        "no": "Når funksjonen Smart Energy slås på, f.eks. i MelPump-appen. Bruk «Sparemodus aktivert» for når den begynner å styre varmepumpen."
+      }
+    },
+    {
+      "id": "smart_energy_switched_off",
+      "title": {
+        "en": "Smart Energy switched off",
+        "nl": "Smart Energy uitgeschakeld",
+        "sv": "Smart Energy slogs av",
+        "de": "Smart Energy ausgeschaltet",
+        "da": "Smart Energy slået fra",
+        "no": "Smart Energy slått av"
+      },
+      "hint": {
+        "en": "When the Smart Energy function is switched off, e.g. in the MelPump app.",
+        "nl": "Wanneer de functie Smart Energy wordt uitgeschakeld, bijv. in de MelPump-app.",
+        "sv": "När funktionen Smart Energy slås av, t.ex. i MelPump-appen.",
+        "de": "Wenn die Funktion Smart Energy ausgeschaltet wird, z. B. in der MelPump-App.",
+        "da": "Når funktionen Smart Energy slås fra, f.eks. i MelPump-appen.",
+        "no": "Når funksjonen Smart Energy slås av, f.eks. i MelPump-appen."
+      }
+    },
+    {
+      "id": "solar_mode_started",
+      "title": {
+        "en": "Solar mode started",
+        "nl": "Zonnemodus gestart",
+        "sv": "Solläge startade",
+        "de": "Solarmodus gestartet",
+        "da": "Soltilstand startet",
+        "no": "Solmodus startet"
+      }
+    },
+    {
+      "id": "solar_mode_stopped",
+      "title": {
+        "en": "Solar mode stopped",
+        "nl": "Zonnemodus gestopt",
+        "sv": "Solläge slutade",
+        "de": "Solarmodus beendet",
+        "da": "Soltilstand stoppet",
+        "no": "Solmodus stoppet"
+      }
+    },
+    {
+      "id": "forced_solar_ended",
+      "title": {
+        "en": "Forced solar mode has ended",
+        "nl": "Geforceerde zonnemodus is afgelopen",
+        "sv": "Tvingat solläge har gått ut",
+        "de": "Erzwungener Solarmodus ist abgelaufen",
+        "da": "Tvungen soltilstand er udløbet",
+        "no": "Tvunget solmodus er utløpt"
+      },
+      "hint": {
+        "en": "When solar mode forced from Homey reaches its end time.",
+        "nl": "Wanneer de vanuit Homey geforceerde zonnemodus zijn eindtijd bereikt.",
+        "sv": "När solläge som tvingats från Homey når sin sluttid.",
+        "de": "Wenn der von Homey erzwungene Solarmodus seine Endzeit erreicht.",
+        "da": "Når soltilstand, der er tvunget fra Homey, når sit sluttidspunkt.",
+        "no": "Når solmodus som er tvunget fra Homey, når sluttiden."
+      }
+    },
+    {
+      "id": "solar_function_switched",
+      "title": {
+        "en": "Solar function switched on or off",
+        "nl": "Zonnefunctie aan- of uitgezet",
+        "sv": "Solfunktion slogs på eller av",
+        "de": "Solarfunktion ein- oder ausgeschaltet",
+        "da": "Solfunktion slået til eller fra",
+        "no": "Solfunksjon slått på eller av"
+      },
+      "titleFormatted": {
+        "en": "[[target]] was switched [[state]]",
+        "nl": "[[target]] is [[state]]gezet",
+        "sv": "[[target]] slogs [[state]]",
+        "de": "[[target]] wurde [[state]]geschaltet",
+        "da": "[[target]] blev slået [[state]]",
+        "no": "[[target]] ble slått [[state]]"
+      },
+      "hint": {
+        "en": "When a solar mode function is switched on or off, e.g. in the MelPump app.",
+        "nl": "Wanneer een zonnemodusfunctie aan- of uitgezet wordt, bijv. in de MelPump-app.",
+        "sv": "När en solfunktion slås på eller av, t.ex. i MelPump-appen.",
+        "de": "Wenn eine Solarmodus-Funktion ein- oder ausgeschaltet wird, z. B. in der MelPump-App.",
+        "da": "Når en soltilstandsfunktion slås til eller fra, f.eks. i MelPump-appen.",
+        "no": "Når en solmodusfunksjon slås på eller av, f.eks. i MelPump-appen."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "target",
+          "title": {
+            "en": "Function",
+            "nl": "Functie",
+            "sv": "Funktion",
+            "de": "Funktion",
+            "da": "Funktion",
+            "no": "Funksjon"
+          },
+          "values": [
+            {
+              "id": "solar_hot_water",
+              "title": {
+                "en": "Solar mode hot water",
+                "nl": "Zonnemodus warm water",
+                "sv": "Solläge varmvatten",
+                "de": "Solarmodus Warmwasser",
+                "da": "Soltilstand varmt vand",
+                "no": "Solmodus varmtvann"
+              }
+            },
+            {
+              "id": "solar_zone1",
+              "title": {
+                "en": "Solar mode zone 1",
+                "nl": "Zonnemodus zone 1",
+                "sv": "Solläge zon 1",
+                "de": "Solarmodus Zone 1",
+                "da": "Soltilstand zone 1",
+                "no": "Solmodus sone 1"
+              }
+            },
+            {
+              "id": "solar_zone2",
+              "title": {
+                "en": "Solar mode zone 2",
+                "nl": "Zonnemodus zone 2",
+                "sv": "Solläge zon 2",
+                "de": "Solarmodus Zone 2",
+                "da": "Soltilstand zone 2",
+                "no": "Solmodus sone 2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "state",
+          "title": {
+            "en": "State",
+            "nl": "Stand",
+            "sv": "Läge",
+            "de": "Zustand",
+            "da": "Tilstand",
+            "no": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "on",
+                "nl": "aan",
+                "sv": "på",
+                "de": "ein",
+                "da": "til",
+                "no": "på"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "off",
+                "nl": "uit",
+                "sv": "av",
+                "de": "aus",
+                "da": "fra",
+                "no": "av"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alarm_type_triggered",
+      "title": {
+        "en": "New MelPump alarm of a type",
+        "nl": "Nieuw MelPump-alarm van een type",
+        "sv": "Nytt MelPump-larm av en typ",
+        "de": "Neuer MelPump-Alarm eines Typs",
+        "da": "Ny MelPump-alarm af en type",
+        "no": "Ny MelPump-alarm av en type"
+      },
+      "titleFormatted": {
+        "en": "New MelPump alarm: [[type]]",
+        "nl": "Nieuw MelPump-alarm: [[type]]",
+        "sv": "Nytt MelPump-larm: [[type]]",
+        "de": "Neuer MelPump-Alarm: [[type]]",
+        "da": "Ny MelPump-alarm: [[type]]",
+        "no": "Ny MelPump-alarm: [[type]]"
+      },
+      "tokens": [
+        {
+          "name": "id",
+          "type": "number",
+          "title": {
+            "en": "Alarm id",
+            "nl": "Alarm-id",
+            "sv": "Larm-id",
+            "de": "Alarm-ID",
+            "da": "Alarm-id",
+            "no": "Alarm-id"
+          },
+          "example": 1234
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "title": {
+            "en": "Message",
+            "nl": "Bericht",
+            "sv": "Meddelande",
+            "de": "Meldung",
+            "da": "Besked",
+            "no": "Melding"
+          },
+          "example": "COP dropped below 2.0"
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "title": {
+            "en": "Measured value",
+            "nl": "Gemeten waarde",
+            "sv": "Uppmätt värde",
+            "de": "Messwert",
+            "da": "Målt værdi",
+            "no": "Målt verdi"
+          },
+          "example": 1.8
+        }
+      ],
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "type",
+          "title": {
+            "en": "Alarm type",
+            "nl": "Alarmtype",
+            "sv": "Larmtyp",
+            "de": "Alarmtyp",
+            "da": "Alarmtype",
+            "no": "Alarmtype"
+          },
+          "values": [
+            {
+              "id": "short_cycling",
+              "title": {
+                "en": "Short cycling",
+                "nl": "Pendelen",
+                "sv": "Korta driftcykler",
+                "de": "Takten",
+                "da": "Korte driftscyklusser",
+                "no": "Korte driftssykluser"
+              }
+            },
+            {
+              "id": "cop",
+              "title": {
+                "en": "Low COP",
+                "nl": "Lage COP",
+                "sv": "Låg COP",
+                "de": "Niedriger COP",
+                "da": "Lav COP",
+                "no": "Lav COP"
+              }
+            },
+            {
+              "id": "device_offline",
+              "title": {
+                "en": "Heat pump offline",
+                "nl": "Warmtepomp offline",
+                "sv": "Värmepumpen offline",
+                "de": "Wärmepumpe offline",
+                "da": "Varmepumpe offline",
+                "no": "Varmepumpe frakoblet"
+              }
+            },
+            {
+              "id": "device_off",
+              "title": {
+                "en": "Heat pump switched off",
+                "nl": "Warmtepomp uitgeschakeld",
+                "sv": "Värmepumpen avstängd",
+                "de": "Wärmepumpe ausgeschaltet",
+                "da": "Varmepumpe slukket",
+                "no": "Varmepumpe slått av"
+              }
+            },
+            {
+              "id": "defrost",
+              "title": {
+                "en": "Defrost",
+                "nl": "Ontdooien",
+                "sv": "Avfrostning",
+                "de": "Abtauen",
+                "da": "Afrimning",
+                "no": "Avriming"
+              }
+            },
+            {
+              "id": "booster_heater",
+              "title": {
+                "en": "Booster heater",
+                "nl": "Bijverwarming",
+                "sv": "Tillskottsvärme",
+                "de": "Zusatzheizung",
+                "da": "Tilskudsvarme",
+                "no": "Tilleggsvarme"
+              }
+            },
+            {
+              "id": "booster_heater_daily",
+              "title": {
+                "en": "Booster heater per day",
+                "nl": "Bijverwarming per dag",
+                "sv": "Tillskottsvärme per dygn",
+                "de": "Zusatzheizung pro Tag",
+                "da": "Tilskudsvarme pr. dag",
+                "no": "Tilleggsvarme per døgn"
+              }
+            },
+            {
+              "id": "tank_temp",
+              "title": {
+                "en": "Hot water temperature",
+                "nl": "Warmwatertemperatuur",
+                "sv": "Varmvattentemperatur",
+                "de": "Warmwassertemperatur",
+                "da": "Varmtvandstemperatur",
+                "no": "Varmtvannstemperatur"
+              }
+            },
+            {
+              "id": "flow_temp",
+              "title": {
+                "en": "Flow temperature",
+                "nl": "Aanvoertemperatuur",
+                "sv": "Framledningstemperatur",
+                "de": "Vorlauftemperatur",
+                "da": "Fremløbstemperatur",
+                "no": "Turtemperatur"
+              }
+            },
+            {
+              "id": "flow_temp_1",
+              "title": {
+                "en": "Flow temperature zone 1",
+                "nl": "Aanvoertemperatuur zone 1",
+                "sv": "Framledningstemperatur zon 1",
+                "de": "Vorlauftemperatur Zone 1",
+                "da": "Fremløbstemperatur zone 1",
+                "no": "Turtemperatur sone 1"
+              }
+            },
+            {
+              "id": "flow_temp_2",
+              "title": {
+                "en": "Flow temperature zone 2",
+                "nl": "Aanvoertemperatuur zone 2",
+                "sv": "Framledningstemperatur zon 2",
+                "de": "Vorlauftemperatur Zone 2",
+                "da": "Fremløbstemperatur zone 2",
+                "no": "Turtemperatur sone 2"
+              }
+            },
+            {
+              "id": "return_temp",
+              "title": {
+                "en": "Return temperature",
+                "nl": "Retourtemperatuur",
+                "sv": "Returtemperatur",
+                "de": "Rücklauftemperatur",
+                "da": "Returtemperatur",
+                "no": "Returtemperatur"
+              }
+            },
+            {
+              "id": "return_temp_1",
+              "title": {
+                "en": "Return temperature zone 1",
+                "nl": "Retourtemperatuur zone 1",
+                "sv": "Returtemperatur zon 1",
+                "de": "Rücklauftemperatur Zone 1",
+                "da": "Returtemperatur zone 1",
+                "no": "Returtemperatur sone 1"
+              }
+            },
+            {
+              "id": "return_temp_2",
+              "title": {
+                "en": "Return temperature zone 2",
+                "nl": "Retourtemperatuur zone 2",
+                "sv": "Returtemperatur zon 2",
+                "de": "Rücklauftemperatur Zone 2",
+                "da": "Returtemperatur zone 2",
+                "no": "Returtemperatur sone 2"
+              }
+            },
+            {
+              "id": "indoor_temp_1",
+              "title": {
+                "en": "Room temperature zone 1",
+                "nl": "Kamertemperatuur zone 1",
+                "sv": "Rumstemperatur zon 1",
+                "de": "Raumtemperatur Zone 1",
+                "da": "Rumtemperatur zone 1",
+                "no": "Romtemperatur sone 1"
+              }
+            },
+            {
+              "id": "indoor_temp_2",
+              "title": {
+                "en": "Room temperature zone 2",
+                "nl": "Kamertemperatuur zone 2",
+                "sv": "Rumstemperatur zon 2",
+                "de": "Raumtemperatur Zone 2",
+                "da": "Rumtemperatur zone 2",
+                "no": "Romtemperatur sone 2"
+              }
+            },
+            {
+              "id": "outdoor_temp",
+              "title": {
+                "en": "Outdoor temperature",
+                "nl": "Buitentemperatuur",
+                "sv": "Utetemperatur",
+                "de": "Außentemperatur",
+                "da": "Udetemperatur",
+                "no": "Utetemperatur"
+              }
+            },
+            {
+              "id": "energy_cost",
+              "title": {
+                "en": "Energy cost",
+                "nl": "Energiekosten",
+                "sv": "Energikostnad",
+                "de": "Energiekosten",
+                "da": "Energiomkostninger",
+                "no": "Energikostnad"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "summer_eco_activated",
+      "title": {
+        "en": "Summer eco activated",
+        "nl": "Zomer-eco geactiveerd",
+        "sv": "Sommar-eco aktiverat",
+        "de": "Sommer-Eco aktiviert",
+        "da": "Sommer-eco aktiveret",
+        "no": "Sommer-eco aktivert"
+      }
+    },
+    {
+      "id": "summer_eco_deactivated",
+      "title": {
+        "en": "Summer eco deactivated",
+        "nl": "Zomer-eco gedeactiveerd",
+        "sv": "Sommar-eco avaktiverat",
+        "de": "Sommer-Eco deaktiviert",
+        "da": "Sommer-eco deaktiveret",
+        "no": "Sommer-eco deaktivert"
+      }
+    },
+    {
+      "id": "compressor_started",
+      "title": {
+        "en": "Compressor started",
+        "nl": "Compressor gestart",
+        "sv": "Kompressorn startade",
+        "de": "Verdichter gestartet",
+        "da": "Kompressoren startede",
+        "no": "Kompressoren startet"
+      },
+      "tokens": [
+        {
+          "name": "starts_today",
+          "type": "number",
+          "title": {
+            "en": "Starts today",
+            "nl": "Starts vandaag",
+            "sv": "Starter idag",
+            "de": "Starts heute",
+            "da": "Starter i dag",
+            "no": "Starter i dag"
+          },
+          "example": 6
+        }
+      ]
+    },
+    {
+      "id": "compressor_stopped",
+      "title": {
+        "en": "Compressor stopped",
+        "nl": "Compressor gestopt",
+        "sv": "Kompressorn stoppade",
+        "de": "Verdichter gestoppt",
+        "da": "Kompressoren stoppede",
+        "no": "Kompressoren stoppet"
+      },
+      "tokens": [
+        {
+          "name": "run_minutes",
+          "type": "number",
+          "title": {
+            "en": "Run time (minutes)",
+            "nl": "Looptijd (minuten)",
+            "sv": "Drifttid (minuter)",
+            "de": "Laufzeit (Minuten)",
+            "da": "Driftstid (minutter)",
+            "no": "Driftstid (minutter)"
+          },
+          "example": 42
+        }
+      ]
+    },
+    {
+      "id": "tank_temperature_fell_below",
+      "title": {
+        "en": "Hot water temperature fell below",
+        "nl": "Warmwatertemperatuur daalde onder",
+        "sv": "Varmvattentemperaturen sjönk under",
+        "de": "Warmwassertemperatur fiel unter",
+        "da": "Varmtvandstemperaturen faldt under",
+        "no": "Varmtvannstemperaturen falt under"
+      },
+      "titleFormatted": {
+        "en": "Hot water temperature fell below [[temperature]] °C",
+        "nl": "Warmwatertemperatuur daalde onder [[temperature]] °C",
+        "sv": "Varmvattentemperaturen sjönk under [[temperature]] °C",
+        "de": "Warmwassertemperatur fiel unter [[temperature]] °C",
+        "da": "Varmtvandstemperaturen faldt under [[temperature]] °C",
+        "no": "Varmtvannstemperaturen falt under [[temperature]] °C"
+      },
+      "tokens": [
+        {
+          "name": "temperature",
+          "type": "number",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "example": 44.5
+        }
+      ],
+      "args": [
+        {
+          "type": "number",
+          "name": "temperature",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "min": 0,
+          "max": 90,
+          "step": 0.5,
+          "placeholder": {
+            "en": "45",
+            "nl": "45",
+            "sv": "45",
+            "de": "45",
+            "da": "45",
+            "no": "45"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tank_temperature_rose_above",
+      "title": {
+        "en": "Hot water temperature rose above",
+        "nl": "Warmwatertemperatuur steeg boven",
+        "sv": "Varmvattentemperaturen steg över",
+        "de": "Warmwassertemperatur stieg über",
+        "da": "Varmtvandstemperaturen steg over",
+        "no": "Varmtvannstemperaturen steg over"
+      },
+      "titleFormatted": {
+        "en": "Hot water temperature rose above [[temperature]] °C",
+        "nl": "Warmwatertemperatuur steeg boven [[temperature]] °C",
+        "sv": "Varmvattentemperaturen steg över [[temperature]] °C",
+        "de": "Warmwassertemperatur stieg über [[temperature]] °C",
+        "da": "Varmtvandstemperaturen steg over [[temperature]] °C",
+        "no": "Varmtvannstemperaturen steg over [[temperature]] °C"
+      },
+      "tokens": [
+        {
+          "name": "temperature",
+          "type": "number",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "example": 50.5
+        }
+      ],
+      "args": [
+        {
+          "type": "number",
+          "name": "temperature",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "min": 0,
+          "max": 90,
+          "step": 0.5,
+          "placeholder": {
+            "en": "50",
+            "nl": "50",
+            "sv": "50",
+            "de": "50",
+            "da": "50",
+            "no": "50"
+          }
+        }
+      ]
+    },
+    {
+      "id": "target_flow_changed",
+      "title": {
+        "en": "Target flow temperature changed",
+        "nl": "Doelaanvoertemperatuur is veranderd",
+        "sv": "Önskad framledning har ändrats",
+        "de": "Soll-Vorlauftemperatur hat sich geändert",
+        "da": "Ønsket fremløbstemperatur er ændret",
+        "no": "Ønsket turtemperatur er endret"
+      },
+      "tokens": [
+        {
+          "name": "temperature",
+          "type": "number",
+          "title": {
+            "en": "Target flow temperature",
+            "nl": "Doelaanvoertemperatuur",
+            "sv": "Önskad framledning",
+            "de": "Soll-Vorlauftemperatur",
+            "da": "Ønsket fremløbstemperatur",
+            "no": "Ønsket turtemperatur"
+          },
+          "example": 35
+        }
+      ]
+    },
+    {
+      "id": "night_mode_activated",
+      "title": {
+        "en": "Night mode activated",
+        "nl": "Nachtmodus geactiveerd",
+        "sv": "Nattläge aktiverat",
+        "de": "Nachtmodus aktiviert",
+        "da": "Nattilstand aktiveret",
+        "no": "Nattmodus aktivert"
+      },
+      "tokens": [
+        {
+          "name": "ends",
+          "type": "string",
+          "title": {
+            "en": "Ends at",
+            "nl": "Eindigt om",
+            "sv": "Slutar",
+            "de": "Endet um",
+            "da": "Slutter",
+            "no": "Slutter"
+          },
+          "example": "06:00"
+        }
+      ]
+    },
+    {
+      "id": "night_mode_deactivated",
+      "title": {
+        "en": "Night mode deactivated",
+        "nl": "Nachtmodus gedeactiveerd",
+        "sv": "Nattläge avaktiverat",
+        "de": "Nachtmodus deaktiviert",
+        "da": "Nattilstand deaktiveret",
+        "no": "Nattmodus deaktivert"
+      }
+    },
+    {
+      "id": "error_reported",
+      "title": {
+        "en": "Heat pump reports an error",
+        "nl": "Warmtepomp meldt een storing",
+        "sv": "Värmepumpen rapporterar ett fel",
+        "de": "Wärmepumpe meldet eine Störung",
+        "da": "Varmepumpen rapporterer en fejl",
+        "no": "Varmepumpen rapporterer en feil"
+      },
+      "tokens": [
+        {
+          "name": "error_code",
+          "type": "string",
+          "title": {
+            "en": "Error code",
+            "nl": "Storingscode",
+            "sv": "Felkod",
+            "de": "Fehlercode",
+            "da": "Fejlkode",
+            "no": "Feilkode"
+          },
+          "example": "U4"
+        }
+      ]
+    },
+    {
+      "id": "alarm_triggered",
+      "title": {
+        "en": "New MelPump alarm",
+        "nl": "Nieuw MelPump-alarm",
+        "sv": "Nytt MelPump-larm",
+        "de": "Neuer MelPump-Alarm",
+        "da": "Ny MelPump-alarm",
+        "no": "Ny MelPump-alarm"
+      },
+      "tokens": [
+        {
+          "name": "id",
+          "type": "number",
+          "title": {
+            "en": "Alarm id",
+            "nl": "Alarm-id",
+            "sv": "Larm-id",
+            "de": "Alarm-ID",
+            "da": "Alarm-id",
+            "no": "Alarm-id"
+          },
+          "example": 1234
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "title": {
+            "en": "Alarm type",
+            "nl": "Alarmtype",
+            "sv": "Larmtyp",
+            "de": "Alarmtyp",
+            "da": "Alarmtype",
+            "no": "Alarmtype"
+          },
+          "example": "short_cycling"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "title": {
+            "en": "Alarm name",
+            "nl": "Alarmnaam",
+            "sv": "Larmnamn",
+            "de": "Alarmname",
+            "da": "Alarmnavn",
+            "no": "Alarmnavn"
+          },
+          "example": "Short cycling"
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "title": {
+            "en": "Message",
+            "nl": "Bericht",
+            "sv": "Meddelande",
+            "de": "Meldung",
+            "da": "Besked",
+            "no": "Melding"
+          },
+          "example": "COP dropped below 2.0"
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "title": {
+            "en": "Measured value",
+            "nl": "Gemeten waarde",
+            "sv": "Uppmätt värde",
+            "de": "Messwert",
+            "da": "Målt værdi",
+            "no": "Målt verdi"
+          },
+          "example": 1.8
+        }
+      ]
+    },
+    {
+      "id": "legionella_completed",
+      "title": {
+        "en": "Legionella run completed",
+        "nl": "Legionellabehandeling voltooid",
+        "sv": "Legionellakörning genomförd",
+        "de": "Legionellenschaltung abgeschlossen",
+        "da": "Legionellakørsel gennemført",
+        "no": "Legionellakjøring fullført"
+      },
+      "tokens": [
+        {
+          "name": "time",
+          "type": "string",
+          "title": {
+            "en": "Time",
+            "nl": "Tijdstip",
+            "sv": "Tidpunkt",
+            "de": "Zeit",
+            "da": "Tidspunkt",
+            "no": "Tidspunkt"
+          },
+          "example": "2026-10-28 03:00"
+        }
+      ]
+    },
+    {
+      "id": "mode_changed",
+      "title": {
+        "en": "MelPump mode changed",
+        "nl": "MelPump modus is veranderd",
+        "sv": "MelPump-läge har ändrats",
+        "de": "MelPump-Modus hat sich geändert",
+        "da": "MelPump-tilstand er ændret",
+        "no": "MelPump-modus er endret"
+      },
+      "tokens": [
+        {
+          "name": "mode",
+          "type": "string",
+          "title": {
+            "en": "New mode",
+            "nl": "Nieuwe modus",
+            "sv": "Nytt läge",
+            "de": "Neuer Modus",
+            "da": "Ny tilstand",
+            "no": "Ny modus"
+          },
+          "example": "Heating"
+        },
+        {
+          "name": "previous",
+          "type": "string",
+          "title": {
+            "en": "Previous mode",
+            "nl": "Vorige modus",
+            "sv": "Föregående läge",
+            "de": "Vorheriger Modus",
+            "da": "Forrige tilstand",
+            "no": "Forrige modus"
+          },
+          "example": "Off"
+        }
+      ]
+    },
+    {
+      "id": "operation_state_changed",
+      "title": {
+        "en": "Operation changed",
+        "nl": "Werking is veranderd",
+        "sv": "Drift har ändrats",
+        "de": "Betrieb hat sich geändert",
+        "da": "Drift er ændret",
+        "no": "Drift er endret"
+      },
+      "hint": {
+        "en": "E.g. from heating to hot water or defrost.",
+        "nl": "Bijv. van verwarmen naar warm water of ontdooien.",
+        "sv": "T.ex. från värme till varmvatten eller avfrostning.",
+        "de": "Z. B. von Heizen zu Warmwasser oder Abtauen.",
+        "da": "F.eks. fra opvarmning til varmt vand eller afrimning.",
+        "no": "F.eks. fra oppvarming til varmtvann eller avriming."
+      },
+      "tokens": [
+        {
+          "name": "state",
+          "type": "string",
+          "title": {
+            "en": "New operation",
+            "nl": "Nieuwe werking",
+            "sv": "Ny drift",
+            "de": "Neuer Betrieb",
+            "da": "Ny drift",
+            "no": "Ny drift"
+          },
+          "example": "Hot water"
+        },
+        {
+          "name": "previous",
+          "type": "string",
+          "title": {
+            "en": "Previous operation",
+            "nl": "Vorige werking",
+            "sv": "Föregående drift",
+            "de": "Vorheriger Betrieb",
+            "da": "Forrige drift",
+            "no": "Forrige drift"
+          },
+          "example": "Heating"
+        }
+      ]
+    },
+    {
+      "id": "zone_mode_changed",
+      "title": {
+        "en": "Zone mode changed",
+        "nl": "Zonemodus gewijzigd",
+        "sv": "Zonläge ändrat",
+        "de": "Zonenmodus geändert",
+        "da": "Zonetilstand ændret",
+        "no": "Sonemodus endret"
+      },
+      "titleFormatted": {
+        "en": "Mode of zone [[zone]] changed",
+        "nl": "Modus van zone [[zone]] gewijzigd",
+        "sv": "Läget för zon [[zone]] ändrades",
+        "de": "Modus von Zone [[zone]] geändert",
+        "da": "Tilstand for zone [[zone]] ændret",
+        "no": "Modus for sone [[zone]] endret"
+      },
+      "hint": {
+        "en": "When the control mode of a zone changes, in MelPump, on the heat pump or from a Flow (e.g. from room control to heat curve).",
+        "nl": "Wanneer de regelmodus van een zone verandert, in MelPump, op de warmtepomp of via een Flow (bijv. van kamerregeling naar stooklijn).",
+        "sv": "När styrläget för en zon ändras, i MelPump, på värmepumpen eller från ett Flow (t.ex. från rumsstyrning till värmekurva).",
+        "de": "Wenn sich der Regelmodus einer Zone ändert, in MelPump, an der Wärmepumpe oder durch einen Flow (z. B. von Raumregelung auf Heizkurve).",
+        "da": "Når styretilstanden for en zone ændres, i MelPump, på varmepumpen eller fra et Flow (f.eks. fra rumstyring til varmekurve).",
+        "no": "Når styremodusen for en sone endres, i MelPump, på varmepumpen eller fra en Flow (f.eks. fra romstyring til varmekurve)."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "zone",
+          "title": {
+            "en": "Zone",
+            "nl": "Zone",
+            "sv": "Zon",
+            "de": "Zone",
+            "da": "Zone",
+            "no": "Sone"
+          },
+          "values": [
+            {
+              "id": "any",
+              "title": {
+                "en": "Any",
+                "nl": "Elke",
+                "sv": "Valfri",
+                "de": "Beliebig",
+                "da": "Enhver",
+                "no": "Hvilken som helst"
+              }
+            },
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "nl": "1",
+                "sv": "1",
+                "de": "1",
+                "da": "1",
+                "no": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "nl": "2",
+                "sv": "2",
+                "de": "2",
+                "da": "2",
+                "no": "2"
+              }
+            }
+          ]
+        }
+      ],
+      "tokens": [
+        {
+          "name": "zone",
+          "type": "number",
+          "title": {
+            "en": "Zone",
+            "nl": "Zone",
+            "sv": "Zon",
+            "de": "Zone",
+            "da": "Zone",
+            "no": "Sone"
+          },
+          "example": 1
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "title": {
+            "en": "Mode",
+            "nl": "Modus",
+            "sv": "Läge",
+            "de": "Modus",
+            "da": "Tilstand",
+            "no": "Modus"
+          },
+          "example": {
+            "en": "Heat curve",
+            "nl": "Stooklijn",
+            "sv": "Värmekurva",
+            "de": "Heizkurve",
+            "da": "Varmekurve",
+            "no": "Varmekurve"
+          }
+        },
+        {
+          "name": "previous",
+          "type": "string",
+          "title": {
+            "en": "Previous mode",
+            "nl": "Vorige modus",
+            "sv": "Föregående läge",
+            "de": "Vorheriger Modus",
+            "da": "Forrige tilstand",
+            "no": "Forrige modus"
+          },
+          "example": {
+            "en": "Room control",
+            "nl": "Kamerregeling",
+            "sv": "Rumsstyrning",
+            "de": "Raumregelung",
+            "da": "Rumstyring",
+            "no": "Romstyring"
+          }
+        }
+      ]
+    },
+    {
+      "id": "short_cycling",
+      "title": {
+        "en": "Compressor starts often",
+        "nl": "Compressor start vaak",
+        "sv": "Kompressorn startar ofta",
+        "de": "Verdichter startet häufig",
+        "da": "Kompressoren starter ofte",
+        "no": "Kompressoren starter ofte"
+      },
+      "titleFormatted": {
+        "en": "Compressor started [[starts]] times within an hour",
+        "nl": "Compressor [[starts]] keer gestart binnen een uur",
+        "sv": "Kompressorn har startat [[starts]] gånger inom en timme",
+        "de": "Verdichter innerhalb einer Stunde [[starts]]-mal gestartet",
+        "da": "Kompressoren er startet [[starts]] gange inden for en time",
+        "no": "Kompressoren har startet [[starts]] ganger innen en time"
+      },
+      "hint": {
+        "en": "Fires once when the compressor reaches this number of starts within the last hour. Many short runs (short cycling) wear the compressor and lower efficiency.",
+        "nl": "Gaat één keer af wanneer de compressor dit aantal starts binnen het laatste uur bereikt. Veel korte runs (pendelen) verslijten de compressor en verlagen het rendement.",
+        "sv": "Triggas en gång när kompressorn når så många starter inom den senaste timmen. Många korta körningar (korta cykler) sliter på kompressorn och sänker verkningsgraden.",
+        "de": "Wird einmal ausgelöst, wenn der Verdichter diese Anzahl Starts innerhalb der letzten Stunde erreicht. Viele kurze Laufzeiten (Takten) verschleißen den Verdichter und senken die Effizienz.",
+        "da": "Udløses én gang, når kompressoren når dette antal starter inden for den seneste time. Mange korte driftsperioder slider på kompressoren og sænker effektiviteten.",
+        "no": "Utløses én gang når kompressoren når dette antallet starter innen den siste timen. Mange korte driftsperioder sliter på kompressoren og senker virkningsgraden."
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "starts",
+          "title": {
+            "en": "Starts",
+            "nl": "Starts",
+            "sv": "Starter",
+            "de": "Starts",
+            "da": "Starter",
+            "no": "Starter"
+          },
+          "min": 2,
+          "max": 30,
+          "step": 1,
+          "placeholder": {
+            "en": "4",
+            "nl": "4",
+            "sv": "4",
+            "de": "4",
+            "da": "4",
+            "no": "4"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "starts",
+          "type": "number",
+          "title": {
+            "en": "Starts in the last hour",
+            "nl": "Starts in het laatste uur",
+            "sv": "Starter senaste timmen",
+            "de": "Starts in der letzten Stunde",
+            "da": "Starter den seneste time",
+            "no": "Starter siste time"
+          },
+          "example": 4
+        },
+        {
+          "name": "avg_minutes",
+          "type": "number",
+          "title": {
+            "en": "Average run today (min)",
+            "nl": "Gemiddelde looptijd vandaag (min)",
+            "sv": "Medelkörtid idag (min)",
+            "de": "Mittlere Laufzeit heute (Min.)",
+            "da": "Gennemsnitlig drift i dag (min)",
+            "no": "Gjennomsnittlig drift i dag (min)"
+          },
+          "example": 12
+        }
+      ]
+    },
+    {
+      "id": "heater_on_long",
+      "title": {
+        "en": "Backup heater on for a long time",
+        "nl": "Bijverwarming lang aan",
+        "sv": "Tillsatsvärme på länge",
+        "de": "Zusatzheizung lange an",
+        "da": "Tilskudsvarme tændt længe",
+        "no": "Tilleggsvarme på lenge"
+      },
+      "titleFormatted": {
+        "en": "[[heater]] has been on for [[minutes]] minutes",
+        "nl": "[[heater]] staat al [[minutes]] minuten aan",
+        "sv": "[[heater]] har varit på i [[minutes]] minuter",
+        "de": "[[heater]] ist seit [[minutes]] Minuten an",
+        "da": "[[heater]] har været tændt i [[minutes]] minutter",
+        "no": "[[heater]] har vært på i [[minutes]] minutter"
+      },
+      "hint": {
+        "en": "Fires once when the immersion heater or booster heater has been on without a break for this long. Direct electric heat is the most expensive way to heat.",
+        "nl": "Gaat één keer af wanneer het elektrische element of de bijverwarming zo lang onafgebroken aan staat. Direct elektrisch verwarmen is het duurst.",
+        "sv": "Triggas en gång när elpatronen eller tillskottsvärmen har varit på utan avbrott så här länge. Direktverkande el är det dyraste sättet att värma.",
+        "de": "Wird einmal ausgelöst, wenn Heizstab oder Zusatzheizung so lange ohne Unterbrechung an sind. Direktes elektrisches Heizen ist am teuersten.",
+        "da": "Udløses én gang, når elpatronen eller tilskudsvarmen har været tændt uden pause så længe. Direkte elvarme er den dyreste måde at varme på.",
+        "no": "Utløses én gang når elkolben eller tilleggsvarmen har vært på uten pause så lenge. Direkte elektrisk oppvarming er den dyreste måten å varme på."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "heater",
+          "title": {
+            "en": "Heater",
+            "nl": "Verwarming",
+            "sv": "Värmare",
+            "de": "Heizung",
+            "da": "Varmelegeme",
+            "no": "Varmeelement"
+          },
+          "values": [
+            {
+              "id": "any",
+              "title": {
+                "en": "Immersion or booster heater",
+                "nl": "Element of bijverwarming",
+                "sv": "Elpatron eller tillskottsvärme",
+                "de": "Heizstab oder Zusatzheizung",
+                "da": "Elpatron eller tilskudsvarme",
+                "no": "Elkolbe eller tilleggsvarme"
+              }
+            },
+            {
+              "id": "immersion",
+              "title": {
+                "en": "Immersion heater",
+                "nl": "Elektrisch element boiler",
+                "sv": "Elpatronen",
+                "de": "Heizstab",
+                "da": "Elpatronen",
+                "no": "Elkolben"
+              }
+            },
+            {
+              "id": "booster",
+              "title": {
+                "en": "Booster heater",
+                "nl": "Bijverwarming",
+                "sv": "Tillskottsvärmen",
+                "de": "Zusatzheizung",
+                "da": "Tilskudsvarmen",
+                "no": "Tilleggsvarmen"
+              }
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "minutes",
+          "title": {
+            "en": "Minutes",
+            "nl": "Minuten",
+            "sv": "Minuter",
+            "de": "Minuten",
+            "da": "Minutter",
+            "no": "Minutter"
+          },
+          "min": 5,
+          "max": 600,
+          "step": 5,
+          "placeholder": {
+            "en": "60",
+            "nl": "60",
+            "sv": "60",
+            "de": "60",
+            "da": "60",
+            "no": "60"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "minutes",
+          "type": "number",
+          "title": {
+            "en": "Minutes",
+            "nl": "Minuten",
+            "sv": "Minuter",
+            "de": "Minuten",
+            "da": "Minutter",
+            "no": "Minutter"
+          },
+          "example": 60
+        }
+      ]
+    },
+    {
+      "id": "room_temperature_deviates",
+      "title": {
+        "en": "Room temperature differs from target",
+        "nl": "Kamertemperatuur wijkt af van doel",
+        "sv": "Rumstemperaturen avviker från målet",
+        "de": "Raumtemperatur weicht vom Sollwert ab",
+        "da": "Rumtemperaturen afviger fra målet",
+        "no": "Romtemperaturen avviker fra målet"
+      },
+      "titleFormatted": {
+        "en": "Room temperature zone [[zone]] is [[direction]] target by [[degrees]] °C for [[minutes]] minutes",
+        "nl": "Kamertemperatuur zone [[zone]] ligt [[minutes]] minuten [[degrees]] °C [[direction]] het doel",
+        "sv": "Rumstemperaturen i zon [[zone]] har legat [[degrees]] °C [[direction]] målet i [[minutes]] minuter",
+        "de": "Raumtemperatur Zone [[zone]] liegt seit [[minutes]] Minuten [[degrees]] °C [[direction]] dem Sollwert",
+        "da": "Rumtemperaturen i zone [[zone]] har ligget [[degrees]] °C [[direction]] målet i [[minutes]] minutter",
+        "no": "Romtemperaturen i sone [[zone]] har ligget [[degrees]] °C [[direction]] målet i [[minutes]] minutter"
+      },
+      "hint": {
+        "en": "Fires once when the room has stayed this far from its target temperature for this long, e.g. to warn before it gets cold. Up to 180 minutes.",
+        "nl": "Gaat één keer af wanneer de kamer zo lang zo ver van de doeltemperatuur blijft, bijv. om te waarschuwen voordat het koud wordt. Maximaal 180 minuten.",
+        "sv": "Triggas en gång när rummet har legat så här långt från måltemperaturen så här länge, t.ex. för att varna innan det blir kallt. Högst 180 minuter.",
+        "de": "Wird einmal ausgelöst, wenn der Raum so lange so weit vom Sollwert entfernt bleibt, z. B. um zu warnen, bevor es kalt wird. Bis zu 180 Minuten.",
+        "da": "Udløses én gang, når rummet har ligget så langt fra måltemperaturen så længe, f.eks. for at advare, før det bliver koldt. Højst 180 minutter.",
+        "no": "Utløses én gang når rommet har ligget så langt fra måltemperaturen så lenge, f.eks. for å varsle før det blir kaldt. Høyst 180 minutter."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "zone",
+          "title": {
+            "en": "Zone",
+            "nl": "Zone",
+            "sv": "Zon",
+            "de": "Zone",
+            "da": "Zone",
+            "no": "Sone"
+          },
+          "values": [
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "nl": "1",
+                "sv": "1",
+                "de": "1",
+                "da": "1",
+                "no": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "nl": "2",
+                "sv": "2",
+                "de": "2",
+                "da": "2",
+                "no": "2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "direction",
+          "title": {
+            "en": "Direction",
+            "nl": "Richting",
+            "sv": "Riktning",
+            "de": "Richtung",
+            "da": "Retning",
+            "no": "Retning"
+          },
+          "values": [
+            {
+              "id": "below",
+              "title": {
+                "en": "below",
+                "nl": "onder",
+                "sv": "under",
+                "de": "unter",
+                "da": "under",
+                "no": "under"
+              }
+            },
+            {
+              "id": "above",
+              "title": {
+                "en": "above",
+                "nl": "boven",
+                "sv": "över",
+                "de": "über",
+                "da": "over",
+                "no": "over"
+              }
+            },
+            {
+              "id": "either",
+              "title": {
+                "en": "below or above",
+                "nl": "onder of boven",
+                "sv": "under eller över",
+                "de": "unter oder über",
+                "da": "under eller over",
+                "no": "under eller over"
+              }
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "degrees",
+          "title": {
+            "en": "Degrees",
+            "nl": "Graden",
+            "sv": "Grader",
+            "de": "Grad",
+            "da": "Grader",
+            "no": "Grader"
+          },
+          "min": 0.5,
+          "max": 10,
+          "step": 0.5,
+          "placeholder": {
+            "en": "1.5",
+            "nl": "1.5",
+            "sv": "1.5",
+            "de": "1.5",
+            "da": "1.5",
+            "no": "1.5"
+          }
+        },
+        {
+          "type": "number",
+          "name": "minutes",
+          "title": {
+            "en": "Minutes",
+            "nl": "Minuten",
+            "sv": "Minuter",
+            "de": "Minuten",
+            "da": "Minutter",
+            "no": "Minutter"
+          },
+          "min": 5,
+          "max": 180,
+          "step": 5,
+          "placeholder": {
+            "en": "60",
+            "nl": "60",
+            "sv": "60",
+            "de": "60",
+            "da": "60",
+            "no": "60"
+          }
+        }
+      ],
+      "tokens": [
+        {
+          "name": "temperature",
+          "type": "number",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "example": 21.5
+        },
+        {
+          "name": "target",
+          "type": "number",
+          "title": {
+            "en": "Target temperature",
+            "nl": "Doeltemperatuur",
+            "sv": "Måltemperatur",
+            "de": "Solltemperatur",
+            "da": "Måltemperatur",
+            "no": "Måltemperatur"
+          },
+          "example": 22
+        },
+        {
+          "name": "deviation",
+          "type": "number",
+          "title": {
+            "en": "Difference (°C)",
+            "nl": "Verschil (°C)",
+            "sv": "Skillnad (°C)",
+            "de": "Differenz (°C)",
+            "da": "Forskel (°C)",
+            "no": "Forskjell (°C)"
+          },
+          "example": -1.8
+        }
+      ]
+    },
+    {
+      "id": "hot_water_ready",
+      "title": {
+        "en": "Hot water is ready",
+        "nl": "Warm water is klaar",
+        "sv": "Varmvattnet är klart",
+        "de": "Warmwasser ist bereit",
+        "da": "Det varme vand er klar",
+        "no": "Varmtvannet er klart"
+      },
+      "hint": {
+        "en": "When the hot water tank reaches its target temperature (within 1 °C). Fires again only after hot water has been used (5 °C below the target).",
+        "nl": "Wanneer de boiler de doeltemperatuur bereikt (binnen 1 °C). Gaat pas weer af nadat er warm water is gebruikt (5 °C onder het doel).",
+        "sv": "När varmvattentanken når sin måltemperatur (inom 1 °C). Triggas igen först när varmvatten har använts (5 °C under målet).",
+        "de": "Wenn der Warmwasserspeicher seine Solltemperatur erreicht (bis auf 1 °C). Wird erst wieder ausgelöst, nachdem Warmwasser verbraucht wurde (5 °C unter dem Sollwert).",
+        "da": "Når varmtvandsbeholderen når sin måltemperatur (inden for 1 °C). Udløses først igen, når der er brugt varmt vand (5 °C under målet).",
+        "no": "Når varmtvannstanken når måltemperaturen (innen 1 °C). Utløses først igjen når det er brukt varmtvann (5 °C under målet)."
+      },
+      "tokens": [
+        {
+          "name": "temperature",
+          "type": "number",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "example": 21.5
+        },
+        {
+          "name": "target",
+          "type": "number",
+          "title": {
+            "en": "Target temperature",
+            "nl": "Doeltemperatuur",
+            "sv": "Måltemperatur",
+            "de": "Solltemperatur",
+            "da": "Måltemperatur",
+            "no": "Måltemperatur"
+          },
+          "example": 50
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "zone_active",
+      "title": {
+        "en": "Zone !{{is|isn't}} heating/cooling",
+        "nl": "Zone !{{verwarmt/koelt|verwarmt/koelt niet}}",
+        "sv": "Zonen !{{värmer/kyler|värmer/kyler inte}}",
+        "de": "Zone !{{heizt/kühlt|heizt/kühlt nicht}}",
+        "da": "Zonen !{{varmer/køler|varmer/køler ikke}}",
+        "no": "Sonen !{{varmer/kjøler|varmer/kjøler ikke}}"
+      },
+      "titleFormatted": {
+        "en": "Zone [[zone]] !{{is|isn't}} heating/cooling",
+        "nl": "Zone [[zone]] !{{verwarmt/koelt|verwarmt/koelt niet}}",
+        "sv": "Zon [[zone]] !{{värmer/kyler|värmer/kyler inte}}",
+        "de": "Zone [[zone]] !{{heizt/kühlt|heizt/kühlt nicht}}",
+        "da": "Zone [[zone]] !{{varmer/køler|varmer/køler ikke}}",
+        "no": "Sone [[zone]] !{{varmer/kjøler|varmer/kjøler ikke}}"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "zone",
+          "title": {
+            "en": "Zone",
+            "nl": "Zone",
+            "sv": "Zon",
+            "de": "Zone",
+            "da": "Zone",
+            "no": "Sone"
+          },
+          "values": [
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "nl": "1",
+                "sv": "1",
+                "de": "1",
+                "da": "1",
+                "no": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "nl": "2",
+                "sv": "2",
+                "de": "2",
+                "da": "2",
+                "no": "2"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "function_active",
+      "title": {
+        "en": "Function !{{is|isn't}} on",
+        "nl": "Functie !{{staat|staat niet}} aan",
+        "sv": "Funktionen !{{är|är inte}} på",
+        "de": "Funktion !{{ist|ist nicht}} eingeschaltet",
+        "da": "Funktionen !{{er|er ikke}} slået til",
+        "no": "Funksjonen !{{er|er ikke}} på"
+      },
+      "titleFormatted": {
+        "en": "[[function]] !{{is|isn't}} on",
+        "nl": "[[function]] !{{staat|staat niet}} aan",
+        "sv": "[[function]] !{{är|är inte}} på",
+        "de": "[[function]] !{{ist|ist nicht}} eingeschaltet",
+        "da": "[[function]] !{{er|er ikke}} slået til",
+        "no": "[[function]] !{{er|er ikke}} på"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "function",
+          "title": {
+            "en": "Function",
+            "nl": "Functie",
+            "sv": "Funktion",
+            "de": "Funktion",
+            "da": "Funktion",
+            "no": "Funksjon"
+          },
+          "values": [
+            {
+              "id": "smart_energy",
+              "title": {
+                "en": "Smart Energy (dynamic pricing)",
+                "nl": "Smart Energy (dynamische prijzen)",
+                "sv": "Smart Energy (dynamiskt elpris)",
+                "de": "Smart Energy (dynamische Preise)",
+                "da": "Smart Energy (dynamisk elpris)",
+                "no": "Smart Energy (dynamisk strømpris)"
+              }
+            },
+            {
+              "id": "night_mode",
+              "title": {
+                "en": "Night mode",
+                "nl": "Nachtmodus",
+                "sv": "Nattläge",
+                "de": "Nachtmodus",
+                "da": "Nattilstand",
+                "no": "Nattmodus"
+              }
+            },
+            {
+              "id": "summer_eco",
+              "title": {
+                "en": "Summer eco",
+                "nl": "Zomer-eco",
+                "sv": "Sommar-eco",
+                "de": "Sommer-Eco",
+                "da": "Sommer-eco",
+                "no": "Sommer-eco"
+              }
+            },
+            {
+              "id": "solar_hot_water",
+              "title": {
+                "en": "Solar mode hot water",
+                "nl": "Zonnemodus warm water",
+                "sv": "Solläge varmvatten",
+                "de": "Solarmodus Warmwasser",
+                "da": "Soltilstand varmt vand",
+                "no": "Solmodus varmtvann"
+              }
+            },
+            {
+              "id": "solar_zone1",
+              "title": {
+                "en": "Solar mode zone 1",
+                "nl": "Zonnemodus zone 1",
+                "sv": "Solläge zon 1",
+                "de": "Solarmodus Zone 1",
+                "da": "Soltilstand zone 1",
+                "no": "Solmodus sone 1"
+              }
+            },
+            {
+              "id": "solar_zone2",
+              "title": {
+                "en": "Solar mode zone 2",
+                "nl": "Zonnemodus zone 2",
+                "sv": "Solläge zon 2",
+                "de": "Solarmodus Zone 2",
+                "da": "Soltilstand zone 2",
+                "no": "Solmodus sone 2"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cop_above",
+      "title": {
+        "en": "COP !{{is|isn't}} above",
+        "nl": "COP !{{is|is niet}} hoger dan",
+        "sv": "COP !{{är|är inte}} över",
+        "de": "COP !{{ist|ist nicht}} über",
+        "da": "COP !{{er|er ikke}} over",
+        "no": "COP !{{er|er ikke}} over"
+      },
+      "titleFormatted": {
+        "en": "COP !{{is|isn't}} above [[cop]]",
+        "nl": "COP !{{is|is niet}} hoger dan [[cop]]",
+        "sv": "COP !{{är|är inte}} över [[cop]]",
+        "de": "COP !{{ist|ist nicht}} über [[cop]]",
+        "da": "COP !{{er|er ikke}} over [[cop]]",
+        "no": "COP !{{er|er ikke}} over [[cop]]"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "cop",
+          "title": {
+            "en": "COP",
+            "nl": "COP",
+            "sv": "COP",
+            "de": "COP",
+            "da": "COP",
+            "no": "COP"
+          },
+          "min": 0,
+          "max": 15,
+          "step": 0.1,
+          "placeholder": {
+            "en": "3.0",
+            "nl": "3.0",
+            "sv": "3.0",
+            "de": "3.0",
+            "da": "3.0",
+            "no": "3.0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "saving_mode_active",
+      "title": {
+        "en": "Saving mode !{{is|isn't}} active",
+        "nl": "Bespaarmodus !{{is|is niet}} actief",
+        "sv": "Sparläget !{{är|är inte}} aktivt",
+        "de": "Sparmodus !{{ist|ist nicht}} aktiv",
+        "da": "Sparetilstand !{{er|er ikke}} aktiv",
+        "no": "Sparemodus !{{er|er ikke}} aktiv"
+      }
+    },
+    {
+      "id": "has_unacknowledged_alarms",
+      "title": {
+        "en": "There !{{are|are no}} unacknowledged MelPump alarms",
+        "nl": "Er !{{zijn|zijn geen}} onbevestigde MelPump-alarmen",
+        "sv": "Det !{{finns|finns inga}} okvitterade MelPump-larm",
+        "de": "Es !{{gibt|gibt keine}} nicht quittierte MelPump-Alarme",
+        "da": "Der !{{er|er ingen}} ukvitterede MelPump-alarmer",
+        "no": "Det !{{finnes|finnes ingen}} ukvitterte MelPump-alarmer"
+      },
+      "hint": {
+        "en": "Based on today's alarms, checked every 15 minutes.",
+        "nl": "Op basis van de alarmen van vandaag, elke 15 minuten gecontroleerd.",
+        "sv": "Baseras på dagens larm, som kontrolleras var 15:e minut.",
+        "de": "Basierend auf den heutigen Alarmen, alle 15 Minuten geprüft.",
+        "da": "Baseret på dagens alarmer, som kontrolleres hvert 15. minut.",
+        "no": "Basert på dagens alarmer, som kontrolleres hvert 15. minutt."
+      }
+    },
+    {
+      "id": "summer_eco_running",
+      "title": {
+        "en": "Summer eco !{{is|isn't}} running",
+        "nl": "Zomer-eco !{{is|is niet}} actief",
+        "sv": "Sommar-eco !{{körs|körs inte}}",
+        "de": "Sommer-Eco !{{läuft|läuft nicht}}",
+        "da": "Sommer-eco !{{kører|kører ikke}}",
+        "no": "Sommer-eco !{{kjører|kjører ikke}}"
+      }
+    },
+    {
+      "id": "compressor_running",
+      "title": {
+        "en": "Compressor !{{is|isn't}} running",
+        "nl": "Compressor !{{draait|draait niet}}",
+        "sv": "Kompressorn !{{går|går inte}}",
+        "de": "Verdichter !{{läuft|läuft nicht}}",
+        "da": "Kompressoren !{{kører|kører ikke}}",
+        "no": "Kompressoren !{{går|går ikke}}"
+      }
+    },
+    {
+      "id": "tank_temperature_above",
+      "title": {
+        "en": "Hot water temperature !{{is|isn't}} above",
+        "nl": "Warmwatertemperatuur !{{is|is niet}} boven",
+        "sv": "Varmvattentemperaturen !{{är|är inte}} över",
+        "de": "Warmwassertemperatur !{{ist|ist nicht}} über",
+        "da": "Varmtvandstemperaturen !{{er|er ikke}} over",
+        "no": "Varmtvannstemperaturen !{{er|er ikke}} over"
+      },
+      "titleFormatted": {
+        "en": "Hot water temperature !{{is|isn't}} above [[temperature]] °C",
+        "nl": "Warmwatertemperatuur !{{is|is niet}} boven [[temperature]] °C",
+        "sv": "Varmvattentemperaturen !{{är|är inte}} över [[temperature]] °C",
+        "de": "Warmwassertemperatur !{{ist|ist nicht}} über [[temperature]] °C",
+        "da": "Varmtvandstemperaturen !{{er|er ikke}} over [[temperature]] °C",
+        "no": "Varmtvannstemperaturen !{{er|er ikke}} over [[temperature]] °C"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "temperature",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "min": 0,
+          "max": 90,
+          "step": 0.5,
+          "placeholder": {
+            "en": "45",
+            "nl": "45",
+            "sv": "45",
+            "de": "45",
+            "da": "45",
+            "no": "45"
+          }
+        }
+      ]
+    },
+    {
+      "id": "night_mode_running",
+      "title": {
+        "en": "Night mode !{{is|isn't}} running",
+        "nl": "Nachtmodus !{{is|is niet}} actief",
+        "sv": "Nattläge !{{körs|körs inte}}",
+        "de": "Nachtmodus !{{läuft|läuft nicht}}",
+        "da": "Nattilstand !{{kører|kører ikke}}",
+        "no": "Nattmodus !{{kjører|kjører ikke}}"
+      },
+      "hint": {
+        "en": "True while MelPump's night mode is running and has changed the heat pump's settings, not just when it is switched on.",
+        "nl": "Waar zolang de nachtmodus van MelPump actief is en de instellingen van de warmtepomp heeft aangepast, niet alleen als hij aan staat.",
+        "sv": "Sant medan MelPumps nattläge körs och har ändrat värmepumpens inställningar, inte bara när det är påslaget.",
+        "de": "Wahr, solange der Nachtmodus von MelPump läuft und die Einstellungen der Wärmepumpe geändert hat, nicht nur, wenn er eingeschaltet ist.",
+        "da": "Sand, mens MelPumps nattilstand kører og har ændret varmepumpens indstillinger, ikke kun når den er slået til.",
+        "no": "Sann mens MelPumps nattmodus kjører og har endret varmepumpens innstillinger, ikke bare når den er slått på."
+      }
+    },
+    {
+      "id": "solar_mode_active",
+      "title": {
+        "en": "Solar mode !{{is|isn't}} active",
+        "nl": "Zonnemodus !{{is|is niet}} actief",
+        "sv": "Solläget !{{är|är inte}} aktivt",
+        "de": "Solarmodus !{{ist|ist nicht}} aktiv",
+        "da": "Soltilstand !{{er|er ikke}} aktiv",
+        "no": "Solmodus !{{er|er ikke}} aktiv"
+      }
+    },
+    {
+      "id": "is_defrosting",
+      "title": {
+        "en": "!{{Is|Isn't}} defrosting",
+        "nl": "!{{Is|Is niet}} aan het ontdooien",
+        "sv": "!{{Avfrostar|Avfrostar inte}}",
+        "de": "!{{Taut ab|Taut nicht ab}}",
+        "da": "!{{Afrimer|Afrimer ikke}}",
+        "no": "!{{Avrimer|Avrimer ikke}}"
+      }
+    },
+    {
+      "id": "immersion_heater_on",
+      "title": {
+        "en": "Immersion heater !{{is|isn't}} on",
+        "nl": "Elektrisch element boiler !{{is|is niet}} aan",
+        "sv": "Elpatronen !{{är|är inte}} på",
+        "de": "Heizstab !{{ist|ist nicht}} eingeschaltet",
+        "da": "Elpatronen !{{er|er ikke}} tændt",
+        "no": "Elkolben !{{er|er ikke}} på"
+      }
+    },
+    {
+      "id": "booster_heater_on",
+      "title": {
+        "en": "Booster heater !{{is|isn't}} on",
+        "nl": "Bijverwarming !{{is|is niet}} aan",
+        "sv": "Tillskottsvärmen !{{är|är inte}} på",
+        "de": "Zusatzheizung !{{ist|ist nicht}} eingeschaltet",
+        "da": "Tilskudsvarmen !{{er|er ikke}} tændt",
+        "no": "Tilleggsvarmen !{{er|er ikke}} på"
+      }
+    },
+    {
+      "id": "zone_mode_is",
+      "title": {
+        "en": "Zone mode !{{is|isn't}}",
+        "nl": "Zonemodus !{{is|is niet}}",
+        "sv": "Zonläget !{{är|är inte}}",
+        "de": "Zonenmodus !{{ist|ist nicht}}",
+        "da": "Zonetilstanden !{{er|er ikke}}",
+        "no": "Sonemodusen !{{er|er ikke}}"
+      },
+      "titleFormatted": {
+        "en": "Mode of zone [[zone]] !{{is|isn't}} [[mode]]",
+        "nl": "Modus van zone [[zone]] !{{is|is niet}} [[mode]]",
+        "sv": "Läget för zon [[zone]] !{{är|är inte}} [[mode]]",
+        "de": "Modus von Zone [[zone]] !{{ist|ist nicht}} [[mode]]",
+        "da": "Tilstanden for zone [[zone]] !{{er|er ikke}} [[mode]]",
+        "no": "Modusen for sone [[zone]] !{{er|er ikke}} [[mode]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "zone",
+          "title": {
+            "en": "Zone",
+            "nl": "Zone",
+            "sv": "Zon",
+            "de": "Zone",
+            "da": "Zone",
+            "no": "Sone"
+          },
+          "values": [
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "nl": "1",
+                "sv": "1",
+                "de": "1",
+                "da": "1",
+                "no": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "nl": "2",
+                "sv": "2",
+                "de": "2",
+                "da": "2",
+                "no": "2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "mode",
+          "title": {
+            "en": "Control mode",
+            "nl": "Regelmodus",
+            "sv": "Styrsätt",
+            "de": "Regelungsart",
+            "da": "Reguleringstilstand",
+            "no": "Reguleringsmodus"
+          },
+          "values": [
+            {
+              "id": "room_control",
+              "title": {
+                "en": "Room control",
+                "nl": "Ruimteregeling",
+                "sv": "Rumsstyrning",
+                "de": "Raumregelung",
+                "da": "Rumregulering",
+                "no": "Romregulering"
+              }
+            },
+            {
+              "id": "heat_curve",
+              "title": {
+                "en": "Heat curve",
+                "nl": "Stookcurve",
+                "sv": "Värmekurva",
+                "de": "Heizkurve",
+                "da": "Varmekurve",
+                "no": "Varmekurve"
+              }
+            },
+            {
+              "id": "online_curve",
+              "title": {
+                "en": "Online curve",
+                "nl": "Online curve",
+                "sv": "Onlinekurva",
+                "de": "Online-Kurve",
+                "da": "Online-kurve",
+                "no": "Online-kurve"
+              }
+            },
+            {
+              "id": "constant_flow",
+              "title": {
+                "en": "Constant flow",
+                "nl": "Constante aanvoer",
+                "sv": "Fast framledning",
+                "de": "Konstanter Vorlauf",
+                "da": "Konstant fremløb",
+                "no": "Konstant tur"
+              }
+            },
+            {
+              "id": "pool",
+              "title": {
+                "en": "Pool temperature",
+                "nl": "Zwembadtemperatuur",
+                "sv": "Pooltemperatur",
+                "de": "Pooltemperatur",
+                "da": "Pooltemperatur",
+                "no": "Bassengtemperatur"
+              }
+            },
+            {
+              "id": "cooling_room_control",
+              "title": {
+                "en": "Cooling room control",
+                "nl": "Koeling ruimteregeling",
+                "sv": "Kyla rumsstyrning",
+                "de": "Kühlung Raumregelung",
+                "da": "Køling rumregulering",
+                "no": "Kjøling romregulering"
+              }
+            },
+            {
+              "id": "cooling_flow",
+              "title": {
+                "en": "Cooling flow",
+                "nl": "Koelaanvoer",
+                "sv": "Kylframledning",
+                "de": "Kühlvorlauf",
+                "da": "Kølefremløb",
+                "no": "Kjøletur"
+              }
+            },
+            {
+              "id": "cooling_curve",
+              "title": {
+                "en": "Cooling curve",
+                "nl": "Koelcurve",
+                "sv": "Kylkurva",
+                "de": "Kühlkurve",
+                "da": "Kølekurve",
+                "no": "Kjølekurve"
+              }
+            },
+            {
+              "id": "cooling_dry_up",
+              "title": {
+                "en": "Cooling dry up",
+                "nl": "Koeling droogstoken",
+                "sv": "Kyla uttorkning",
+                "de": "Kühlung Estrichtrocknung",
+                "da": "Køling udtørring",
+                "no": "Kjøling uttørking"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hot_water_ready_is",
+      "title": {
+        "en": "Hot water !{{is|isn't}} ready",
+        "nl": "Warm water !{{is|is niet}} klaar",
+        "sv": "Varmvattnet !{{är|är inte}} klart",
+        "de": "Warmwasser !{{ist|ist nicht}} bereit",
+        "da": "Det varme vand !{{er|er ikke}} klar",
+        "no": "Varmtvannet !{{er|er ikke}} klart"
+      },
+      "hint": {
+        "en": "Ready = the hot water tank is within 1 °C of its target temperature.",
+        "nl": "Klaar = de boiler is tot op 1 °C van de doeltemperatuur.",
+        "sv": "Klart = varmvattentanken är högst 1 °C under måltemperaturen.",
+        "de": "Bereit = der Warmwasserspeicher liegt höchstens 1 °C unter der Solltemperatur.",
+        "da": "Klar = varmtvandsbeholderen er højst 1 °C under måltemperaturen.",
+        "no": "Klart = varmtvannstanken er høyst 1 °C under måltemperaturen."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "set_melpump_mode",
+      "title": {
+        "en": "Set MelPump mode",
+        "nl": "Zet MelPump modus",
+        "sv": "Ställ in MelPump-läge",
+        "de": "MelPump-Modus einstellen",
+        "da": "Indstil MelPump-tilstand",
+        "no": "Still inn MelPump-modus"
+      },
+      "titleFormatted": {
+        "en": "Set MelPump mode to [[mode]]",
+        "nl": "Zet MelPump modus op [[mode]]",
+        "sv": "Ställ in MelPump-läge till [[mode]]",
+        "de": "MelPump-Modus auf [[mode]] einstellen",
+        "da": "Indstil MelPump-tilstand til [[mode]]",
+        "no": "Still inn MelPump-modus til [[mode]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "mode",
+          "title": {
+            "en": "Mode",
+            "nl": "Modus",
+            "sv": "Läge",
+            "de": "Modus",
+            "da": "Tilstand",
+            "no": "Modus"
+          },
+          "values": [
+            {
+              "id": "auto",
+              "title": {
+                "en": "Auto",
+                "nl": "Automatisch",
+                "sv": "Automatiskt",
+                "de": "Automatisch",
+                "da": "Automatisk",
+                "no": "Automatisk"
+              }
+            },
+            {
+              "id": "heating",
+              "title": {
+                "en": "Heating",
+                "nl": "Verwarmen",
+                "sv": "Värme",
+                "de": "Heizen",
+                "da": "Opvarmning",
+                "no": "Oppvarming"
+              }
+            },
+            {
+              "id": "cooling",
+              "title": {
+                "en": "Cooling",
+                "nl": "Koelen",
+                "sv": "Kyla",
+                "de": "Kühlen",
+                "da": "Køling",
+                "no": "Kjøling"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "Off",
+                "nl": "Uit",
+                "sv": "Av",
+                "de": "Aus",
+                "da": "Fra",
+                "no": "Av"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_function",
+      "title": {
+        "en": "Turn a function on or off",
+        "nl": "Zet een functie aan of uit",
+        "sv": "Slå på eller av en funktion",
+        "de": "Eine Funktion ein- oder ausschalten",
+        "da": "Slå en funktion til eller fra",
+        "no": "Slå en funksjon på eller av"
+      },
+      "titleFormatted": {
+        "en": "Turn [[function]] [[state]]",
+        "nl": "Zet [[function]] [[state]]",
+        "sv": "Slå [[state]] [[function]]",
+        "de": "[[function]] [[state]]schalten",
+        "da": "Slå [[function]] [[state]]",
+        "no": "Slå [[function]] [[state]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "function",
+          "title": {
+            "en": "Function",
+            "nl": "Functie",
+            "sv": "Funktion",
+            "de": "Funktion",
+            "da": "Funktion",
+            "no": "Funksjon"
+          },
+          "values": [
+            {
+              "id": "holiday",
+              "title": {
+                "en": "Holiday mode",
+                "nl": "Vakantiemodus",
+                "sv": "Semesterläge",
+                "de": "Urlaubsmodus",
+                "da": "Ferietilstand",
+                "no": "Feriemodus"
+              }
+            },
+            {
+              "id": "quiet",
+              "title": {
+                "en": "Quiet mode",
+                "nl": "Stille modus",
+                "sv": "Tyst läge",
+                "de": "Leisemodus",
+                "da": "Stille tilstand",
+                "no": "Stillemodus"
+              }
+            },
+            {
+              "id": "force_hot_water",
+              "title": {
+                "en": "Forced hot water",
+                "nl": "Geforceerd warm water",
+                "sv": "Tvingat varmvatten",
+                "de": "Erzwungenes Warmwasser",
+                "da": "Tvunget varmt vand",
+                "no": "Tvunget varmtvann"
+              }
+            },
+            {
+              "id": "smart_energy",
+              "title": {
+                "en": "Smart Energy (dynamic pricing)",
+                "nl": "Smart Energy (dynamische prijzen)",
+                "sv": "Smart Energy (dynamiskt elpris)",
+                "de": "Smart Energy (dynamische Preise)",
+                "da": "Smart Energy (dynamisk elpris)",
+                "no": "Smart Energy (dynamisk strømpris)"
+              }
+            },
+            {
+              "id": "night_mode",
+              "title": {
+                "en": "Night mode",
+                "nl": "Nachtmodus",
+                "sv": "Nattläge",
+                "de": "Nachtmodus",
+                "da": "Nattilstand",
+                "no": "Nattmodus"
+              }
+            },
+            {
+              "id": "summer_eco",
+              "title": {
+                "en": "Summer eco",
+                "nl": "Zomer-eco",
+                "sv": "Sommar-eco",
+                "de": "Sommer-Eco",
+                "da": "Sommer-eco",
+                "no": "Sommer-eco"
+              }
+            },
+            {
+              "id": "eco_hot_water",
+              "title": {
+                "en": "Eco hot water",
+                "nl": "Eco warm water",
+                "sv": "Eco varmvatten",
+                "de": "Eco-Warmwasser",
+                "da": "Eco varmt vand",
+                "no": "Eco varmtvann"
+              }
+            },
+            {
+              "id": "solar_hot_water",
+              "title": {
+                "en": "Solar mode hot water",
+                "nl": "Zonnemodus warm water",
+                "sv": "Solläge varmvatten",
+                "de": "Solarmodus Warmwasser",
+                "da": "Soltilstand varmt vand",
+                "no": "Solmodus varmtvann"
+              }
+            },
+            {
+              "id": "solar_zone1",
+              "title": {
+                "en": "Solar mode zone 1",
+                "nl": "Zonnemodus zone 1",
+                "sv": "Solläge zon 1",
+                "de": "Solarmodus Zone 1",
+                "da": "Soltilstand zone 1",
+                "no": "Solmodus sone 1"
+              }
+            },
+            {
+              "id": "solar_zone2",
+              "title": {
+                "en": "Solar mode zone 2",
+                "nl": "Zonnemodus zone 2",
+                "sv": "Solläge zon 2",
+                "de": "Solarmodus Zone 2",
+                "da": "Soltilstand zone 2",
+                "no": "Solmodus sone 2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "state",
+          "title": {
+            "en": "State",
+            "nl": "Stand",
+            "sv": "Läge",
+            "de": "Zustand",
+            "da": "Tilstand",
+            "no": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "on",
+                "nl": "aan",
+                "sv": "på",
+                "de": "ein",
+                "da": "til",
+                "no": "på"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "off",
+                "nl": "uit",
+                "sv": "av",
+                "de": "aus",
+                "da": "fra",
+                "no": "av"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_saving_mode",
+      "title": {
+        "en": "Turn saving mode on or off",
+        "nl": "Zet bespaarmodus aan of uit",
+        "sv": "Slå på eller av sparläge",
+        "de": "Sparmodus ein- oder ausschalten",
+        "da": "Slå sparetilstand til eller fra",
+        "no": "Slå sparemodus på eller av"
+      },
+      "titleFormatted": {
+        "en": "Turn saving mode [[state]]",
+        "nl": "Zet bespaarmodus [[state]]",
+        "sv": "Slå [[state]] sparläge",
+        "de": "Sparmodus [[state]]schalten",
+        "da": "Slå sparetilstand [[state]]",
+        "no": "Slå sparemodus [[state]]"
+      },
+      "hint": {
+        "en": "Saving mode is MelPump's Smart Energy (dynamic electricity pricing).",
+        "nl": "Bespaarmodus is Smart Energy van MelPump (dynamische stroomprijzen).",
+        "sv": "Sparläge är MelPumps Smart Energy (dynamiskt elpris).",
+        "de": "Der Sparmodus ist Smart Energy von MelPump (dynamische Strompreise).",
+        "da": "Sparetilstand er MelPumps Smart Energy (dynamisk elpris).",
+        "no": "Sparemodus er MelPumps Smart Energy (dynamisk strømpris)."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "state",
+          "title": {
+            "en": "State",
+            "nl": "Stand",
+            "sv": "Läge",
+            "de": "Zustand",
+            "da": "Tilstand",
+            "no": "Tilstand"
+          },
+          "values": [
+            {
+              "id": "on",
+              "title": {
+                "en": "on",
+                "nl": "aan",
+                "sv": "på",
+                "de": "ein",
+                "da": "til",
+                "no": "på"
+              }
+            },
+            {
+              "id": "off",
+              "title": {
+                "en": "off",
+                "nl": "uit",
+                "sv": "av",
+                "de": "aus",
+                "da": "fra",
+                "no": "av"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apply_hot_water_preset",
+      "title": {
+        "en": "Apply hot water preset",
+        "nl": "Warmwatervoorinstelling toepassen",
+        "sv": "Använd varmvattenförval",
+        "de": "Warmwasservorgabe anwenden",
+        "da": "Anvend varmtvandsforvalg",
+        "no": "Bruk varmtvannsforvalg"
+      },
+      "titleFormatted": {
+        "en": "Apply hot water preset [[preset]]",
+        "nl": "Warmwatervoorinstelling [[preset]] toepassen",
+        "sv": "Använd varmvattenförval [[preset]]",
+        "de": "Warmwasservorgabe [[preset]] anwenden",
+        "da": "Anvend varmtvandsforvalg [[preset]]",
+        "no": "Bruk varmtvannsforvalg [[preset]]"
+      },
+      "hint": {
+        "en": "Uses the Eco / Comfort / Hot tank temperatures configured in MelPump.",
+        "nl": "Gebruikt de Eco- / Comfort- / Heet-boilertemperaturen die in MelPump zijn ingesteld.",
+        "sv": "Använder temperaturerna för Eco / Komfort / Hett som är inställda i MelPump.",
+        "de": "Verwendet die in MelPump eingestellten Speichertemperaturen für Eco / Komfort / Heiß.",
+        "da": "Bruger tanktemperaturerne for Eco / Komfort / Varm, der er indstillet i MelPump.",
+        "no": "Bruker tanktemperaturene for Eco / Komfort / Varm som er satt i MelPump."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "preset",
+          "title": {
+            "en": "Preset",
+            "nl": "Voorinstelling",
+            "sv": "Förval",
+            "de": "Vorgabe",
+            "da": "Forvalg",
+            "no": "Forvalg"
+          },
+          "values": [
+            {
+              "id": "eco",
+              "title": {
+                "en": "Eco",
+                "nl": "Eco",
+                "sv": "Eco",
+                "de": "Eco",
+                "da": "Eco",
+                "no": "Eco"
+              }
+            },
+            {
+              "id": "comfort",
+              "title": {
+                "en": "Comfort",
+                "nl": "Comfort",
+                "sv": "Komfort",
+                "de": "Komfort",
+                "da": "Komfort",
+                "no": "Komfort"
+              }
+            },
+            {
+              "id": "hot",
+              "title": {
+                "en": "Hot",
+                "nl": "Heet",
+                "sv": "Hett",
+                "de": "Heiß",
+                "da": "Varm",
+                "no": "Varm"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "force_solar_mode",
+      "title": {
+        "en": "Force solar mode",
+        "nl": "Forceer zonnemodus",
+        "sv": "Tvinga solläge",
+        "de": "Solarmodus erzwingen",
+        "da": "Tving soltilstand",
+        "no": "Tving solmodus"
+      },
+      "titleFormatted": {
+        "en": "Force solar mode for [[minutes]] minutes",
+        "nl": "Forceer zonnemodus gedurende [[minutes]] minuten",
+        "sv": "Tvinga solläge i [[minutes]] minuter",
+        "de": "Solarmodus für [[minutes]] Minuten erzwingen",
+        "da": "Tving soltilstand i [[minutes]] minutter",
+        "no": "Tving solmodus i [[minutes]] minutter"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "minutes",
+          "title": {
+            "en": "Minutes",
+            "nl": "Minuten",
+            "sv": "Minuter",
+            "de": "Minuten",
+            "da": "Minutter",
+            "no": "Minutter"
+          },
+          "min": 1,
+          "max": 1440,
+          "step": 1,
+          "placeholder": {
+            "en": "60",
+            "nl": "60",
+            "sv": "60",
+            "de": "60",
+            "da": "60",
+            "no": "60"
+          }
+        }
+      ]
+    },
+    {
+      "id": "force_solar_until",
+      "title": {
+        "en": "Force solar mode until a time",
+        "nl": "Forceer zonnemodus tot een tijdstip",
+        "sv": "Tvinga solläge till en tid",
+        "de": "Solarmodus bis zu einer Uhrzeit erzwingen",
+        "da": "Tving soltilstand til et tidspunkt",
+        "no": "Tving solmodus til et tidspunkt"
+      },
+      "titleFormatted": {
+        "en": "Force solar mode until [[time]]",
+        "nl": "Forceer zonnemodus tot [[time]]",
+        "sv": "Tvinga solläge till kl. [[time]]",
+        "de": "Solarmodus bis [[time]] Uhr erzwingen",
+        "da": "Tving soltilstand til kl. [[time]]",
+        "no": "Tving solmodus til kl. [[time]]"
+      },
+      "hint": {
+        "en": "Uses the heat pump's time zone. A time that has already passed today means tomorrow.",
+        "nl": "Gebruikt de tijdzone van de warmtepomp. Een tijd die vandaag al voorbij is, betekent morgen.",
+        "sv": "Använder värmepumpens tidszon. En tid som redan passerats idag gäller i morgon.",
+        "de": "Verwendet die Zeitzone der Wärmepumpe. Eine heute bereits vergangene Uhrzeit bedeutet morgen.",
+        "da": "Bruger varmepumpens tidszone. Et tidspunkt, der allerede er passeret i dag, gælder i morgen.",
+        "no": "Bruker varmepumpens tidssone. Et tidspunkt som allerede er passert i dag, gjelder i morgen."
+      },
+      "args": [
+        {
+          "type": "time",
+          "name": "time",
+          "title": {
+            "en": "Time",
+            "nl": "Tijd",
+            "sv": "Tid",
+            "de": "Zeit",
+            "da": "Tidspunkt",
+            "no": "Tidspunkt"
+          }
+        }
+      ]
+    },
+    {
+      "id": "clear_solar_mode",
+      "title": {
+        "en": "Stop solar mode",
+        "nl": "Stop zonnemodus",
+        "sv": "Stoppa solläge",
+        "de": "Solarmodus beenden",
+        "da": "Stop soltilstand",
+        "no": "Stopp solmodus"
+      }
+    },
+    {
+      "id": "set_hot_water_temperature",
+      "title": {
+        "en": "Set hot water temperature",
+        "nl": "Zet warmwatertemperatuur",
+        "sv": "Ställ in varmvattentemperatur",
+        "de": "Warmwassertemperatur einstellen",
+        "da": "Indstil varmtvandstemperatur",
+        "no": "Still inn varmtvannstemperatur"
+      },
+      "titleFormatted": {
+        "en": "Set hot water temperature to [[temperature]] °C",
+        "nl": "Zet warmwatertemperatuur op [[temperature]] °C",
+        "sv": "Ställ in varmvattentemperatur till [[temperature]] °C",
+        "de": "Warmwassertemperatur auf [[temperature]] °C einstellen",
+        "da": "Indstil varmtvandstemperaturen til [[temperature]] °C",
+        "no": "Still inn varmtvannstemperaturen til [[temperature]] °C"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "temperature",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "min": 30,
+          "max": 80,
+          "step": 1,
+          "placeholder": {
+            "en": "50",
+            "nl": "50",
+            "sv": "50",
+            "de": "50",
+            "da": "50",
+            "no": "50"
+          }
+        }
+      ]
+    },
+    {
+      "id": "apply_preset",
+      "title": {
+        "en": "Apply temperature preset",
+        "nl": "Pas temperatuurvoorinstelling toe",
+        "sv": "Använd temperaturförval",
+        "de": "Temperaturvorgabe anwenden",
+        "da": "Anvend temperaturforvalg",
+        "no": "Bruk temperaturforvalg"
+      },
+      "titleFormatted": {
+        "en": "Apply preset [[preset]]",
+        "nl": "Pas voorinstelling [[preset]] toe",
+        "sv": "Använd förval [[preset]]",
+        "de": "Vorgabe [[preset]] anwenden",
+        "da": "Anvend forvalg [[preset]]",
+        "no": "Bruk forvalg [[preset]]"
+      },
+      "hint": {
+        "en": "Uses the Away / Home / Boost temperatures configured in MelPump.",
+        "nl": "Gebruikt de Weg / Thuis / Boost-temperaturen die in MelPump zijn ingesteld.",
+        "sv": "Använder temperaturerna Borta / Hemma / Boost som är inställda i MelPump.",
+        "de": "Verwendet die in MelPump eingestellten Temperaturen für Abwesend / Zuhause / Boost.",
+        "da": "Bruger temperaturerne for Ude / Hjemme / Boost, der er indstillet i MelPump.",
+        "no": "Bruker temperaturene for Borte / Hjemme / Boost som er satt i MelPump."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "preset",
+          "title": {
+            "en": "Preset",
+            "nl": "Voorinstelling",
+            "sv": "Förval",
+            "de": "Vorgabe",
+            "da": "Forvalg",
+            "no": "Forvalg"
+          },
+          "values": [
+            {
+              "id": "away",
+              "title": {
+                "en": "Away",
+                "nl": "Weg",
+                "sv": "Borta",
+                "de": "Abwesend",
+                "da": "Ude",
+                "no": "Borte"
+              }
+            },
+            {
+              "id": "home",
+              "title": {
+                "en": "Home",
+                "nl": "Thuis",
+                "sv": "Hemma",
+                "de": "Zuhause",
+                "da": "Hjemme",
+                "no": "Hjemme"
+              }
+            },
+            {
+              "id": "boost",
+              "title": {
+                "en": "Boost",
+                "nl": "Boost",
+                "sv": "Boost",
+                "de": "Boost",
+                "da": "Boost",
+                "no": "Boost"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "block_function",
+      "title": {
+        "en": "Block or allow heating, cooling or hot water",
+        "nl": "Blokkeer of sta verwarming, koeling of warm water toe",
+        "sv": "Blockera eller tillåt värme, kyla eller varmvatten",
+        "de": "Heizen, Kühlen oder Warmwasser sperren oder freigeben",
+        "da": "Bloker eller tillad opvarmning, køling eller varmt vand",
+        "no": "Blokker eller tillat oppvarming, kjøling eller varmtvann"
+      },
+      "titleFormatted": {
+        "en": "[[action]] [[target]]",
+        "nl": "[[action]] [[target]]",
+        "sv": "[[action]] [[target]]",
+        "de": "[[target]] [[action]]",
+        "da": "[[action]] [[target]]",
+        "no": "[[action]] [[target]]"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "action",
+          "title": {
+            "en": "Action",
+            "nl": "Actie",
+            "sv": "Åtgärd",
+            "de": "Aktion",
+            "da": "Handling",
+            "no": "Handling"
+          },
+          "values": [
+            {
+              "id": "block",
+              "title": {
+                "en": "Block",
+                "nl": "Blokkeer",
+                "sv": "Blockera",
+                "de": "sperren",
+                "da": "Bloker",
+                "no": "Blokker"
+              }
+            },
+            {
+              "id": "allow",
+              "title": {
+                "en": "Allow",
+                "nl": "Sta toe",
+                "sv": "Tillåt",
+                "de": "freigeben",
+                "da": "Tillad",
+                "no": "Tillat"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "target",
+          "title": {
+            "en": "What",
+            "nl": "Wat",
+            "sv": "Vad",
+            "de": "Was",
+            "da": "Hvad",
+            "no": "Hva"
+          },
+          "values": [
+            {
+              "id": "hot_water",
+              "title": {
+                "en": "hot water",
+                "nl": "warm water",
+                "sv": "varmvatten",
+                "de": "Warmwasser",
+                "da": "varmt vand",
+                "no": "varmtvann"
+              }
+            },
+            {
+              "id": "heating_zone1",
+              "title": {
+                "en": "heating zone 1",
+                "nl": "verwarming zone 1",
+                "sv": "värme zon 1",
+                "de": "Heizen Zone 1",
+                "da": "opvarmning zone 1",
+                "no": "oppvarming sone 1"
+              }
+            },
+            {
+              "id": "heating_zone2",
+              "title": {
+                "en": "heating zone 2",
+                "nl": "verwarming zone 2",
+                "sv": "värme zon 2",
+                "de": "Heizen Zone 2",
+                "da": "opvarmning zone 2",
+                "no": "oppvarming sone 2"
+              }
+            },
+            {
+              "id": "cooling_zone1",
+              "title": {
+                "en": "cooling zone 1",
+                "nl": "koeling zone 1",
+                "sv": "kyla zon 1",
+                "de": "Kühlen Zone 1",
+                "da": "køling zone 1",
+                "no": "kjøling sone 1"
+              }
+            },
+            {
+              "id": "cooling_zone2",
+              "title": {
+                "en": "cooling zone 2",
+                "nl": "koeling zone 2",
+                "sv": "kyla zon 2",
+                "de": "Kühlen Zone 2",
+                "da": "køling zone 2",
+                "no": "kjøling sone 2"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_curve_correction",
+      "title": {
+        "en": "Adjust heat curve",
+        "nl": "Stookcurve verschuiven",
+        "sv": "Justera värmekurvan",
+        "de": "Heizkurve anpassen",
+        "da": "Juster varmekurve",
+        "no": "Juster varmekurve"
+      },
+      "titleFormatted": {
+        "en": "Set heat curve correction for zone [[zone]] to [[correction]]",
+        "nl": "Zet stookcurvecorrectie voor zone [[zone]] op [[correction]]",
+        "sv": "Sätt värmekurvans korrigering för zon [[zone]] till [[correction]]",
+        "de": "Heizkurvenkorrektur für Zone [[zone]] auf [[correction]] einstellen",
+        "da": "Indstil varmekurvekorrektion for zone [[zone]] til [[correction]]",
+        "no": "Still inn varmekurvekorreksjon for sone [[zone]] til [[correction]]"
+      },
+      "hint": {
+        "en": "Shifts the whole online heat curve up (positive) or down (negative). Only has effect when the zone uses Online Curve mode.",
+        "nl": "Verschuift de hele online stookcurve omhoog (positief) of omlaag (negatief). Werkt alleen als de zone de modus Online Curve gebruikt.",
+        "sv": "Flyttar hela onlinevärmekurvan uppåt (positivt) eller nedåt (negativt). Påverkar bara zoner som använder styrsättet Onlinekurva.",
+        "de": "Verschiebt die gesamte Online-Heizkurve nach oben (positiv) oder unten (negativ). Wirkt nur, wenn die Zone den Modus Online-Kurve nutzt.",
+        "da": "Flytter hele online-varmekurven op (positiv) eller ned (negativ). Virker kun, når zonen bruger tilstanden Online-kurve.",
+        "no": "Flytter hele online-varmekurven opp (positiv) eller ned (negativ). Virker bare når sonen bruker modusen Online-kurve."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "zone",
+          "title": {
+            "en": "Zone",
+            "nl": "Zone",
+            "sv": "Zon",
+            "de": "Zone",
+            "da": "Zone",
+            "no": "Sone"
+          },
+          "values": [
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "nl": "1",
+                "sv": "1",
+                "de": "1",
+                "da": "1",
+                "no": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "nl": "2",
+                "sv": "2",
+                "de": "2",
+                "da": "2",
+                "no": "2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "correction",
+          "title": {
+            "en": "Correction",
+            "nl": "Correctie",
+            "sv": "Korrigering",
+            "de": "Korrektur",
+            "da": "Korrektion",
+            "no": "Korreksjon"
+          },
+          "min": -10,
+          "max": 10,
+          "step": 1,
+          "placeholder": {
+            "en": "0",
+            "nl": "0",
+            "sv": "0",
+            "de": "0",
+            "da": "0",
+            "no": "0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "set_flow_temperature",
+      "title": {
+        "en": "Set flow temperature",
+        "nl": "Zet aanvoertemperatuur",
+        "sv": "Ställ in framledningstemperatur",
+        "de": "Vorlauftemperatur einstellen",
+        "da": "Indstil fremløbstemperatur",
+        "no": "Still inn turtemperatur"
+      },
+      "titleFormatted": {
+        "en": "Set [[kind]] flow temperature for zone [[zone]] to [[temperature]] °C",
+        "nl": "Zet aanvoertemperatuur [[kind]] voor zone [[zone]] op [[temperature]] °C",
+        "sv": "Ställ in framledningstemperatur för [[kind]] i zon [[zone]] till [[temperature]] °C",
+        "de": "Vorlauftemperatur [[kind]] für Zone [[zone]] auf [[temperature]] °C einstellen",
+        "da": "Indstil fremløbstemperatur for [[kind]] i zone [[zone]] til [[temperature]] °C",
+        "no": "Still inn turtemperatur for [[kind]] i sone [[zone]] til [[temperature]] °C"
+      },
+      "hint": {
+        "en": "Only has effect when the zone uses Constant Flow (heating, 10–80 °C) or Cooling Flow (cooling, 5–25 °C) mode.",
+        "nl": "Werkt alleen als de zone de modus Constante aanvoer (verwarming, 10–80 °C) of Koelaanvoer (koeling, 5–25 °C) gebruikt.",
+        "sv": "Påverkar bara zoner som använder styrsättet Fast framledning (värme, 10–80 °C) eller Kylframledning (kyla, 5–25 °C).",
+        "de": "Wirkt nur, wenn die Zone den Modus Konstanter Vorlauf (Heizen, 10–80 °C) oder Kühlvorlauf (Kühlen, 5–25 °C) nutzt.",
+        "da": "Virker kun, når zonen bruger tilstanden Konstant fremløb (opvarmning, 10–80 °C) eller Kølefremløb (køling, 5–25 °C).",
+        "no": "Virker bare når sonen bruker modusen Konstant tur (oppvarming, 10–80 °C) eller Kjøletur (kjøling, 5–25 °C)."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "kind",
+          "title": {
+            "en": "Heating or cooling",
+            "nl": "Verwarming of koeling",
+            "sv": "Värme eller kyla",
+            "de": "Heizen oder Kühlen",
+            "da": "Opvarmning eller køling",
+            "no": "Oppvarming eller kjøling"
+          },
+          "values": [
+            {
+              "id": "heating",
+              "title": {
+                "en": "heating",
+                "nl": "verwarming",
+                "sv": "värme",
+                "de": "Heizen",
+                "da": "opvarmning",
+                "no": "oppvarming"
+              }
+            },
+            {
+              "id": "cooling",
+              "title": {
+                "en": "cooling",
+                "nl": "koeling",
+                "sv": "kyla",
+                "de": "Kühlen",
+                "da": "køling",
+                "no": "kjøling"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "zone",
+          "title": {
+            "en": "Zone",
+            "nl": "Zone",
+            "sv": "Zon",
+            "de": "Zone",
+            "da": "Zone",
+            "no": "Sone"
+          },
+          "values": [
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "nl": "1",
+                "sv": "1",
+                "de": "1",
+                "da": "1",
+                "no": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "nl": "2",
+                "sv": "2",
+                "de": "2",
+                "da": "2",
+                "no": "2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "number",
+          "name": "temperature",
+          "title": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "sv": "Temperatur",
+            "de": "Temperatur",
+            "da": "Temperatur",
+            "no": "Temperatur"
+          },
+          "min": 5,
+          "max": 80,
+          "step": 0.5,
+          "placeholder": {
+            "en": "35",
+            "nl": "35",
+            "sv": "35",
+            "de": "35",
+            "da": "35",
+            "no": "35"
+          }
+        }
+      ]
+    },
+    {
+      "id": "set_zone_mode",
+      "title": {
+        "en": "Set zone control mode",
+        "nl": "Zet regelmodus van zone",
+        "sv": "Ställ in styrsätt för zon",
+        "de": "Regelungsart der Zone einstellen",
+        "da": "Indstil zonens reguleringstilstand",
+        "no": "Still inn sonens reguleringsmodus"
+      },
+      "titleFormatted": {
+        "en": "Set zone [[zone]] control mode to [[mode]]",
+        "nl": "Zet regelmodus van zone [[zone]] op [[mode]]",
+        "sv": "Ställ in styrsätt för zon [[zone]] till [[mode]]",
+        "de": "Regelungsart von Zone [[zone]] auf [[mode]] einstellen",
+        "da": "Indstil reguleringstilstand for zone [[zone]] til [[mode]]",
+        "no": "Still inn reguleringsmodus for sone [[zone]] til [[mode]]"
+      },
+      "hint": {
+        "en": "Changes how the heat pump regulates the zone. Only change this if you know which mode your installation is set up for.",
+        "nl": "Wijzigt hoe de warmtepomp de zone regelt. Wijzig dit alleen als je weet voor welke modus je installatie is ingericht.",
+        "sv": "Ändrar hur värmepumpen reglerar zonen. Ändra bara detta om du vet vilket styrsätt din installation är anpassad för.",
+        "de": "Ändert, wie die Wärmepumpe die Zone regelt. Ändere dies nur, wenn du weißt, für welchen Modus deine Anlage ausgelegt ist.",
+        "da": "Ændrer, hvordan varmepumpen regulerer zonen. Ændr det kun, hvis du ved, hvilken tilstand dit anlæg er indstillet til.",
+        "no": "Endrer hvordan varmepumpen regulerer sonen. Endre dette bare hvis du vet hvilken modus anlegget ditt er satt opp for."
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "zone",
+          "title": {
+            "en": "Zone",
+            "nl": "Zone",
+            "sv": "Zon",
+            "de": "Zone",
+            "da": "Zone",
+            "no": "Sone"
+          },
+          "values": [
+            {
+              "id": "1",
+              "title": {
+                "en": "1",
+                "nl": "1",
+                "sv": "1",
+                "de": "1",
+                "da": "1",
+                "no": "1"
+              }
+            },
+            {
+              "id": "2",
+              "title": {
+                "en": "2",
+                "nl": "2",
+                "sv": "2",
+                "de": "2",
+                "da": "2",
+                "no": "2"
+              }
+            }
+          ]
+        },
+        {
+          "type": "dropdown",
+          "name": "mode",
+          "title": {
+            "en": "Control mode",
+            "nl": "Regelmodus",
+            "sv": "Styrsätt",
+            "de": "Regelungsart",
+            "da": "Reguleringstilstand",
+            "no": "Reguleringsmodus"
+          },
+          "values": [
+            {
+              "id": "room_control",
+              "title": {
+                "en": "Room control",
+                "nl": "Ruimteregeling",
+                "sv": "Rumsstyrning",
+                "de": "Raumregelung",
+                "da": "Rumregulering",
+                "no": "Romregulering"
+              }
+            },
+            {
+              "id": "heat_curve",
+              "title": {
+                "en": "Heat curve",
+                "nl": "Stookcurve",
+                "sv": "Värmekurva",
+                "de": "Heizkurve",
+                "da": "Varmekurve",
+                "no": "Varmekurve"
+              }
+            },
+            {
+              "id": "online_curve",
+              "title": {
+                "en": "Online curve",
+                "nl": "Online curve",
+                "sv": "Onlinekurva",
+                "de": "Online-Kurve",
+                "da": "Online-kurve",
+                "no": "Online-kurve"
+              }
+            },
+            {
+              "id": "constant_flow",
+              "title": {
+                "en": "Constant flow",
+                "nl": "Constante aanvoer",
+                "sv": "Fast framledning",
+                "de": "Konstanter Vorlauf",
+                "da": "Konstant fremløb",
+                "no": "Konstant tur"
+              }
+            },
+            {
+              "id": "pool",
+              "title": {
+                "en": "Pool temperature",
+                "nl": "Zwembadtemperatuur",
+                "sv": "Pooltemperatur",
+                "de": "Pooltemperatur",
+                "da": "Pooltemperatur",
+                "no": "Bassengtemperatur"
+              }
+            },
+            {
+              "id": "cooling_room_control",
+              "title": {
+                "en": "Cooling room control",
+                "nl": "Koeling ruimteregeling",
+                "sv": "Kyla rumsstyrning",
+                "de": "Kühlung Raumregelung",
+                "da": "Køling rumregulering",
+                "no": "Kjøling romregulering"
+              }
+            },
+            {
+              "id": "cooling_flow",
+              "title": {
+                "en": "Cooling flow",
+                "nl": "Koelaanvoer",
+                "sv": "Kylframledning",
+                "de": "Kühlvorlauf",
+                "da": "Kølefremløb",
+                "no": "Kjøletur"
+              }
+            },
+            {
+              "id": "cooling_curve",
+              "title": {
+                "en": "Cooling curve",
+                "nl": "Koelcurve",
+                "sv": "Kylkurva",
+                "de": "Kühlkurve",
+                "da": "Kølekurve",
+                "no": "Kjølekurve"
+              }
+            },
+            {
+              "id": "cooling_dry_up",
+              "title": {
+                "en": "Cooling dry up",
+                "nl": "Koeling droogstoken",
+                "sv": "Kyla uttorkning",
+                "de": "Kühlung Estrichtrocknung",
+                "da": "Køling udtørring",
+                "no": "Kjøling uttørking"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acknowledge_alarm",
+      "title": {
+        "en": "Acknowledge a MelPump alarm",
+        "nl": "Bevestig een MelPump-alarm",
+        "sv": "Kvittera ett MelPump-larm",
+        "de": "Einen MelPump-Alarm quittieren",
+        "da": "Kvitter for en MelPump-alarm",
+        "no": "Kvitter for en MelPump-alarm"
+      },
+      "titleFormatted": {
+        "en": "Acknowledge MelPump alarm [[id]]",
+        "nl": "Bevestig MelPump-alarm [[id]]",
+        "sv": "Kvittera MelPump-larm [[id]]",
+        "de": "MelPump-Alarm [[id]] quittieren",
+        "da": "Kvitter for MelPump-alarm [[id]]",
+        "no": "Kvitter for MelPump-alarm [[id]]"
+      },
+      "hint": {
+        "en": "Use the \"Alarm id\" token from the \"New MelPump alarm\" trigger.",
+        "nl": "Gebruik de tag \"Alarm-id\" van de trigger \"Nieuw MelPump-alarm\".",
+        "sv": "Använd taggen \"Larm-id\" från triggern \"Nytt MelPump-larm\".",
+        "de": "Verwende das Token „Alarm-ID“ aus dem Auslöser „Neuer MelPump-Alarm“.",
+        "da": "Brug tagget \"Alarm-id\" fra udløseren \"Ny MelPump-alarm\".",
+        "no": "Bruk taggen «Alarm-id» fra utløseren «Ny MelPump-alarm»."
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "id",
+          "title": {
+            "en": "Alarm id",
+            "nl": "Alarm-id",
+            "sv": "Larm-id",
+            "de": "Alarm-ID",
+            "da": "Alarm-id",
+            "no": "Alarm-id"
+          },
+          "min": 1,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "acknowledge_alarms",
+      "title": {
+        "en": "Acknowledge all MelPump alarms",
+        "nl": "Bevestig alle MelPump-alarmen",
+        "sv": "Kvittera alla MelPump-larm",
+        "de": "Alle MelPump-Alarme quittieren",
+        "da": "Kvitter for alle MelPump-alarmer",
+        "no": "Kvitter for alle MelPump-alarmer"
+      }
+    },
+    {
+      "id": "boost_hot_water",
+      "title": {
+        "en": "Boost hot water",
+        "nl": "Warm water boosten",
+        "sv": "Boosta varmvatten",
+        "de": "Warmwasser-Boost",
+        "da": "Boost varmt vand",
+        "no": "Boost varmtvann"
+      },
+      "titleFormatted": {
+        "en": "Boost hot water for at most [[minutes]] minutes",
+        "nl": "Warm water boosten voor maximaal [[minutes]] minuten",
+        "sv": "Boosta varmvatten i högst [[minutes]] minuter",
+        "de": "Warmwasser-Boost für höchstens [[minutes]] Minuten",
+        "da": "Boost varmt vand i højst [[minutes]] minutter",
+        "no": "Boost varmtvann i høyst [[minutes]] minutter"
+      },
+      "hint": {
+        "en": "Forces hot water heating. The app switches it off again when the hot water is ready or the time is up, whichever comes first.",
+        "nl": "Forceert het verwarmen van warm water. De app zet het weer uit zodra het warme water klaar is of de tijd om is.",
+        "sv": "Forcerar uppvärmning av varmvatten. Appen stänger av det igen när varmvattnet är klart eller tiden är slut, det som kommer först.",
+        "de": "Erzwingt die Warmwasserbereitung. Die App schaltet sie wieder aus, sobald das Warmwasser bereit oder die Zeit abgelaufen ist.",
+        "da": "Tvinger opvarmning af varmt vand. Appen slukker igen, når det varme vand er klar, eller tiden er gået, alt efter hvad der kommer først.",
+        "no": "Tvinger oppvarming av varmtvann. Appen slår det av igjen når varmtvannet er klart eller tiden er ute, det som kommer først."
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "minutes",
+          "title": {
+            "en": "Minutes",
+            "nl": "Minuten",
+            "sv": "Minuter",
+            "de": "Minuten",
+            "da": "Minutter",
+            "no": "Minutter"
+          },
+          "min": 5,
+          "max": 240,
+          "step": 5,
+          "placeholder": {
+            "en": "60",
+            "nl": "60",
+            "sv": "60",
+            "de": "60",
+            "da": "60",
+            "no": "60"
+          }
+        }
+      ]
+    },
+    {
+      "id": "holiday_until",
+      "title": {
+        "en": "Turn on holiday mode until",
+        "nl": "Vakantiemodus aanzetten tot",
+        "sv": "Slå på semesterläge till",
+        "de": "Urlaubsmodus einschalten bis",
+        "da": "Slå feriemodus til indtil",
+        "no": "Slå på feriemodus til"
+      },
+      "titleFormatted": {
+        "en": "Turn on holiday mode until [[date]] at [[time]]",
+        "nl": "Vakantiemodus aanzetten tot [[date]] om [[time]]",
+        "sv": "Slå på semesterläge till [[date]] kl. [[time]]",
+        "de": "Urlaubsmodus einschalten bis [[date]] um [[time]]",
+        "da": "Slå feriemodus til indtil [[date]] kl. [[time]]",
+        "no": "Slå på feriemodus til [[date]] kl. [[time]]"
+      },
+      "hint": {
+        "en": "The app switches holiday mode off again at that moment (the heat pump's time zone). Switching holiday mode off earlier cancels it.",
+        "nl": "De app zet de vakantiemodus op dat moment weer uit (tijdzone van de warmtepomp). Eerder uitzetten annuleert dit.",
+        "sv": "Appen slår av semesterläget igen vid den tidpunkten (värmepumpens tidszon). Slår du av semesterläget tidigare avbryts det.",
+        "de": "Die App schaltet den Urlaubsmodus zu diesem Zeitpunkt wieder aus (Zeitzone der Wärmepumpe). Früheres Ausschalten bricht dies ab.",
+        "da": "Appen slår feriemodus fra igen på det tidspunkt (varmepumpens tidszone). Slår du feriemodus fra før, annulleres det.",
+        "no": "Appen slår av feriemodus igjen på det tidspunktet (varmepumpens tidssone). Slår du av feriemodus tidligere, avbrytes det."
+      },
+      "args": [
+        {
+          "type": "date",
+          "name": "date",
+          "title": {
+            "en": "Date",
+            "nl": "Datum",
+            "sv": "Datum",
+            "de": "Datum",
+            "da": "Dato",
+            "no": "Dato"
+          }
+        },
+        {
+          "type": "time",
+          "name": "time",
+          "title": {
+            "en": "Time",
+            "nl": "Tijd",
+            "sv": "Tid",
+            "de": "Uhrzeit",
+            "da": "Tidspunkt",
+            "no": "Tidspunkt"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Last MelPump alarm",
+    "nl": "Laatste MelPump-alarm",
+    "sv": "Senaste MelPump-larm",
+    "de": "Letzter MelPump-Alarm",
+    "da": "Seneste MelPump-alarm",
+    "no": "Siste MelPump-alarm"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/alarm.svg"
+}

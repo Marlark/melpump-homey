@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy cooling yesterday",
+    "nl": "Energie koelen gisteren",
+    "sv": "Energi kyla igår",
+    "de": "Energie Kühlen gestern",
+    "da": "Energi køling i går",
+    "no": "Energi kjøling i går"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cooling.svg"
+}

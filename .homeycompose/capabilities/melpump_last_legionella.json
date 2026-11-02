@@ -1,0 +1,15 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Last legionella run",
+    "nl": "Laatste legionellabehandeling",
+    "sv": "Senaste legionellakörning",
+    "de": "Letzte Legionellenschaltung",
+    "da": "Seneste legionellakørsel",
+    "no": "Siste legionellakjøring"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/legionella.svg"
+}

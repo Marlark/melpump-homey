@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP in solar mode yesterday",
+    "nl": "COP in zonnemodus gisteren",
+    "sv": "COP i solläge igår",
+    "de": "COP im Solarmodus gestern",
+    "da": "COP i soltilstand i går",
+    "no": "COP i solmodus i går"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

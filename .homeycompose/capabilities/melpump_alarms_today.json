@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "MelPump alarms today",
+    "nl": "MelPump-alarmen vandaag",
+    "sv": "MelPump-larm idag",
+    "de": "MelPump-Alarme heute",
+    "da": "MelPump-alarmer i dag",
+    "no": "MelPump-alarmer i dag"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/alarm.svg"
+}

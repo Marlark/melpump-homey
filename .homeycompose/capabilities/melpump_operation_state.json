@@ -1,0 +1,95 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Current activity",
+    "nl": "Huidige activiteit",
+    "sv": "Aktuell aktivitet",
+    "de": "Aktueller Betrieb",
+    "da": "Aktuel drift",
+    "no": "Nåværende drift"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/activity.svg",
+  "values": [
+    {
+      "id": "off",
+      "title": {
+        "en": "Off",
+        "nl": "Uit",
+        "sv": "Av",
+        "de": "Aus",
+        "da": "Fra",
+        "no": "Av"
+      }
+    },
+    {
+      "id": "tank_water",
+      "title": {
+        "en": "Hot water",
+        "nl": "Warm water",
+        "sv": "Varmvatten",
+        "de": "Warmwasser",
+        "da": "Varmt vand",
+        "no": "Varmtvann"
+      }
+    },
+    {
+      "id": "heating",
+      "title": {
+        "en": "Heating",
+        "nl": "Verwarmen",
+        "sv": "Värme",
+        "de": "Heizen",
+        "da": "Opvarmning",
+        "no": "Oppvarming"
+      }
+    },
+    {
+      "id": "cooling",
+      "title": {
+        "en": "Cooling",
+        "nl": "Koelen",
+        "sv": "Kyla",
+        "de": "Kühlen",
+        "da": "Køling",
+        "no": "Kjøling"
+      }
+    },
+    {
+      "id": "defrost",
+      "title": {
+        "en": "Defrost",
+        "nl": "Ontdooien",
+        "sv": "Avfrostning",
+        "de": "Abtauen",
+        "da": "Afrimning",
+        "no": "Avriming"
+      }
+    },
+    {
+      "id": "standby",
+      "title": {
+        "en": "Standby",
+        "nl": "Stand-by",
+        "sv": "Standby",
+        "de": "Standby",
+        "da": "Standby",
+        "no": "Standby"
+      }
+    },
+    {
+      "id": "legionella",
+      "title": {
+        "en": "Legionella protection",
+        "nl": "Legionellabescherming",
+        "sv": "Legionellaskydd",
+        "de": "Legionellenschutz",
+        "da": "Legionellabeskyttelse",
+        "no": "Legionellabeskyttelse"
+      }
+    }
+  ]
+}

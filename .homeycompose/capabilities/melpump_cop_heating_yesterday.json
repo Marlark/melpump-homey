@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP heating yesterday",
+    "nl": "COP verwarming gisteren",
+    "sv": "COP värme igår",
+    "de": "COP Heizung gestern",
+    "da": "COP opvarmning i går",
+    "no": "COP oppvarming i går"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

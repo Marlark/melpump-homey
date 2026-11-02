@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Defrosts today",
+    "nl": "Ontdooiingen vandaag",
+    "sv": "Avfrostningar idag",
+    "de": "Abtauvorgänge heute",
+    "da": "Afrimninger i dag",
+    "no": "Avriminger i dag"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/defrost.svg"
+}

@@ -1,0 +1,77 @@
+name: Bug report
+description: Something in the MelPump app doesn't work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! This is an unofficial app; please don't contact MelPump support about it.
+        **Never post your API token** (it starts with `api_`). It isn't needed to look into a problem.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can it be reproduced?
+      description: The steps, Flow or setting that leads to the problem, if you know them.
+      placeholder: |
+        1. Open the device in the Homey app
+        2. Turn on ...
+        3. ...
+
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: Homey app > More > Apps > MelPump.
+      placeholder: "1.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: homey
+    attributes:
+      label: Homey model and firmware
+      placeholder: "Homey Pro (Early 2023), 12.4.0"
+    validations:
+      required: true
+
+  - type: input
+    id: heat-pump
+    attributes:
+      label: Heat pump
+      description: Model, and whether it has hot water, cooling or two zones.
+      placeholder: "Mitsubishi Ecodan PUZ-WM85, hot water tank, one zone"
+
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: >
+        From the device settings > Diagnostics: last data from the heat pump, last successful update,
+        requests in the last hour and the last error.
+      render: text
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log (optional)
+      description: >
+        If you run the app with `homey app run`, the log has extra `[debug]` lines.
+        Remove anything personal before posting.
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I removed my API token and other personal details from everything above.
+          required: true

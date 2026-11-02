@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Mixing tank temperature",
+    "nl": "Temperatuur buffervat",
+    "sv": "Temperatur blandningstank",
+    "de": "Temperatur Pufferspeicher",
+    "da": "Temperatur blandetank",
+    "no": "Temperatur blandetank"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/hot_water.svg"
+}

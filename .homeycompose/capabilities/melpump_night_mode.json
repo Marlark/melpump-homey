@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Night mode",
+    "nl": "Nachtmodus",
+    "sv": "Nattläge",
+    "de": "Nachtmodus",
+    "da": "Nattilstand",
+    "no": "Nattmodus"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Night mode activated",
+    "nl": "Nachtmodus geactiveerd",
+    "sv": "Nattläge aktiverat",
+    "de": "Nachtmodus aktiviert",
+    "da": "Nattilstand aktiveret",
+    "no": "Nattmodus aktivert"
+  },
+  "insightsTitleFalse": {
+    "en": "Night mode deactivated",
+    "nl": "Nachtmodus gedeactiveerd",
+    "sv": "Nattläge avaktiverat",
+    "de": "Nachtmodus deaktiviert",
+    "da": "Nattilstand deaktiveret",
+    "no": "Nattmodus deaktivert"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/night.svg"
+}

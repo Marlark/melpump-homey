@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Heat produced this year",
+    "nl": "Warmte geproduceerd dit jaar",
+    "sv": "Värme producerad i år",
+    "de": "Erzeugte Wärme dieses Jahr",
+    "da": "Produceret varme i år",
+    "no": "Produsert varme i år"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/heat.svg"
+}

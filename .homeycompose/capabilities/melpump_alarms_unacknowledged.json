@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Unacknowledged MelPump alarms",
+    "nl": "Onbevestigde MelPump-alarmen",
+    "sv": "Okvitterade MelPump-larm",
+    "de": "Nicht quittierte MelPump-Alarme",
+    "da": "Ukvitterede MelPump-alarmer",
+    "no": "Ukvitterte MelPump-alarmer"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/alarm.svg"
+}

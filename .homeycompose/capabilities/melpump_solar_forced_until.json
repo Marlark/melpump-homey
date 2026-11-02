@@ -1,0 +1,16 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Solar mode forced until",
+    "nl": "Zonnemodus geforceerd tot",
+    "sv": "Solläge tvingat till",
+    "de": "Solarmodus erzwungen bis",
+    "da": "Soltilstand tvunget til",
+    "no": "Solmodus tvunget til"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/solar.svg"
+}

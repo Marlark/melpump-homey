@@ -1,0 +1,61 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Operating mode",
+    "nl": "Bedrijfsmodus",
+    "sv": "Driftläge",
+    "de": "Betriebsart",
+    "da": "Driftstilstand",
+    "no": "Driftsmodus"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "icon": "/assets/capabilities/mode.svg",
+  "values": [
+    {
+      "id": "auto",
+      "title": {
+        "en": "Auto",
+        "nl": "Automatisch",
+        "sv": "Automatiskt",
+        "de": "Automatisch",
+        "da": "Automatisk",
+        "no": "Automatisk"
+      }
+    },
+    {
+      "id": "heating",
+      "title": {
+        "en": "Heating",
+        "nl": "Verwarmen",
+        "sv": "Värme",
+        "de": "Heizen",
+        "da": "Opvarmning",
+        "no": "Oppvarming"
+      }
+    },
+    {
+      "id": "cooling",
+      "title": {
+        "en": "Cooling",
+        "nl": "Koelen",
+        "sv": "Kyla",
+        "de": "Kühlen",
+        "da": "Køling",
+        "no": "Kjøling"
+      }
+    },
+    {
+      "id": "off",
+      "title": {
+        "en": "Off",
+        "nl": "Uit",
+        "sv": "Av",
+        "de": "Aus",
+        "da": "Fra",
+        "no": "Av"
+      }
+    }
+  ]
+}

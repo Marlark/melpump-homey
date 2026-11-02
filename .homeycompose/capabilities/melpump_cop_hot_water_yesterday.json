@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP hot water yesterday",
+    "nl": "COP warm water gisteren",
+    "sv": "COP varmvatten igår",
+    "de": "COP Warmwasser gestern",
+    "da": "COP varmt vand i går",
+    "no": "COP varmtvann i går"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

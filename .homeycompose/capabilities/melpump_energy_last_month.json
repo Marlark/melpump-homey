@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy last month",
+    "nl": "Energie vorige maand",
+    "sv": "Energi förra månaden",
+    "de": "Energie letzten Monat",
+    "da": "Energi sidste måned",
+    "no": "Energi forrige måned"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/energy.svg"
+}

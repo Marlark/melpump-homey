@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Summer eco",
+    "nl": "Zomer-eco",
+    "sv": "Sommar-eco",
+    "de": "Sommer-Eco",
+    "da": "Sommer-eco",
+    "no": "Sommer-eco"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Summer eco activated",
+    "nl": "Zomer-eco geactiveerd",
+    "sv": "Sommar-eco aktiverat",
+    "de": "Sommer-Eco aktiviert",
+    "da": "Sommer-eco aktiveret",
+    "no": "Sommer-eco aktivert"
+  },
+  "insightsTitleFalse": {
+    "en": "Summer eco deactivated",
+    "nl": "Zomer-eco gedeactiveerd",
+    "sv": "Sommar-eco avaktiverat",
+    "de": "Sommer-Eco deaktiviert",
+    "da": "Sommer-eco deaktiveret",
+    "no": "Sommer-eco deaktivert"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/summer.svg"
+}

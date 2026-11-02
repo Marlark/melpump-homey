@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP yesterday",
+    "nl": "COP gisteren",
+    "sv": "COP igår",
+    "de": "COP gestern",
+    "da": "COP i går",
+    "no": "COP i går"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

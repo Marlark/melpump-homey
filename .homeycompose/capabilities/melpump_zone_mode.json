@@ -1,0 +1,117 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Zone 1 mode",
+    "nl": "Modus zone 1",
+    "sv": "Läge zon 1",
+    "de": "Modus Zone 1",
+    "da": "Tilstand zone 1",
+    "no": "Modus sone 1"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/mode.svg",
+  "values": [
+    {
+      "id": "room_control",
+      "title": {
+        "en": "Room control",
+        "nl": "Ruimteregeling",
+        "sv": "Rumsstyrning",
+        "de": "Raumregelung",
+        "da": "Rumregulering",
+        "no": "Romregulering"
+      }
+    },
+    {
+      "id": "heat_curve",
+      "title": {
+        "en": "Heat curve",
+        "nl": "Stookcurve",
+        "sv": "Värmekurva",
+        "de": "Heizkurve",
+        "da": "Varmekurve",
+        "no": "Varmekurve"
+      }
+    },
+    {
+      "id": "online_curve",
+      "title": {
+        "en": "Online curve",
+        "nl": "Online curve",
+        "sv": "Onlinekurva",
+        "de": "Online-Kurve",
+        "da": "Online-kurve",
+        "no": "Online-kurve"
+      }
+    },
+    {
+      "id": "constant_flow",
+      "title": {
+        "en": "Constant flow",
+        "nl": "Constante aanvoer",
+        "sv": "Fast framledning",
+        "de": "Konstanter Vorlauf",
+        "da": "Konstant fremløb",
+        "no": "Konstant tur"
+      }
+    },
+    {
+      "id": "pool",
+      "title": {
+        "en": "Pool temperature",
+        "nl": "Zwembadtemperatuur",
+        "sv": "Pooltemperatur",
+        "de": "Pooltemperatur",
+        "da": "Pooltemperatur",
+        "no": "Bassengtemperatur"
+      }
+    },
+    {
+      "id": "cooling_room_control",
+      "title": {
+        "en": "Cooling room control",
+        "nl": "Koeling ruimteregeling",
+        "sv": "Kyla rumsstyrning",
+        "de": "Kühlung Raumregelung",
+        "da": "Køling rumregulering",
+        "no": "Kjøling romregulering"
+      }
+    },
+    {
+      "id": "cooling_flow",
+      "title": {
+        "en": "Cooling flow",
+        "nl": "Koelaanvoer",
+        "sv": "Kylframledning",
+        "de": "Kühlvorlauf",
+        "da": "Kølefremløb",
+        "no": "Kjøletur"
+      }
+    },
+    {
+      "id": "cooling_curve",
+      "title": {
+        "en": "Cooling curve",
+        "nl": "Koelcurve",
+        "sv": "Kylkurva",
+        "de": "Kühlkurve",
+        "da": "Kølekurve",
+        "no": "Kjølekurve"
+      }
+    },
+    {
+      "id": "cooling_dry_up",
+      "title": {
+        "en": "Cooling dry up",
+        "nl": "Koeling droogstoken",
+        "sv": "Kyla uttorkning",
+        "de": "Kühlung Estrichtrocknung",
+        "da": "Køling udtørring",
+        "no": "Kjøling uttørking"
+      }
+    }
+  ]
+}

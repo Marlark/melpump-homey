@@ -1,0 +1,22 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Share in solar mode yesterday",
+    "nl": "Aandeel in zonnemodus gisteren",
+    "sv": "Andel i solläge igår",
+    "de": "Anteil im Solarmodus gestern",
+    "da": "Andel i soltilstand i går",
+    "no": "Andel i solmodus i går"
+  },
+  "units": {
+    "en": "%"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "min": 0,
+  "max": 100,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/solar.svg"
+}

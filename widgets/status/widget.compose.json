@@ -1,0 +1,137 @@
+{
+  "name": {
+    "en": "MelPump status",
+    "nl": "MelPump-status",
+    "sv": "MelPump-status",
+    "de": "MelPump-Status",
+    "da": "MelPump-status",
+    "no": "MelPump-status"
+  },
+  "height": 300,
+  "settings": [
+    {
+      "id": "device",
+      "type": "autocomplete",
+      "title": {
+        "en": "Heat pump",
+        "nl": "Warmtepomp",
+        "sv": "Värmepump",
+        "de": "Wärmepumpe",
+        "da": "Varmepumpe",
+        "no": "Varmepumpe"
+      }
+    },
+    {
+      "id": "layout",
+      "type": "dropdown",
+      "title": {
+        "en": "Layout",
+        "nl": "Indeling",
+        "sv": "Layout",
+        "de": "Layout",
+        "da": "Layout",
+        "no": "Oppsett"
+      },
+      "value": "full",
+      "values": [
+        {
+          "id": "full",
+          "title": {
+            "en": "Full",
+            "nl": "Volledig",
+            "sv": "Full",
+            "de": "Vollständig",
+            "da": "Fuld",
+            "no": "Full"
+          }
+        },
+        {
+          "id": "compact",
+          "title": {
+            "en": "Compact",
+            "nl": "Compact",
+            "sv": "Kompakt",
+            "de": "Kompakt",
+            "da": "Kompakt",
+            "no": "Kompakt"
+          }
+        }
+      ]
+    },
+    {
+      "id": "show_today",
+      "type": "checkbox",
+      "title": {
+        "en": "Show today's figures (full layout)",
+        "nl": "Cijfers van vandaag tonen (volledige indeling)",
+        "sv": "Visa dagens siffror (full layout)",
+        "de": "Heutige Werte anzeigen (vollständiges Layout)",
+        "da": "Vis dagens tal (fuldt layout)",
+        "no": "Vis dagens tall (fullt oppsett)"
+      },
+      "value": true
+    },
+    {
+      "id": "show_temperatures",
+      "type": "checkbox",
+      "title": {
+        "en": "Show temperatures and heat output (full layout)",
+        "nl": "Temperaturen en warmteafgifte tonen (volledige indeling)",
+        "sv": "Visa temperaturer och värmeeffekt (full layout)",
+        "de": "Temperaturen und Heizleistung anzeigen (vollständiges Layout)",
+        "da": "Vis temperaturer og varmeeffekt (fuldt layout)",
+        "no": "Vis temperaturer og varmeeffekt (fullt oppsett)"
+      },
+      "value": true
+    },
+    {
+      "id": "button_hot_water",
+      "type": "checkbox",
+      "title": {
+        "en": "Buttons: hot water Hot / Comfort",
+        "nl": "Knoppen: warm water Heet / Comfort",
+        "sv": "Knappar: varmvatten Hett / Komfort",
+        "de": "Tasten: Warmwasser Heiß / Komfort",
+        "da": "Knapper: varmt vand Varm / Komfort",
+        "no": "Knapper: varmtvann Varm / Komfort"
+      },
+      "value": false
+    },
+    {
+      "id": "button_solar",
+      "type": "checkbox",
+      "title": {
+        "en": "Button: solar mode for 1 hour",
+        "nl": "Knop: zonnemodus 1 uur",
+        "sv": "Knapp: solläge i 1 timme",
+        "de": "Taste: Solarmodus für 1 Stunde",
+        "da": "Knap: soltilstand i 1 time",
+        "no": "Knapp: solmodus i 1 time"
+      },
+      "value": false
+    },
+    {
+      "id": "button_saving",
+      "type": "checkbox",
+      "title": {
+        "en": "Button: saving mode on / off",
+        "nl": "Knop: bespaarmodus aan / uit",
+        "sv": "Knapp: sparläge på / av",
+        "de": "Taste: Sparmodus ein / aus",
+        "da": "Knap: sparetilstand til / fra",
+        "no": "Knapp: sparemodus på / av"
+      },
+      "value": false
+    }
+  ],
+  "api": {
+    "getStatus": {
+      "method": "GET",
+      "path": "/"
+    },
+    "runAction": {
+      "method": "POST",
+      "path": "/action"
+    }
+  }
+}

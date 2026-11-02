@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Saving mode today",
+    "nl": "Bespaarmodus vandaag",
+    "sv": "Sparläge idag",
+    "de": "Sparmodus heute",
+    "da": "Sparetilstand i dag",
+    "no": "Sparemodus i dag"
+  },
+  "units": {
+    "en": "h"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/saving.svg"
+}

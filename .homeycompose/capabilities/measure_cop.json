@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP",
+    "nl": "COP",
+    "sv": "COP",
+    "de": "COP",
+    "da": "COP",
+    "no": "COP"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

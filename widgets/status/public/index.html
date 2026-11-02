@@ -1,0 +1,1010 @@
+<html>
+  <head>
+    <style>
+      /* Accent validated for the light and dark widget surfaces (lightness, chroma, contrast). */
+      :root {
+        --mp-accent: #00876A;
+        --mp-accent-soft: rgba(0, 135, 106, 0.14);
+        --mp-tile: rgba(0, 0, 0, 0.035);
+        --mp-heating: #D9622B;
+        --mp-hot-water: #C2417A;
+        --mp-cooling: #2F7FD1;
+        --mp-defrost: #1E9DB5;
+        --mp-legionella: #8E5CC8;
+        --mp-idle: #9A9AA0;
+        /* Status colors: always shown with an icon and a text, never alone. */
+        --mp-warning: #A86200;
+        --mp-critical: #C93A32;
+      }
+
+      .homey-dark-mode {
+        --mp-accent: #26A882;
+        --mp-accent-soft: rgba(38, 168, 130, 0.18);
+        --mp-tile: rgba(255, 255, 255, 0.05);
+        --mp-warning: #E0A03A;
+        --mp-critical: #EF6B63;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      /* Everything shown; its height is the widget's height (flow-root keeps margins inside). */
+      #root {
+        display: flow-root;
+      }
+
+      /* Warnings and alarms */
+      .banner {
+        --mp-status: var(--mp-warning);
+        display: flex;
+        align-items: center;
+        gap: var(--homey-su-2);
+        margin-bottom: var(--homey-su-2);
+        padding: var(--homey-su-2) var(--homey-su-3);
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--mp-status) 13%, transparent);
+        color: var(--homey-text-color);
+      }
+
+      .banner.alarm {
+        --mp-status: var(--mp-critical);
+      }
+
+      .banner > .icon {
+        width: 16px;
+        height: 16px;
+        color: var(--mp-status);
+      }
+
+      .banner-text {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--homey-su-2);
+        margin-bottom: var(--homey-su-3);
+      }
+
+      .name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      /* Operation: colored dot + label, so the state never relies on color alone. */
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+        padding: 2px 10px 2px 8px;
+        border-radius: 999px;
+        background: var(--mp-tile);
+        color: var(--homey-text-color);
+        white-space: nowrap;
+      }
+
+      .pill .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--mp-state, var(--mp-idle));
+      }
+
+      .pill.active .dot {
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--mp-state) 25%, transparent);
+      }
+
+      /* Hero: COP is the one number this widget leads with. */
+      .hero {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--homey-su-4);
+        align-items: end;
+        margin-bottom: var(--homey-su-3);
+      }
+
+      .cop-value {
+        font-size: 48px;
+        line-height: 48px;
+        font-weight: var(--homey-font-weight-bold);
+        letter-spacing: -1px;
+        color: var(--homey-text-color);
+      }
+
+      .cop-label {
+        margin-top: var(--homey-su-1);
+        color: var(--homey-text-color-light);
+      }
+
+      .spark {
+        min-width: 0;
+      }
+
+      /* The value moves to its own line when the title and switch leave no room. */
+      .spark-head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0 var(--homey-su-2);
+      }
+
+      .spark-title {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
+        color: var(--homey-text-color-light);
+      }
+
+      .spark-value {
+        margin-left: auto;
+        font-weight: var(--homey-font-weight-bold);
+        color: var(--homey-text-color);
+        white-space: nowrap;
+      }
+
+      /* 1 h / 24 h switch */
+      .range {
+        display: inline-flex;
+        gap: 2px;
+        padding: 2px;
+        border-radius: 999px;
+        background: var(--mp-tile);
+      }
+
+      .range button {
+        padding: 0 7px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--homey-text-color-light);
+        font: inherit;
+        line-height: 18px;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+
+      .range button.active {
+        background: var(--mp-accent-soft);
+        color: var(--homey-text-color);
+        font-weight: var(--homey-font-weight-bold);
+      }
+
+      .spark svg {
+        display: block;
+        width: 100%;
+        height: 44px;
+        margin-top: var(--homey-su-1);
+        overflow: visible;
+        touch-action: none;
+      }
+
+      .spark .line {
+        fill: none;
+        stroke: var(--mp-accent);
+        stroke-width: 2;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+
+      .spark .area {
+        fill: var(--mp-accent-soft);
+        stroke: none;
+      }
+
+      .spark .baseline {
+        stroke: var(--homey-text-color-light);
+        stroke-opacity: 0.25;
+        stroke-width: 1;
+      }
+
+      .spark .cursor {
+        stroke: var(--homey-text-color-light);
+        stroke-opacity: 0.5;
+        stroke-width: 1;
+      }
+
+      .spark .marker {
+        fill: var(--mp-accent);
+        stroke: var(--homey-background-color, #fff);
+        stroke-width: 2;
+      }
+
+      .spark-empty {
+        height: 44px;
+        margin-top: var(--homey-su-1);
+        display: flex;
+        align-items: center;
+        color: var(--homey-text-color-light);
+      }
+
+      /* Today */
+      .today {
+        margin-bottom: var(--homey-su-2);
+        padding: var(--homey-su-2) var(--homey-su-3);
+        border-radius: 10px;
+        background: var(--mp-tile);
+      }
+
+      .today-head {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--homey-text-color-light);
+      }
+
+      .today-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--homey-su-2);
+        margin-top: 2px;
+      }
+
+      .today-label {
+        color: var(--homey-text-color-light);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .today-value {
+        font-weight: var(--homey-font-weight-bold);
+        color: var(--homey-text-color);
+        white-space: nowrap;
+      }
+
+      /* Stat tiles */
+      .tiles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--homey-su-2);
+      }
+
+      .tile {
+        min-width: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0 var(--homey-su-2);
+        padding: var(--homey-su-2) var(--homey-su-3);
+        border-radius: 10px;
+        background: var(--mp-tile);
+      }
+
+      @media (min-width: 520px) {
+        .tile {
+          display: block;
+        }
+
+        /* Narrow tiles: the hot water bar on its own line, the target below it. */
+        .tile-extra {
+          flex-wrap: wrap;
+          gap: 2px;
+        }
+
+        .tile-extra .bar {
+          flex-basis: 100%;
+        }
+      }
+
+      .tile-label {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--homey-text-color-light);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .tile-value {
+        margin-top: 2px;
+        font-size: var(--homey-font-size-large);
+        line-height: var(--homey-line-height-large);
+        font-weight: var(--homey-font-weight-bold);
+        color: var(--homey-text-color);
+        white-space: nowrap;
+      }
+
+      /* Hot water: progress from cold water (20 °C) to the target temperature. */
+      .tile-extra {
+        flex-basis: 100%;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .bar {
+        flex: 1;
+        height: 4px;
+        border-radius: 2px;
+        background: color-mix(in srgb, var(--homey-text-color-light) 22%, transparent);
+        overflow: hidden;
+      }
+
+      .bar span {
+        display: block;
+        height: 100%;
+        border-radius: 2px;
+        background: var(--mp-hot-water);
+      }
+
+      .target {
+        color: var(--homey-text-color-light);
+        white-space: nowrap;
+      }
+
+      .unit {
+        font-size: var(--homey-font-size-small);
+        font-weight: var(--homey-font-weight-regular);
+        color: var(--homey-text-color-light);
+      }
+
+      .icon {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* Active modes */
+      .modes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--homey-su-1) var(--homey-su-2);
+        margin-top: var(--homey-su-3);
+      }
+
+      .modes:empty,
+      .actions:empty {
+        display: none;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 3px 10px 3px 8px;
+        border-radius: 999px;
+        background: var(--mp-accent-soft);
+        color: var(--homey-text-color);
+      }
+
+      .chip .icon {
+        color: var(--mp-accent);
+      }
+
+      /* Quick buttons: first tap asks for confirmation, the second one sends. */
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--homey-su-2);
+        margin-top: var(--homey-su-3);
+      }
+
+      .btn {
+        padding: 5px 12px;
+        border: 1px solid color-mix(in srgb, var(--mp-accent) 45%, transparent);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--homey-text-color);
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .btn-small {
+        flex-shrink: 0;
+        padding: 2px 10px;
+      }
+
+      .btn.confirm {
+        border-color: var(--mp-accent);
+        background: var(--mp-accent);
+        color: #fff;
+      }
+
+      .btn.done {
+        border-color: var(--mp-accent);
+      }
+
+      .btn.failed {
+        border-color: var(--mp-critical);
+        color: var(--mp-critical);
+      }
+
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+
+      /* Data age */
+      .age {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 4px;
+        margin-top: var(--homey-su-2);
+        color: var(--homey-text-color-light);
+      }
+
+      .age .icon {
+        display: none;
+      }
+
+      .age.stale {
+        color: var(--mp-warning);
+      }
+
+      .age.stale .icon {
+        display: inline;
+      }
+
+      .message {
+        padding: var(--homey-su-4) 0;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      /* Compact layout: header, COP with power, warnings, modes and buttons. */
+      .compact .full-only {
+        display: none !important;
+      }
+
+      .compact .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .compact .cop-value {
+        font-size: 36px;
+        line-height: 40px;
+      }
+
+      /* Wide widgets: all four tiles on one row. */
+      @media (min-width: 520px) {
+        .tiles {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="homey-widget">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-outdoor" viewBox="0 0 24 24"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/></symbol>
+        <symbol id="i-room" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></symbol>
+        <symbol id="i-tank" viewBox="0 0 24 24"><path d="M12 3c-3 4-5.5 7-5.5 10a5.5 5.5 0 0 0 11 0c0-3-2.5-6-5.5-10z"/></symbol>
+        <symbol id="i-heat" viewBox="0 0 24 24"><path d="M7 20c-1.5-2 0-4 1.5-6S9 10 7 8M12 20c-1.5-2 0-4 1.5-6S14 10 12 8M17 20c-1.5-2 0-4 1.5-6S19 10 17 8"/></symbol>
+        <symbol id="i-saving" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 8.5a4.5 4.5 0 1 0 0 7M7 11h6M7 13.5h6"/></symbol>
+        <symbol id="i-solar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+        <symbol id="i-night" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+        <symbol id="i-summer_eco" viewBox="0 0 24 24"><path d="M5 20c0-8 5-13 15-15-1 10-6 15-15 15z"/><path d="M5 20l8-8"/></symbol>
+        <symbol id="i-defrost" viewBox="0 0 24 24"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/><path d="M9 4l3 2 3-2M9 20l3-2 3 2"/></symbol>
+        <symbol id="i-warning" viewBox="0 0 24 24"><path d="M10.3 3.9L2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+        <symbol id="i-alarm" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      </defs>
+    </svg>
+
+    <div id="root">
+    <div id="message" class="message homey-text-regular homey-text-align-center hidden"></div>
+
+    <div id="content" class="hidden">
+      <div id="warningBanner" class="banner warning homey-text-small hidden" role="status">
+        <svg class="icon"><use href="#i-warning"/></svg>
+        <div id="warningText" class="banner-text"></div>
+      </div>
+      <div id="alarmBanner" class="banner alarm homey-text-small hidden" role="alert">
+        <svg class="icon"><use href="#i-alarm"/></svg>
+        <div id="alarmText" class="banner-text"></div>
+        <button id="ackButton" type="button" class="btn btn-small homey-text-small hidden" data-action="acknowledge_alarms" data-base="btn btn-small homey-text-small"></button>
+      </div>
+
+      <div class="header">
+        <div id="name" class="name homey-text-bold"></div>
+        <div id="pill" class="pill homey-text-small"><span class="dot"></span><span id="operation"></span></div>
+      </div>
+
+      <div class="hero">
+        <div>
+          <div id="cop" class="cop-value">-</div>
+          <div id="copLabel" class="cop-label homey-text-small"></div>
+        </div>
+        <div class="spark full-only">
+          <div class="spark-head homey-text-small">
+            <span class="spark-title">
+              <span data-label="widget.power"></span>
+              <span class="range" role="group">
+                <button type="button" data-range="hour" data-label="widget.range_hour"></button>
+                <button type="button" data-range="day" data-label="widget.range_day"></button>
+              </span>
+            </span>
+            <span id="sparkValue" class="spark-value"></span>
+          </div>
+          <svg id="spark" viewBox="0 0 200 44" role="img"></svg>
+          <div id="sparkEmpty" class="spark-empty homey-text-small hidden"></div>
+        </div>
+      </div>
+
+      <div id="today" class="today full-only">
+        <div class="today-head homey-text-small"><svg class="icon"><use href="#i-calendar"/></svg><span data-label="widget.today"></span></div>
+        <div class="today-grid">
+          <div><div class="today-label homey-text-small" data-label="widget.today_energy"></div><div id="todayEnergy" class="today-value">-</div></div>
+          <div><div class="today-label homey-text-small" data-label="widget.today_heat"></div><div id="todayHeat" class="today-value">-</div></div>
+          <div><div class="today-label homey-text-small" data-label="widget.today_cop"></div><div id="todayCop" class="today-value">-</div></div>
+          <div><div class="today-label homey-text-small" data-label="widget.today_starts"></div><div id="todayStarts" class="today-value">-</div></div>
+        </div>
+      </div>
+
+      <div id="tiles" class="tiles full-only">
+        <div class="tile">
+          <div class="tile-label homey-text-small"><svg class="icon"><use href="#i-outdoor"/></svg><span data-label="widget.outdoor"></span></div>
+          <div class="tile-value" id="outdoor">-</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label homey-text-small"><svg class="icon"><use href="#i-room"/></svg><span data-label="widget.room"></span></div>
+          <div class="tile-value" id="room">-</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label homey-text-small"><svg class="icon"><use href="#i-tank"/></svg><span data-label="widget.tank"></span></div>
+          <div class="tile-value" id="tank">-</div>
+          <div id="tankExtra" class="tile-extra hidden">
+            <div class="bar"><span id="tankBar"></span></div>
+            <span id="tankTarget" class="target homey-text-small"></span>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile-label homey-text-small"><svg class="icon"><use href="#i-heat"/></svg><span data-label="widget.heat_output"></span></div>
+          <div class="tile-value" id="heatOutput">-</div>
+        </div>
+      </div>
+
+      <div id="modes" class="modes homey-text-small"></div>
+      <div id="actions" class="actions"></div>
+      <div id="age" class="age homey-text-small hidden"><svg class="icon"><use href="#i-clock"/></svg><span id="ageText"></span></div>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+      // Updates come from the app right after each poll (realtime event "status").
+      // Until the first one arrives the widget asks every minute, then every 5 minutes
+      // as a backup (which also tells the app that the widget is still open).
+      const REFRESH_MS = 60 * 1000;
+      const BACKUP_REFRESH_MS = 5 * 60 * 1000;
+      const STALE_MS = 5 * 60 * 1000;
+      const CONFIRM_MS = 4000;
+      const COLD_WATER_C = 20;
+      const SVG_NS = 'http://www.w3.org/2000/svg';
+      const STATE_COLORS = {
+        heating: '--mp-heating',
+        tank_water: '--mp-hot-water',
+        cooling: '--mp-cooling',
+        defrost: '--mp-defrost',
+        legionella: '--mp-legionella',
+      };
+
+      let H = null;
+      let settings = {};
+      let lastStatus = null;
+      // Homey's clock minus this device's clock, so the data age is right on any phone.
+      let clockOffset = 0;
+      let shownId = '';
+      let range = 'hour';
+      let ready = false;
+      let lastHeight = 0;
+      let realtimeSeen = false;
+      // Quick buttons: action -> { state: confirm | working | done | failed, timer, error }
+      const pending = {};
+
+      function t(key, tokens) {
+        let text = H.__(key, tokens) || key;
+        for (const [name, value] of Object.entries(tokens || {})) {
+          text = text.split(`__${name}__`).join(String(value));
+        }
+        return text;
+      }
+
+      function format(value, decimals) {
+        return typeof value === 'number' ? value.toFixed(decimals) : '-';
+      }
+
+      function setValue(id, value, decimals, unit) {
+        const el = document.getElementById(id);
+        el.textContent = format(value, decimals);
+        if (unit && typeof value === 'number') {
+          const span = document.createElement('span');
+          span.className = 'unit';
+          span.textContent = ` ${unit}`;
+          el.appendChild(span);
+        }
+      }
+
+      function clock(time) {
+        const d = new Date(time);
+        return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+      }
+
+      function svg(name, attrs) {
+        const el = document.createElementNS(SVG_NS, name);
+        for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
+        return el;
+      }
+
+      /**
+       * The height of what is shown, plus the body's padding. Measured on the content
+       * rather than the body, which Homey may stretch to the current widget height.
+       */
+      function contentHeight() {
+        const style = getComputedStyle(document.body);
+        const content = document.getElementById('root').getBoundingClientRect().height;
+        return Math.ceil(content + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom));
+      }
+
+      function fitHeight() {
+        if (!ready) return;
+        const height = contentHeight();
+        if (height !== lastHeight) {
+          lastHeight = height;
+          H.setHeight(height);
+        }
+      }
+
+      /**
+       * Power over the last hour or 24 hours: one series, 2px line on a soft area,
+       * zero baseline. Hover / touch moves a cursor and shows that moment's value.
+       */
+      function renderSparkline(history, currentKw) {
+        const chart = document.getElementById('spark');
+        const empty = document.getElementById('sparkEmpty');
+        const valueEl = document.getElementById('sparkValue');
+        const defaultValue = typeof currentKw === 'number' ? `${currentKw.toFixed(2)} kW` : '';
+
+        valueEl.textContent = defaultValue;
+        chart.innerHTML = '';
+        for (const button of document.querySelectorAll('[data-range]')) {
+          button.classList.toggle('active', button.dataset.range === range);
+        }
+
+        if (!history || history.length < 2) {
+          chart.classList.add('hidden');
+          empty.classList.remove('hidden');
+          empty.textContent = t('widget.collecting');
+          return;
+        }
+        chart.classList.remove('hidden');
+        empty.classList.add('hidden');
+
+        // Draw in real pixels so the marker stays round at any widget width.
+        const W = Math.max(chart.clientWidth, 100);
+        const H_PX = 44;
+        chart.setAttribute('viewBox', `0 0 ${W} ${H_PX}`);
+        const PAD = 3;
+        const t0 = history[0][0];
+        const t1 = history[history.length - 1][0];
+        const max = Math.max(...history.map(([, kw]) => kw), 0.1) * 1.1;
+        const x = (time) => (t1 === t0 ? W : ((time - t0) / (t1 - t0)) * W);
+        const y = (kw) => H_PX - PAD - (kw / max) * (H_PX - 2 * PAD);
+
+        const points = history.map(([time, kw]) => `${x(time).toFixed(1)},${y(kw).toFixed(1)}`);
+        chart.appendChild(svg('line', { class: 'baseline', x1: 0, x2: W, y1: H_PX - PAD, y2: H_PX - PAD, 'vector-effect': 'non-scaling-stroke' }));
+        chart.appendChild(svg('path', { class: 'area', d: `M0,${H_PX - PAD} L${points.join(' L')} L${W},${H_PX - PAD} Z` }));
+        chart.appendChild(svg('path', { class: 'line', d: `M${points.join(' L')}`, 'vector-effect': 'non-scaling-stroke' }));
+
+        const cursor = svg('line', { class: 'cursor hidden', y1: 0, y2: H_PX, 'vector-effect': 'non-scaling-stroke' });
+        const marker = svg('circle', { class: 'marker', r: 4, 'vector-effect': 'non-scaling-stroke' });
+        chart.appendChild(cursor);
+        chart.appendChild(marker);
+
+        // The marker sits on the latest value until the user hovers.
+        const last = history[history.length - 1];
+        const placeMarker = ([time, kw]) => {
+          marker.setAttribute('cx', x(time));
+          marker.setAttribute('cy', y(kw));
+        };
+        placeMarker(last);
+        const caption = t(range === 'day' ? 'widget.power_last_day' : 'widget.power_last_hour');
+        chart.setAttribute('aria-label', `${caption}: ${defaultValue}`);
+
+        const show = (event) => {
+          const rect = chart.getBoundingClientRect();
+          const time = t0 + ((event.clientX - rect.left) / rect.width) * (t1 - t0);
+          const point = history.reduce((best, p) => (Math.abs(p[0] - time) < Math.abs(best[0] - time) ? p : best));
+          cursor.setAttribute('x1', x(point[0]));
+          cursor.setAttribute('x2', x(point[0]));
+          cursor.classList.remove('hidden');
+          placeMarker(point);
+          valueEl.textContent = `${clock(point[0])} · ${point[1].toFixed(2)} kW`;
+        };
+        const reset = () => {
+          cursor.classList.add('hidden');
+          placeMarker(last);
+          valueEl.textContent = defaultValue;
+        };
+        chart.onpointermove = show;
+        chart.onpointerdown = show;
+        chart.onpointerleave = reset;
+        chart.onpointerup = reset;
+      }
+
+      function showMessage(text) {
+        document.getElementById('content').classList.add('hidden');
+        const message = document.getElementById('message');
+        message.textContent = text;
+        message.classList.remove('hidden');
+      }
+
+      function setBanner(id, textId, text) {
+        document.getElementById(id).classList.toggle('hidden', !text);
+        document.getElementById(textId).textContent = text || '';
+      }
+
+      function renderToday(today) {
+        const values = today || {};
+        const has = ['energy', 'heat', 'cop', 'starts'].some((key) => typeof values[key] === 'number');
+        document.getElementById('today').classList.toggle('hidden', settings.show_today === false || !has);
+        setValue('todayEnergy', values.energy, 1, 'kWh');
+        setValue('todayHeat', values.heat, 1, 'kWh');
+        setValue('todayCop', values.cop, 2);
+        setValue('todayStarts', values.starts, 0);
+      }
+
+      function renderTank(tank, target) {
+        setValue('tank', tank, 1, '°C');
+        const extra = document.getElementById('tankExtra');
+        const known = typeof tank === 'number' && typeof target === 'number' && target > COLD_WATER_C;
+        extra.classList.toggle('hidden', !known);
+        if (!known) return;
+        const share = Math.min(Math.max((tank - COLD_WATER_C) / (target - COLD_WATER_C), 0), 1);
+        document.getElementById('tankBar').style.width = `${Math.round(share * 100)}%`;
+        document.getElementById('tankTarget').textContent = t('widget.tank_target', { target: target.toFixed(0) });
+      }
+
+      function updateAge() {
+        const el = document.getElementById('age');
+        const at = lastStatus && lastStatus.updatedAt;
+        el.classList.toggle('hidden', !at);
+        if (!at) return;
+        const age = Math.max(Date.now() + clockOffset - at, 0);
+        const minutes = Math.floor(age / 60000);
+        const stale = age > STALE_MS;
+        el.classList.toggle('stale', stale);
+        let text;
+        if (stale) text = t('widget.stale', { minutes });
+        else if (minutes < 1) text = t('widget.updated_now');
+        else text = t('widget.updated_ago', { minutes });
+        document.getElementById('ageText').textContent = text;
+      }
+
+      function refreshButtons() {
+        for (const button of document.querySelectorAll('[data-action]')) {
+          const p = pending[button.dataset.action];
+          const state = p ? p.state : null;
+          button.textContent = state ? t(`widget.${state}`) : button.dataset.text;
+          button.className = `${button.dataset.base}${state ? ` ${state}` : ''}`;
+          button.disabled = state === 'working';
+          button.title = p && p.error ? p.error : '';
+        }
+        fitHeight();
+      }
+
+      function setPending(action, state, ms, error) {
+        if (pending[action]) clearTimeout(pending[action].timer);
+        pending[action] = { state, error };
+        if (ms) {
+          pending[action].timer = setTimeout(() => {
+            delete pending[action];
+            refreshButtons();
+          }, ms);
+        }
+        refreshButtons();
+      }
+
+      async function runAction(action) {
+        setPending(action, 'working');
+        try {
+          const status = await H.api('POST', '/action', { device: shownId, action });
+          setPending(action, 'done', 2000);
+          if (status) show(status);
+        } catch (err) {
+          setPending(action, 'failed', 4000, err && err.message ? err.message : String(err));
+        }
+      }
+
+      function onButton(action) {
+        const p = pending[action];
+        if (p && p.state === 'confirm') runAction(action);
+        else if (!p) setPending(action, 'confirm', CONFIRM_MS);
+      }
+
+      function renderActions(status) {
+        const list = [];
+        if (status.canWrite && status.available) {
+          if (settings.button_hot_water === true) list.push('hot_water_hot', 'hot_water_comfort');
+          if (settings.button_solar === true) list.push('solar_1h');
+          if (settings.button_saving === true && typeof status.savingOn === 'boolean') {
+            list.push(status.savingOn ? 'saving_off' : 'saving_on');
+          }
+        }
+        // Rebuilt only when the set of buttons changes, so a pending confirmation survives updates.
+        const container = document.getElementById('actions');
+        const key = list.join(',');
+        if (container.dataset.key !== key) {
+          container.dataset.key = key;
+          container.textContent = '';
+          for (const action of list) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.dataset.action = action;
+            button.dataset.base = 'btn homey-text-small';
+            button.dataset.text = t(`widget.action_${action}`);
+            button.addEventListener('click', () => onButton(action));
+            container.appendChild(button);
+          }
+        }
+        const alarms = status.alarms || {};
+        document.getElementById('ackButton').classList.toggle(
+          'hidden',
+          !(alarms.unacknowledged > 0 && status.canWrite && status.available),
+        );
+        refreshButtons();
+      }
+
+      function render(status) {
+        if (!status) {
+          showMessage(t('widget.no_device'));
+          return;
+        }
+        document.getElementById('message').classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
+        const compact = settings.layout === 'compact';
+        document.body.classList.toggle('compact', compact);
+
+        document.getElementById('name').textContent = status.name;
+
+        const pill = document.getElementById('pill');
+        const colorVar = status.available ? STATE_COLORS[status.operationState] : null;
+        pill.style.setProperty('--mp-state', colorVar ? `var(${colorVar})` : 'var(--mp-idle)');
+        pill.classList.toggle('active', Boolean(colorVar));
+        document.getElementById('operation').textContent = status.available
+          ? (status.operation || '-')
+          : t('widget.unavailable');
+
+        // Warnings: unavailable, else offline / subscription / no data. Alarms separately.
+        setBanner('warningBanner', 'warningText', status.available
+          ? status.warning
+          : (status.unavailableMessage || t('widget.unavailable')));
+        const alarms = status.alarms || {};
+        setBanner('alarmBanner', 'alarmText', alarms.unacknowledged > 0
+          ? [t('widget.alarms_unacknowledged', { count: alarms.unacknowledged }), alarms.last].filter(Boolean).join(' · ')
+          : null);
+
+        const kw = typeof status.power === 'number' ? status.power / 1000 : null;
+        setValue('cop', status.cop, 2);
+        const label = [t('widget.cop_now')];
+        if (compact && kw !== null) label.push(`${kw.toFixed(2)} kW`);
+        if (!compact && typeof status.copYesterday === 'number') label.push(`${t('widget.cop_yesterday')} ${status.copYesterday.toFixed(2)}`);
+        document.getElementById('copLabel').textContent = label.join(' · ');
+
+        if (!compact) renderSparkline(range === 'day' ? status.powerDay : status.powerHistory, kw);
+        renderToday(status.today);
+
+        document.getElementById('tiles').classList.toggle('hidden', settings.show_temperatures === false);
+        setValue('outdoor', status.outdoor, 1, '°C');
+        setValue('room', status.room, 1, '°C');
+        renderTank(status.tank, status.tankTarget);
+        setValue('heatOutput', typeof status.heatOutput === 'number' ? status.heatOutput / 1000 : null, 1, 'kW');
+
+        const modes = document.getElementById('modes');
+        modes.innerHTML = '';
+        for (const mode of status.modes || []) {
+          const chip = document.createElement('span');
+          chip.className = 'chip';
+          chip.innerHTML = `<svg class="icon"><use href="#i-${mode}"/></svg>`;
+          const text = document.createElement('span');
+          text.textContent = t(`widget.mode_${mode}`);
+          chip.appendChild(text);
+          modes.appendChild(chip);
+        }
+
+        renderActions(status);
+        updateAge();
+        fitHeight();
+      }
+
+      function show(status) {
+        // Realtime updates leave out an unchanged 24-hour graph: keep the one we have.
+        if (status && !status.powerDay && lastStatus && lastStatus.deviceId === status.deviceId) {
+          status.powerDay = lastStatus.powerDay;
+        }
+        lastStatus = status;
+        if (status) {
+          shownId = status.deviceId;
+          if (typeof status.serverTime === 'number') clockOffset = status.serverTime - Date.now();
+        }
+        render(status);
+      }
+
+      function refresh() {
+        const deviceId = settings.device && settings.device.id ? settings.device.id : '';
+        return H.api('GET', `/?device=${encodeURIComponent(deviceId)}`, {})
+          .then(show)
+          .catch(() => {
+            // Keep showing the last values (their age turns into a warning); only an
+            // empty widget gets the error message.
+            if (!lastStatus) showMessage(t('widget.error'));
+          })
+          .finally(() => {
+            if (!ready) {
+              ready = true;
+              lastHeight = contentHeight();
+              H.ready({ height: lastHeight });
+            } else {
+              fitHeight();
+            }
+          });
+      }
+
+      function scheduleRefresh() {
+        setTimeout(() => refresh().finally(scheduleRefresh), realtimeSeen ? BACKUP_REFRESH_MS : REFRESH_MS);
+      }
+
+      function onHomeyReady(Homey) {
+        H = Homey;
+        settings = Homey.getSettings() || {};
+        for (const el of document.querySelectorAll('[data-label]')) {
+          el.textContent = t(el.dataset.label);
+        }
+        const ack = document.getElementById('ackButton');
+        ack.dataset.text = t('widget.acknowledge');
+        ack.addEventListener('click', () => onButton('acknowledge_alarms'));
+
+        for (const button of document.querySelectorAll('[data-range]')) {
+          button.addEventListener('click', () => {
+            range = button.dataset.range;
+            if (lastStatus) render(lastStatus);
+          });
+        }
+        window.addEventListener('resize', () => {
+          if (lastStatus) render(lastStatus);
+        });
+
+        if (typeof Homey.on === 'function') {
+          Homey.on('status', (status) => {
+            if (!status || status.deviceId !== shownId) return;
+            realtimeSeen = true;
+            show(status);
+          });
+        }
+
+        // Follow every change in what is shown (banners, wrapping text, button labels,
+        // layout), not only those after a render.
+        if (typeof ResizeObserver === 'function') {
+          new ResizeObserver(() => fitHeight()).observe(document.getElementById('root'));
+        }
+
+        setInterval(updateAge, 30 * 1000);
+        refresh().finally(scheduleRefresh);
+      }
+    </script>
+  </body>
+</html>

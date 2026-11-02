@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy in solar mode today",
+    "nl": "Energie in zonnemodus vandaag",
+    "sv": "Energi i solläge idag",
+    "de": "Energie im Solarmodus heute",
+    "da": "Energi i soltilstand i dag",
+    "no": "Energi i solmodus i dag"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/solar.svg"
+}

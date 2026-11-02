@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Defrost time today",
+    "nl": "Ontdooitijd vandaag",
+    "sv": "Avfrostningstid idag",
+    "de": "Abtauzeit heute",
+    "da": "Afrimningstid i dag",
+    "no": "Avrimingstid i dag"
+  },
+  "units": {
+    "en": "min"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/defrost.svg"
+}

@@ -1,0 +1,3 @@
+# Keep LF line endings in the repository and working copy (CI runs on Linux).
+* text=auto eol=lf
+*.png binary

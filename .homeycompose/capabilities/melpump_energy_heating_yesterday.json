@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy heating yesterday",
+    "nl": "Energie verwarming gisteren",
+    "sv": "Energi värme igår",
+    "de": "Energie Heizung gestern",
+    "da": "Energi opvarmning i går",
+    "no": "Energi oppvarming i går"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/heat.svg"
+}

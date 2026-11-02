@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Immersion heater on today",
+    "nl": "Elektrisch element boiler aan vandaag",
+    "sv": "Elpatron på idag",
+    "de": "Heizstab an heute",
+    "da": "Elpatron tændt i dag",
+    "no": "Elkolbe på i dag"
+  },
+  "units": {
+    "en": "min"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/heater.svg"
+}

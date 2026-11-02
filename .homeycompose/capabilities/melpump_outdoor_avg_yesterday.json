@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Average outdoor temperature yesterday",
+    "nl": "Gemiddelde buitentemperatuur gisteren",
+    "sv": "Medeltemperatur ute igår",
+    "de": "Durchschnittliche Außentemperatur gestern",
+    "da": "Gennemsnitlig udetemperatur i går",
+    "no": "Gjennomsnittlig utetemperatur i går"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/outdoor_avg.svg"
+}

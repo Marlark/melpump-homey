@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP this month",
+    "nl": "COP deze maand",
+    "sv": "COP denna månad",
+    "de": "COP diesen Monat",
+    "da": "COP denne måned",
+    "no": "COP denne måneden"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

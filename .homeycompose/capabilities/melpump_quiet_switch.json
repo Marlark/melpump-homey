@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Quiet mode",
+    "nl": "Stille modus",
+    "sv": "Tyst läge",
+    "de": "Leisemodus",
+    "da": "Stille tilstand",
+    "no": "Stillemodus"
+  },
+  "getable": true,
+  "setable": true,
+  "insights": false,
+  "uiComponent": "toggle",
+  "icon": "/assets/capabilities/quiet.svg"
+}

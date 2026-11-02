@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Immersion heater",
+    "nl": "Elektrisch element boiler",
+    "sv": "Elpatron",
+    "de": "Heizstab",
+    "da": "Elpatron",
+    "no": "Elkolbe"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Immersion heater on",
+    "nl": "Elektrisch element aan",
+    "sv": "Elpatron på",
+    "de": "Heizstab ein",
+    "da": "Elpatron til",
+    "no": "Elkolbe på"
+  },
+  "insightsTitleFalse": {
+    "en": "Immersion heater off",
+    "nl": "Elektrisch element uit",
+    "sv": "Elpatron av",
+    "de": "Heizstab aus",
+    "da": "Elpatron fra",
+    "no": "Elkolbe av"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/heater.svg"
+}

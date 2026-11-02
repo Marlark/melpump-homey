@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Holiday mode",
+    "nl": "Vakantiemodus",
+    "sv": "Semesterläge",
+    "de": "Urlaubsmodus",
+    "da": "Ferietilstand",
+    "no": "Feriemodus"
+  },
+  "getable": true,
+  "setable": true,
+  "insights": false,
+  "uiComponent": "toggle",
+  "icon": "/assets/capabilities/holiday.svg"
+}

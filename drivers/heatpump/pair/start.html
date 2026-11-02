@@ -1,0 +1,56 @@
+<header class="homey-header">
+  <h1 class="homey-title" data-i18n="pair.title"></h1>
+  <p class="homey-subtitle" data-i18n="pair.subtitle"></p>
+</header>
+
+<form id="melpump-login" class="homey-form" autocomplete="off">
+  <fieldset class="homey-form-fieldset">
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="melpump-api-key" data-i18n="pair.api_key"></label>
+      <input class="homey-form-input" id="melpump-api-key" type="password" placeholder="api_..." spellcheck="false" required />
+    </div>
+  </fieldset>
+
+  <p id="melpump-error" style="color: var(--homey-color-danger, #e53935); display: none;"></p>
+
+  <button id="melpump-submit" type="submit" class="homey-button-primary-full" data-i18n="pair.login"></button>
+</form>
+
+<script type="application/javascript">
+  (function () {
+    const form = document.getElementById('melpump-login');
+    const apiKeyInput = document.getElementById('melpump-api-key');
+    const submitButton = document.getElementById('melpump-submit');
+    const errorText = document.getElementById('melpump-error');
+
+    function showError(message) {
+      errorText.textContent = message;
+      errorText.style.display = message ? 'block' : 'none';
+    }
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      showError('');
+
+      const apiKey = apiKeyInput.value.trim();
+
+      if (apiKey.indexOf('api_') !== 0) {
+        showError(Homey.__('pair.invalid_key_format'));
+        return;
+      }
+
+      submitButton.classList.add('is-loading');
+      submitButton.disabled = true;
+
+      try {
+        await Homey.emit('login', { apiKey: apiKey });
+        Homey.showView('list_devices');
+      } catch (err) {
+        showError(err && err.message ? err.message : String(err));
+      } finally {
+        submitButton.classList.remove('is-loading');
+        submitButton.disabled = false;
+      }
+    });
+  })();
+</script>

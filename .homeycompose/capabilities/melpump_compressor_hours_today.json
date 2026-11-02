@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Compressor running today",
+    "nl": "Compressor in bedrijf vandaag",
+    "sv": "Kompressordrift idag",
+    "de": "Verdichterlaufzeit heute",
+    "da": "Kompressordrift i dag",
+    "no": "Kompressordrift i dag"
+  },
+  "units": {
+    "en": "h"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 1,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/compressor.svg"
+}

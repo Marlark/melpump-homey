@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Smart Energy on/off",
+    "nl": "Smart Energy aan/uit",
+    "sv": "Smart Energy på/av",
+    "de": "Smart Energy ein/aus",
+    "da": "Smart Energy til/fra",
+    "no": "Smart Energy på/av"
+  },
+  "getable": true,
+  "setable": true,
+  "insights": false,
+  "uiComponent": "toggle",
+  "icon": "/assets/capabilities/saving.svg"
+}

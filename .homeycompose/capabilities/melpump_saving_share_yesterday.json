@@ -1,0 +1,22 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Share in saving mode yesterday",
+    "nl": "Aandeel in bespaarmodus gisteren",
+    "sv": "Andel i sparläge igår",
+    "de": "Anteil im Sparmodus gestern",
+    "da": "Andel i sparetilstand i går",
+    "no": "Andel i sparemodus i går"
+  },
+  "units": {
+    "en": "%"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "min": 0,
+  "max": 100,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/saving.svg"
+}

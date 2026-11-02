@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Solar mode",
+    "nl": "Zonnemodus",
+    "sv": "Solläge",
+    "de": "Solarmodus",
+    "da": "Soltilstand",
+    "no": "Solmodus"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Solar mode activated",
+    "nl": "Zonnemodus geactiveerd",
+    "sv": "Solläge aktiverat",
+    "de": "Solarmodus aktiviert",
+    "da": "Soltilstand aktiveret",
+    "no": "Solmodus aktivert"
+  },
+  "insightsTitleFalse": {
+    "en": "Solar mode deactivated",
+    "nl": "Zonnemodus gedeactiveerd",
+    "sv": "Solläge avaktiverat",
+    "de": "Solarmodus deaktiviert",
+    "da": "Soltilstand deaktiveret",
+    "no": "Solmodus deaktivert"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/solar.svg"
+}

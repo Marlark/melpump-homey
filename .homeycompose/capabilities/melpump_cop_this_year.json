@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP this year",
+    "nl": "COP dit jaar",
+    "sv": "COP i år",
+    "de": "COP dieses Jahr",
+    "da": "COP i år",
+    "no": "COP i år"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

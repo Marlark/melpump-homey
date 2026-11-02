@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Zone 1 heating/cooling",
+    "nl": "Zone 1 verwarmt/koelt",
+    "sv": "Zon 1 värmer/kyler",
+    "de": "Zone 1 heizt/kühlt",
+    "da": "Zone 1 varmer/køler",
+    "no": "Sone 1 varmer/kjøler"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Zone heating/cooling started",
+    "nl": "Zone verwarmen/koelen gestart",
+    "sv": "Zonen började värma/kyla",
+    "de": "Zone heizt/kühlt",
+    "da": "Zonen varmer/køler",
+    "no": "Sonen varmer/kjøler"
+  },
+  "insightsTitleFalse": {
+    "en": "Zone heating/cooling stopped",
+    "nl": "Zone verwarmen/koelen gestopt",
+    "sv": "Zonen slutade värma/kyla",
+    "de": "Zone heizt/kühlt nicht mehr",
+    "da": "Zonen er stoppet med at varme/køle",
+    "no": "Sonen har sluttet å varme/kjøle"
+  },
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/zone_active.svg"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "COP in normal mode yesterday",
+    "nl": "COP in normale modus gisteren",
+    "sv": "COP i normal drift igår",
+    "de": "COP im Normalbetrieb gestern",
+    "da": "COP i normal drift i går",
+    "no": "COP i normal drift i går"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "min": 0,
+  "max": 15,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/cop.svg"
+}

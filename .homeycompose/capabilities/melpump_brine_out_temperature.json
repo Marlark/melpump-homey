@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Brine out temperature",
+    "nl": "Brijn-uittredetemperatuur",
+    "sv": "Köldbärare ut",
+    "de": "Sole-Austrittstemperatur",
+    "da": "Brine ud-temperatur",
+    "no": "Kollektor ut-temperatur"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/brine.svg"
+}

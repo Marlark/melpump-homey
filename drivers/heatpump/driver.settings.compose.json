@@ -1,0 +1,490 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Shown on the device",
+      "nl": "Getoond op het apparaat",
+      "sv": "Visas på enheten",
+      "de": "Auf dem Gerät angezeigt",
+      "da": "Vises på enheden",
+      "no": "Vises på enheten"
+    },
+    "children": [
+      {
+        "id": "show_switches",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Toggles",
+          "nl": "Schakelaars",
+          "sv": "Reglage",
+          "de": "Schalter",
+          "da": "Kontakter",
+          "no": "Brytere"
+        },
+        "hint": {
+          "en": "Smart Energy, night mode, summer eco, holiday mode and quiet mode on/off. Hidden values are removed from the device, including their Insights history.",
+          "nl": "Smart Energy, nachtmodus, zomer-eco, vakantiemodus en stille modus aan/uit. Verborgen waarden worden van het apparaat verwijderd, inclusief hun Insights-geschiedenis.",
+          "sv": "Smart Energy, nattläge, sommar-eco, semesterläge och tyst läge på/av. Dolda värden tas bort från enheten, inklusive deras historik i Insights.",
+          "de": "Smart Energy, Nachtmodus, Sommer-Eco, Urlaubsmodus und Leisemodus ein/aus. Ausgeblendete Werte werden vom Gerät entfernt, einschließlich ihres Insights-Verlaufs.",
+          "da": "Smart Energy, nattilstand, sommer-eco, ferietilstand og stille tilstand til/fra. Skjulte værdier fjernes fra enheden, inklusive deres Insights-historik.",
+          "no": "Smart Energy, nattmodus, sommer-eco, feriemodus og stillemodus på/av. Skjulte verdier fjernes fra enheten, inkludert historikken i Insights."
+        }
+      },
+      {
+        "id": "show_mode_stats",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Saving and solar mode statistics",
+          "nl": "Statistieken bespaar- en zonnemodus",
+          "sv": "Statistik för spar- och solläge",
+          "de": "Statistik Spar- und Solarmodus",
+          "da": "Statistik for spare- og soltilstand",
+          "no": "Statistikk for spare- og solmodus"
+        },
+        "hint": {
+          "en": "Hours, energy, share and COP in saving mode and solar mode. Hidden values are removed from the device, including their Insights history.",
+          "nl": "Uren, energie, aandeel en COP in bespaarmodus en zonnemodus. Verborgen waarden worden van het apparaat verwijderd, inclusief hun Insights-geschiedenis.",
+          "sv": "Timmar, energi, andel och COP i sparläge och solläge. Dolda värden tas bort från enheten, inklusive deras historik i Insights.",
+          "de": "Stunden, Energie, Anteil und COP im Spar- und Solarmodus. Ausgeblendete Werte werden vom Gerät entfernt, einschließlich ihres Insights-Verlaufs.",
+          "da": "Timer, energi, andel og COP i sparetilstand og soltilstand. Skjulte værdier fjernes fra enheden, inklusive deres Insights-historik.",
+          "no": "Timer, energi, andel og COP i sparemodus og solmodus. Skjulte verdier fjernes fra enheten, inkludert historikken i Insights."
+        }
+      },
+      {
+        "id": "show_run_stats",
+        "type": "checkbox",
+        "value": false,
+        "label": {
+          "en": "Compressor and defrost statistics",
+          "nl": "Statistieken compressor en ontdooien",
+          "sv": "Statistik för kompressor och avfrostning",
+          "de": "Statistik Verdichter und Abtauen",
+          "da": "Statistik for kompressor og afrimning",
+          "no": "Statistikk for kompressor og avriming"
+        },
+        "hint": {
+          "en": "Compressor starts and running hours, number of defrosts and defrost time. Hidden values are removed from the device, including their Insights history.",
+          "nl": "Compressorstarts en bedrijfsuren, aantal ontdooiingen en ontdooitijd. Verborgen waarden worden van het apparaat verwijderd, inclusief hun Insights-geschiedenis.",
+          "sv": "Kompressorstarter och drifttimmar, antal avfrostningar och avfrostningstid. Dolda värden tas bort från enheten, inklusive deras historik i Insights.",
+          "de": "Verdichterstarts und Laufzeit, Anzahl der Abtauvorgänge und Abtauzeit. Ausgeblendete Werte werden vom Gerät entfernt, einschließlich ihres Insights-Verlaufs.",
+          "da": "Kompressorstarter og driftstimer, antal afrimninger og afrimningstid. Skjulte værdier fjernes fra enheden, inklusive deres Insights-historik.",
+          "no": "Kompressorstarter og driftstimer, antall avriminger og avrimingstid. Skjulte verdier fjernes fra enheten, inkludert historikken i Insights."
+        }
+      },
+      {
+        "id": "show_breakdown",
+        "type": "checkbox",
+        "value": false,
+        "label": {
+          "en": "Heating and hot water separately",
+          "nl": "Verwarming en warm water apart",
+          "sv": "Värme och varmvatten separat",
+          "de": "Heizung und Warmwasser getrennt",
+          "da": "Opvarmning og varmt vand hver for sig",
+          "no": "Oppvarming og varmtvann hver for seg"
+        },
+        "hint": {
+          "en": "Yesterday's energy, heat produced and COP for heating and hot water separately. Hidden values are removed from the device, including their Insights history.",
+          "nl": "Energie, geproduceerde warmte en COP van gisteren voor verwarming en warm water apart. Verborgen waarden worden van het apparaat verwijderd, inclusief hun Insights-geschiedenis.",
+          "sv": "Gårdagens energi, producerade värme och COP för värme och varmvatten separat. Dolda värden tas bort från enheten, inklusive deras historik i Insights.",
+          "de": "Energie, erzeugte Wärme und COP von gestern für Heizung und Warmwasser getrennt. Ausgeblendete Werte werden vom Gerät entfernt, einschließlich ihres Insights-Verlaufs.",
+          "da": "Gårsdagens energi, producerede varme og COP for opvarmning og varmt vand hver for sig. Skjulte værdier fjernes fra enheden, inklusive deres Insights-historik.",
+          "no": "Gårsdagens energi, produserte varme og COP for oppvarming og varmtvann hver for seg. Skjulte verdier fjernes fra enheten, inkludert historikken i Insights."
+        }
+      },
+      {
+        "id": "show_period_stats",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Month and year",
+          "nl": "Maand en jaar",
+          "sv": "Månad och år",
+          "de": "Monat und Jahr",
+          "da": "Måned og år",
+          "no": "Måned og år"
+        },
+        "hint": {
+          "en": "Energy, heat produced and COP this month, last month and this year (completed days). Hidden values are removed from the device, including their Insights history.",
+          "nl": "Energie, geproduceerde warmte en COP deze maand, vorige maand en dit jaar (afgeronde dagen). Verborgen waarden worden van het apparaat verwijderd, inclusief hun Insights-geschiedenis.",
+          "sv": "Energi, producerad värme och COP denna månad, förra månaden och i år (avslutade dygn). Dolda värden tas bort från enheten, inklusive deras historik i Insights.",
+          "de": "Energie, erzeugte Wärme und COP diesen Monat, letzten Monat und dieses Jahr (abgeschlossene Tage). Ausgeblendete Werte werden vom Gerät entfernt, einschließlich ihres Insights-Verlaufs.",
+          "da": "Energi, produceret varme og COP denne måned, sidste måned og i år (afsluttede dage). Skjulte værdier fjernes fra enheden, inklusive deres Insights-historik.",
+          "no": "Energi, produsert varme og COP denne måneden, forrige måned og i år (avsluttede døgn). Skjulte verdier fjernes fra enheten, inkludert historikken i Insights."
+        }
+      },
+      {
+        "id": "show_alarm_info",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Alarm details",
+          "nl": "Alarmdetails",
+          "sv": "Larminformation",
+          "de": "Alarmdetails",
+          "da": "Alarmdetaljer",
+          "no": "Alarmdetaljer"
+        },
+        "hint": {
+          "en": "Last MelPump alarm and the number of alarms today. Hidden values are removed from the device, including their Insights history.",
+          "nl": "Laatste MelPump-alarm en het aantal alarmen vandaag. Verborgen waarden worden van het apparaat verwijderd, inclusief hun Insights-geschiedenis.",
+          "sv": "Senaste MelPump-larm och antal larm idag. Dolda värden tas bort från enheten, inklusive deras historik i Insights.",
+          "de": "Letzter MelPump-Alarm und Anzahl der Alarme heute. Ausgeblendete Werte werden vom Gerät entfernt, einschließlich ihres Insights-Verlaufs.",
+          "da": "Seneste MelPump-alarm og antal alarmer i dag. Skjulte værdier fjernes fra enheden, inklusive deres Insights-historik.",
+          "no": "Siste MelPump-alarm og antall alarmer i dag. Skjulte verdier fjernes fra enheten, inkludert historikken i Insights."
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Notifications",
+      "nl": "Meldingen",
+      "sv": "Notiser",
+      "de": "Benachrichtigungen",
+      "da": "Notifikationer",
+      "no": "Varsler"
+    },
+    "children": [
+      {
+        "id": "alarm_notifications",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Timeline notifications for MelPump alarms",
+          "nl": "Tijdlijnmeldingen voor MelPump-alarmen",
+          "sv": "Tidslinjenotiser för MelPump-larm",
+          "de": "Timeline-Benachrichtigungen für MelPump-Alarme",
+          "da": "Tidslinjenotifikationer for MelPump-alarmer",
+          "no": "Tidslinjevarsler for MelPump-alarmer"
+        },
+        "hint": {
+          "en": "Show a Homey timeline notification when MelPump reports a new alarm (e.g. short cycling, low COP, device offline).",
+          "nl": "Toon een melding in de Homey-tijdlijn wanneer MelPump een nieuw alarm meldt (bijv. pendelen, lage COP, apparaat offline).",
+          "sv": "Visa en notis i Homeys tidslinje när MelPump rapporterar ett nytt larm (t.ex. korta driftcykler, låg COP, enheten offline).",
+          "de": "Zeigt eine Benachrichtigung in der Homey-Timeline, wenn MelPump einen neuen Alarm meldet (z. B. Takten, niedriger COP, Gerät offline).",
+          "da": "Vis en notifikation i Homeys tidslinje, når MelPump rapporterer en ny alarm (f.eks. korte driftscyklusser, lav COP, enhed offline).",
+          "no": "Vis et varsel i Homeys tidslinje når MelPump rapporterer en ny alarm (f.eks. korte driftssykluser, lav COP, enheten frakoblet)."
+        }
+      },
+      {
+        "id": "saving_notifications",
+        "type": "checkbox",
+        "value": false,
+        "label": {
+          "en": "Timeline notifications for saving mode",
+          "nl": "Tijdlijnmeldingen voor bespaarmodus",
+          "sv": "Tidslinjenotiser för sparläge",
+          "de": "Timeline-Benachrichtigungen für den Sparmodus",
+          "da": "Tidslinjenotifikationer for sparetilstand",
+          "no": "Tidslinjevarsler for sparemodus"
+        },
+        "hint": {
+          "en": "Show a Homey timeline notification when Smart Energy starts or stops adjusting the heat pump.",
+          "nl": "Toon een melding in de Homey-tijdlijn wanneer Smart Energy de warmtepomp begint of stopt met aanpassen.",
+          "sv": "Visa en notis i Homeys tidslinje när Smart Energy börjar eller slutar styra värmepumpen.",
+          "de": "Zeigt eine Benachrichtigung in der Homey-Timeline, wenn Smart Energy beginnt oder aufhört, die Wärmepumpe anzupassen.",
+          "da": "Vis en notifikation i Homeys tidslinje, når Smart Energy begynder eller holder op med at styre varmepumpen.",
+          "no": "Vis et varsel i Homeys tidslinje når Smart Energy begynner eller slutter å styre varmepumpen."
+        }
+      },
+      {
+        "id": "solar_notifications",
+        "type": "checkbox",
+        "value": false,
+        "label": {
+          "en": "Timeline notifications for solar mode",
+          "nl": "Tijdlijnmeldingen voor zonnemodus",
+          "sv": "Tidslinjenotiser för solläge",
+          "de": "Timeline-Benachrichtigungen für den Solarmodus",
+          "da": "Tidslinjenotifikationer for soltilstand",
+          "no": "Tidslinjevarsler for solmodus"
+        },
+        "hint": {
+          "en": "Show a Homey timeline notification when solar mode starts or stops.",
+          "nl": "Toon een melding in de Homey-tijdlijn wanneer de zonnemodus start of stopt.",
+          "sv": "Visa en notis i Homeys tidslinje när solläget startar eller slutar.",
+          "de": "Zeigt eine Benachrichtigung in der Homey-Timeline, wenn der Solarmodus startet oder endet.",
+          "da": "Vis en notifikation i Homeys tidslinje, når soltilstand starter eller stopper.",
+          "no": "Vis et varsel i Homeys tidslinje når solmodus starter eller stopper."
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Installation (from MelPump)",
+      "nl": "Installatie (uit MelPump)",
+      "sv": "Installation (från MelPump)",
+      "de": "Installation (aus MelPump)",
+      "da": "Installation (fra MelPump)",
+      "no": "Installasjon (fra MelPump)"
+    },
+    "children": [
+      {
+        "id": "info_model",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Model",
+          "nl": "Model",
+          "sv": "Modell",
+          "de": "Modell",
+          "da": "Model",
+          "no": "Modell"
+        }
+      },
+      {
+        "id": "info_serial_number",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Serial number",
+          "nl": "Serienummer",
+          "sv": "Serienummer",
+          "de": "Seriennummer",
+          "da": "Serienummer",
+          "no": "Serienummer"
+        }
+      },
+      {
+        "id": "info_heating_power",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Heating power",
+          "nl": "Verwarmingsvermogen",
+          "sv": "Värmeeffekt",
+          "de": "Heizleistung",
+          "da": "Varmeeffekt",
+          "no": "Varmeeffekt"
+        }
+      },
+      {
+        "id": "info_heating_surface",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Heated area",
+          "nl": "Verwarmd oppervlak",
+          "sv": "Uppvärmd yta",
+          "de": "Beheizte Fläche",
+          "da": "Opvarmet areal",
+          "no": "Oppvarmet areal"
+        }
+      },
+      {
+        "id": "info_installation_type",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Heat distribution",
+          "nl": "Warmteafgifte",
+          "sv": "Värmesystem",
+          "de": "Wärmeverteilung",
+          "da": "Varmefordeling",
+          "no": "Varmefordeling"
+        }
+      },
+      {
+        "id": "info_integration_type",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Connection",
+          "nl": "Verbinding",
+          "sv": "Anslutning",
+          "de": "Verbindung",
+          "da": "Forbindelse",
+          "no": "Tilkobling"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Night mode and summer eco (from MelPump)",
+      "nl": "Nachtmodus en zomer-eco (uit MelPump)",
+      "sv": "Nattläge och sommar-eco (från MelPump)",
+      "de": "Nachtmodus und Sommer-Eco (aus MelPump)",
+      "da": "Nattilstand og sommer-eco (fra MelPump)",
+      "no": "Nattmodus og sommer-eco (fra MelPump)"
+    },
+    "children": [
+      {
+        "id": "info_night_hours",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Night mode hours",
+          "nl": "Tijden nachtmodus",
+          "sv": "Tider för nattläge",
+          "de": "Zeiten Nachtmodus",
+          "da": "Tider for nattilstand",
+          "no": "Tider for nattmodus"
+        }
+      },
+      {
+        "id": "info_night_temps",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Night mode temperature",
+          "nl": "Temperatuur nachtmodus",
+          "sv": "Temperatur i nattläge",
+          "de": "Temperatur im Nachtmodus",
+          "da": "Temperatur i nattilstand",
+          "no": "Temperatur i nattmodus"
+        }
+      },
+      {
+        "id": "info_summer_eco_hours",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Summer eco schedule",
+          "nl": "Schema zomer-eco",
+          "sv": "Schema för sommar-eco",
+          "de": "Zeitplan Sommer-Eco",
+          "da": "Tidsplan for sommer-eco",
+          "no": "Tidsplan for sommer-eco"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Solar mode (from MelPump)",
+      "nl": "Zonnemodus (uit MelPump)",
+      "sv": "Solläge (från MelPump)",
+      "de": "Solarmodus (aus MelPump)",
+      "da": "Soltilstand (fra MelPump)",
+      "no": "Solmodus (fra MelPump)"
+    },
+    "children": [
+      {
+        "id": "info_solar_hours",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Max hours per day",
+          "nl": "Max. uren per dag",
+          "sv": "Max timmar per dag",
+          "de": "Max. Stunden pro Tag",
+          "da": "Maks. timer pr. dag",
+          "no": "Maks timer per dag"
+        }
+      },
+      {
+        "id": "info_solar_preferred_hour",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Preferred hour",
+          "nl": "Voorkeursuur",
+          "sv": "Önskad timme",
+          "de": "Bevorzugte Uhrzeit",
+          "da": "Foretrukken time",
+          "no": "Foretrukket time"
+        }
+      },
+      {
+        "id": "info_solar_temps",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Temperatures in solar mode",
+          "nl": "Temperaturen in zonnemodus",
+          "sv": "Temperaturer i solläge",
+          "de": "Temperaturen im Solarmodus",
+          "da": "Temperaturer i soltilstand",
+          "no": "Temperaturer i solmodus"
+        }
+      },
+      {
+        "id": "info_solar_pv",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Solar panel power",
+          "nl": "Vermogen zonnepanelen",
+          "sv": "Solcellernas effekt",
+          "de": "Leistung der Solaranlage",
+          "da": "Solcellernes effekt",
+          "no": "Solcellenes effekt"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Diagnostics",
+      "nl": "Diagnose",
+      "sv": "Diagnostik",
+      "de": "Diagnose",
+      "da": "Diagnostik",
+      "no": "Diagnostikk"
+    },
+    "children": [
+      {
+        "id": "info_last_seen",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Last data from heat pump",
+          "nl": "Laatste gegevens van warmtepomp",
+          "sv": "Senaste data från värmepumpen",
+          "de": "Letzte Daten der Wärmepumpe",
+          "da": "Seneste data fra varmepumpen",
+          "no": "Siste data fra varmepumpen"
+        }
+      },
+      {
+        "id": "info_last_update",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Last successful update",
+          "nl": "Laatste geslaagde update",
+          "sv": "Senaste lyckade hämtning",
+          "de": "Letzte erfolgreiche Aktualisierung",
+          "da": "Seneste vellykkede opdatering",
+          "no": "Siste vellykkede oppdatering"
+        }
+      },
+      {
+        "id": "info_requests_hour",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Requests last hour (max 100)",
+          "nl": "Verzoeken afgelopen uur (max. 100)",
+          "sv": "Anrop senaste timmen (max 100)",
+          "de": "Anfragen letzte Stunde (max. 100)",
+          "da": "Forespørgsler seneste time (maks. 100)",
+          "no": "Forespørsler siste time (maks 100)"
+        }
+      },
+      {
+        "id": "info_last_error",
+        "type": "label",
+        "value": "-",
+        "label": {
+          "en": "Last error",
+          "nl": "Laatste fout",
+          "sv": "Senaste fel",
+          "de": "Letzter Fehler",
+          "da": "Seneste fejl",
+          "no": "Siste feil"
+        }
+      }
+    ]
+  }
+]

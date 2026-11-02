@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Brine in temperature",
+    "nl": "Brijn-intredetemperatuur",
+    "sv": "Köldbärare in",
+    "de": "Sole-Eintrittstemperatur",
+    "da": "Brine ind-temperatur",
+    "no": "Kollektor inn-temperatur"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/brine.svg"
+}

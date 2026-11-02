@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Heat produced for heating yesterday",
+    "nl": "Warmte geproduceerd voor verwarming gisteren",
+    "sv": "Värme producerad för uppvärmning igår",
+    "de": "Erzeugte Wärme für Heizung gestern",
+    "da": "Produceret varme til opvarmning i går",
+    "no": "Produsert varme til oppvarming i går"
+  },
+  "units": {
+    "en": "kWh"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "decimals": 2,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/heat.svg"
+}

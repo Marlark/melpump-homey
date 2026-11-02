@@ -1,0 +1,16 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Holiday mode until",
+    "nl": "Vakantiemodus tot",
+    "sv": "Semesterläge till",
+    "de": "Urlaubsmodus bis",
+    "da": "Feriemodus indtil",
+    "no": "Feriemodus til"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/holiday.svg"
+}
