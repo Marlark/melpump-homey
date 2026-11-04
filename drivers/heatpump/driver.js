@@ -195,6 +195,7 @@ class HeatPumpDriver extends Homey.Driver {
   /**
    * Replaces the API token of an existing device, e.g. after the old token was
    * revoked or expired. The new token must have access to this same heat pump.
+   * Other heat pumps using the old token get the new one too, if it has access to them.
    */
   async onRepair(session, device) {
     session.setHandler('login', async ({ apiKey: enteredKey }) => {
@@ -206,7 +207,15 @@ class HeatPumpDriver extends Homey.Driver {
         throw new Error(this.homey.__('repair.device_not_found'));
       }
 
+      const oldKey = device.getStoreValue('apiKey');
       await device.updateApiKey(key, match.writeAccess);
+
+      if (oldKey === key) return true;
+      for (const other of this.getDevices()) {
+        const access = devices.find((d) => d.id === other.getData().id);
+        if (other === device || !access || other.getStoreValue('apiKey') !== oldKey) continue;
+        await other.updateApiKey(key, access.writeAccess).catch(this.error);
+      }
       return true;
     });
   }

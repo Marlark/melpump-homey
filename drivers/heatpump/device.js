@@ -66,6 +66,9 @@ const HOT_WATER_READY_MARGIN = 1;
 const HOT_WATER_REARM = 5;
 // "Hot water boost" from a Flow: minutes allowed.
 const BOOST_MINUTES = { min: 5, max: 240 };
+// Polls that try to switch off a hot water boost or holiday mode at its end time
+// before the app gives up and tells the user.
+const MAX_END_ATTEMPTS = 5;
 // Room temperature readings kept for "Room temperature deviates" (its longest wait).
 const ROOM_HISTORY_MS = 3 * 60 * 60 * 1000;
 // Immersion heater / booster heater -> how the live state reports it.
@@ -608,6 +611,8 @@ class HeatPumpDevice extends Homey.Device {
     // Timestamps until which a hot water boost / holiday mode set from Homey runs, or null.
     this.boostUntil = this.getStoreValue('boostUntil') || null;
     this.holidayUntil = this.getStoreValue('holidayUntil') || null;
+    // FUNCTION_TOGGLES key -> failed attempts to switch it off at its end time.
+    this.endAttempts = {};
     // Compressor start times of the last hour, for "Compressor started often".
     this.startTimes = [];
     // Heater -> when it was switched on (live readings), for "Heater on for a long time".
@@ -656,7 +661,7 @@ class HeatPumpDevice extends Homey.Device {
 
     if (this.getStoreValue('apiKey')) {
       // Spread out when the app (or Homey) has just started; a newly paired device starts at once.
-      await this.startPolling({ spread: Date.now() - (this.homey.app.startedAt || 0) < 60000 });
+      this.startPolling({ spread: Date.now() - (this.homey.app.startedAt || 0) < 60000 });
     } else {
       // Paired with the earlier email/password version of the app; fixed via Repair.
       await this.markUnavailable(this.homey.__('device.no_api_key'));
@@ -823,22 +828,25 @@ class HeatPumpDevice extends Homey.Device {
   }
 
   /**
+   * Doesn't wait for the poll: the first one makes many requests, and pairing and
+   * repair would wait for all of them.
    * @param {object} [options]
    * @param {boolean} [options.spread] start within STARTUP_SPREAD_MS instead of now (app start)
    */
-  async startPolling({ spread = false } = {}) {
+  startPolling({ spread = false } = {}) {
     this.homey.clearTimeout(this.pollTimer);
     if (this.stopped) return;
     this.failedPolls = 0;
     this.pollCount = 0;
     this.pausedUntil = 0;
 
-    // Each poll schedules the next one when it ends (see scheduleNextPoll).
-    if (spread) {
-      this.scheduleNextPoll(Math.round(Math.random() * STARTUP_SPREAD_MS));
+    // The poll running now would replace a timer when it ends, so it runs again instead.
+    if (this.polling) {
+      this.pollQueued = true;
       return;
     }
-    await this.poll();
+    // Each poll schedules the next one when it ends (see scheduleNextPoll).
+    this.scheduleNextPoll(spread ? Math.round(Math.random() * STARTUP_SPREAD_MS) : 0);
   }
 
   stopPolling() {
@@ -894,7 +902,7 @@ class HeatPumpDevice extends Homey.Device {
     if (oldKey && oldKey !== apiKey) this.homey.app.removeClient(oldKey);
 
     // poll() only marks the device available when the request succeeds.
-    await this.startPolling();
+    this.startPolling();
     this.log('API token updated via repair');
   }
 
@@ -934,8 +942,9 @@ class HeatPumpDevice extends Homey.Device {
 
   async pollOnce() {
     await this.updateForcedSolar();
-    await this.endTimedFunctions();
     if (Date.now() < this.pausedUntil) return;
+    // While melpump.com can't be reached this waits, without using up its attempts.
+    if (this.failedPolls === 0) await this.endTimedFunctions();
 
     // The first poll fetches everything; after that each part has its own interval.
     const tick = this.pollCount;
@@ -1533,11 +1542,16 @@ class HeatPumpDevice extends Homey.Device {
     const noThermostat = this.features.thermostatZone2 === false ? FEATURE_CAPABILITIES.thermostatZone2 : [];
     for (const [capability, options] of Object.entries(ZONE2_CAPABILITIES)) {
       const wanted = active && !noThermostat.includes(capability);
-      if (wanted && !this.hasCapability(capability)) {
-        await this.addCapability(capability);
-        await this.setCapabilityOptions(capability, options);
-      } else if (!wanted && this.hasCapability(capability)) {
-        await this.removeCapability(capability);
+      // A failure here isn't a failed poll; the next device fetch tries again.
+      try {
+        if (wanted && !this.hasCapability(capability)) {
+          await this.addCapability(capability);
+          await this.setCapabilityOptions(capability, options);
+        } else if (!wanted && this.hasCapability(capability)) {
+          await this.removeCapability(capability);
+        }
+      } catch (err) {
+        this.error(`Could not update ${capability}:`, err.message);
       }
     }
     this.registerListeners();
@@ -2560,17 +2574,38 @@ class HeatPumpDevice extends Homey.Device {
   /**
    * Runs every poll: switches off a hot water boost whose time is up or whose hot water
    * is ready, and holiday mode at its end time. If MelPump doesn't accept it, the next
-   * poll tries again.
+   * poll tries again (see endTimedFunction).
    */
   async endTimedFunctions() {
     const now = Date.now();
     if (this.boostUntil && (now >= this.boostUntil || this.isHotWaterReady())) {
       this.log(now >= this.boostUntil ? 'Hot water boost time is up' : 'Hot water boost: hot water is ready');
-      await this.setFunction('force_hot_water', false).catch((err) => this.error('Could not end hot water boost:', err.message));
+      await this.endTimedFunction('force_hot_water', 'device.boost_end_failed', () => this.setBoostUntil(null));
     }
     if (this.holidayUntil && now >= this.holidayUntil) {
       this.log('Holiday mode end time reached');
-      await this.setFunction('holiday', false).catch((err) => this.error('Could not end holiday mode:', err.message));
+      await this.endTimedFunction('holiday', 'device.holiday_end_failed', () => this.setHolidayUntil(null));
+    }
+  }
+
+  /**
+   * Switches off a function at its end time. Gives up after MAX_END_ATTEMPTS, or at
+   * once without write access, and tells the user the function is still on.
+   * @param {string} fn key of FUNCTION_TOGGLES
+   * @param {string} failedKey locale key taking __name__
+   * @param {Function} forget clears the end time
+   */
+  async endTimedFunction(fn, failedKey, forget) {
+    try {
+      await this.setFunction(fn, false);
+      delete this.endAttempts[fn];
+    } catch (err) {
+      this.endAttempts[fn] = (this.endAttempts[fn] || 0) + 1;
+      this.error(`Could not switch off ${fn} (attempt ${this.endAttempts[fn]}):`, err.message);
+      if (this.endAttempts[fn] < MAX_END_ATTEMPTS && this.getStoreValue('writeAccess') !== false) return;
+      delete this.endAttempts[fn];
+      await forget();
+      await this.notify(failedKey);
     }
   }
 

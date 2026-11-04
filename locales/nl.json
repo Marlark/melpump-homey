@@ -25,6 +25,8 @@
     "no_api_key": "Dit apparaat heeft nog geen API-token. Gebruik Repareren om er een in te voeren.",
     "no_write_access": "Je API-token heeft alleen leesrechten voor deze warmtepomp.",
     "update_failed": "Kan de warmtepomp niet bijwerken: __message__",
+    "boost_end_failed": "__name__: de warmwaterboost kon niet worden uitgeschakeld. Schakel deze uit in MelPump.",
+    "holiday_end_failed": "__name__: de vakantiemodus kon niet worden uitgeschakeld. Schakel deze uit in MelPump.",
     "invalid_mode": "Onbekende MelPump modus: __mode__",
     "invalid_function": "Onbekende MelPump functie: __fn__",
     "invalid_solar_minutes": "De duur van de zonnemodus moet tussen 1 en 1440 minuten liggen.",

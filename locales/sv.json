@@ -25,6 +25,8 @@
     "no_api_key": "Den här enheten har ingen API-token ännu. Använd Reparera för att ange en.",
     "no_write_access": "Din API-token har bara läsbehörighet till den här värmepumpen.",
     "update_failed": "Kunde inte uppdatera värmepumpen: __message__",
+    "boost_end_failed": "__name__: varmvattenboosten kunde inte stängas av. Stäng av den i MelPump.",
+    "holiday_end_failed": "__name__: semesterläget kunde inte stängas av. Stäng av det i MelPump.",
     "invalid_mode": "Okänt MelPump-läge: __mode__",
     "invalid_function": "Okänd MelPump-funktion: __fn__",
     "invalid_solar_minutes": "Solläget måste vara mellan 1 och 1440 minuter.",

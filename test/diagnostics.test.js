@@ -249,3 +249,54 @@ test('switching off by hand cancels the timed end', async () => {
   assert.strictEqual(device.boostUntil, null);
   assert.strictEqual(device.holidayUntil, null);
 });
+
+test('a function that can\'t be switched off is tried a few times, then the user is told', async () => {
+  const clock = fakeClock('2026-03-15T10:00:00Z');
+  try {
+    const device = await createDevice({ store: { apiKey: 'api_x' } });
+    let tries = 0;
+    device.api = { setDeviceState: async () => { tries += 1; throw new Error('no'); } };
+    await device.setHolidayUntil(Date.now() - MINUTE);
+
+    for (let i = 0; i < 4; i += 1) await device.endTimedFunctions();
+    assert.strictEqual(tries, 4);
+    assert.ok(device.holidayUntil, 'keeps trying');
+    assert.ok(!device.fired.some((f) => f.notification));
+
+    await device.endTimedFunctions();
+    assert.strictEqual(device.holidayUntil, null);
+    assert.ok(device.fired.some((f) => String(f.notification).includes('device.holiday_end_failed')));
+
+    await device.endTimedFunctions();
+    assert.strictEqual(tries, 5, 'stops trying');
+  } finally {
+    clock.restore();
+  }
+});
+
+test('without write access a timed function is given up at once', async () => {
+  const device = await createDevice({ store: { writeAccess: false } });
+  await device.setBoostUntil(Date.now() - MINUTE);
+  await device.endTimedFunctions();
+  assert.strictEqual(device.boostUntil, null);
+  assert.ok(device.fired.some((f) => String(f.notification).includes('device.boost_end_failed')));
+});
+
+test('timed functions wait during a rate limit pause and while melpump.com can\'t be reached', async () => {
+  const device = await createDevice();
+  let ends = 0;
+  device.endTimedFunctions = async () => { ends += 1; };
+  device.api = { getDevice: async () => null, getDeviceAccess: async () => null, getDeviceStatus: async () => null };
+  device.pollAlarms = async () => {};
+  device.pollEnergy = async () => {};
+
+  device.pausedUntil = Date.now() + MINUTE;
+  await device.pollOnce();
+  device.pausedUntil = 0;
+  device.failedPolls = 2;
+  await device.pollOnce();
+  assert.strictEqual(ends, 0);
+
+  await device.pollOnce();
+  assert.strictEqual(ends, 1, 'the poll before succeeded');
+});

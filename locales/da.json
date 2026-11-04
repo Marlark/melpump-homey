@@ -25,6 +25,8 @@
     "no_api_key": "Denne enhed har endnu ikke et API-token. Brug Reparer til at indtaste et.",
     "no_write_access": "Dit API-token har kun læseadgang til denne varmepumpe.",
     "update_failed": "Kunne ikke opdatere varmepumpen: __message__",
+    "boost_end_failed": "__name__: varmtvandsboost kunne ikke slås fra. Slå den fra i MelPump.",
+    "holiday_end_failed": "__name__: ferietilstand kunne ikke slås fra. Slå den fra i MelPump.",
     "invalid_mode": "Ukendt MelPump-tilstand: __mode__",
     "invalid_function": "Ukendt MelPump-funktion: __fn__",
     "invalid_solar_minutes": "Soltilstand skal vare mellem 1 og 1440 minutter.",

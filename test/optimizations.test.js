@@ -120,7 +120,7 @@ test('subscription status is checked every 6 hours instead of every hour', async
   assert.strictEqual(checks, 2, 'at the first poll and after 6 hours');
 });
 
-test('after an app start the first poll is spread out; after pairing it runs at once', async () => {
+test('after an app start the first poll is spread out; after pairing it starts at once, without waiting for it', async () => {
   const device = await createDevice();
   let polls = 0;
   device.pollOnce = async () => { polls += 1; };
@@ -129,8 +129,27 @@ test('after an app start the first poll is spread out; after pairing it runs at 
   const timer = device.timers.filter((t) => !t.cleared).pop();
   assert.ok(timer.delay >= 0 && timer.delay <= 20000);
 
-  await device.startPolling();
+  device.startPolling();
+  const now = device.timers.filter((t) => !t.cleared).pop();
+  assert.strictEqual(now.delay, 0);
+  assert.strictEqual(polls, 0, 'not waited for');
+  await now.fn();
   assert.strictEqual(polls, 1);
+});
+
+test('starting to poll during a poll runs another one right after it', async () => {
+  const device = await createDevice();
+  let release;
+  let polls = 0;
+  device.pollOnce = () => {
+    polls += 1;
+    return polls === 1 ? new Promise((resolve) => { release = resolve; }) : Promise.resolve();
+  };
+  const running = device.poll();
+  device.startPolling();
+  release();
+  await running;
+  assert.strictEqual(polls, 2);
 });
 
 test('realtime widget updates leave out an unchanged 24-hour graph', async () => {

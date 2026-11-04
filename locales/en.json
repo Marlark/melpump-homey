@@ -25,6 +25,8 @@
     "no_api_key": "This device has no API token yet. Use Repair to enter one.",
     "no_write_access": "Your API token only has read access to this heat pump.",
     "update_failed": "Could not update the heat pump: __message__",
+    "boost_end_failed": "__name__: the hot water boost could not be switched off. Switch it off in MelPump.",
+    "holiday_end_failed": "__name__: holiday mode could not be switched off. Switch it off in MelPump.",
     "invalid_mode": "Unknown MelPump mode: __mode__",
     "invalid_function": "Unknown MelPump function: __fn__",
     "invalid_solar_minutes": "Solar mode duration must be between 1 and 1440 minutes.",

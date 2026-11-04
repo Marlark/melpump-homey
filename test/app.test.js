@@ -71,3 +71,33 @@ test('debug mode logs every trigger with its tokens', async () => {
   assert.deepStrictEqual(fired, { cop: 3.2 }, 'the trigger still fires');
   assert.match(lines[0], /Pump: trigger cop_changed \{"cop":3\.2\}/);
 });
+
+test('repair gives the new token to the other heat pumps using the old one', async () => {
+  const driver = Object.create(Driver.prototype);
+  const make = (id, apiKey) => ({
+    id,
+    apiKey,
+    getData: () => ({ id }),
+    getStoreValue: function get() { return this.apiKey; },
+    updateApiKey: async function update(key, writeAccess) { this.apiKey = key; this.writeAccess = writeAccess; },
+  });
+  const repaired = make('1', 'api_old');
+  const sameToken = make('2', 'api_old');
+  const noAccess = make('3', 'api_old');
+  const otherToken = make('4', 'api_other');
+  driver.getDevices = () => [repaired, sameToken, noAccess, otherToken];
+  driver.error = (err) => { throw err; };
+  driver.fetchDevicesWithKey = async () => [
+    { id: '1', writeAccess: true }, { id: '2', writeAccess: false }, { id: '4', writeAccess: true },
+  ];
+
+  let login;
+  await driver.onRepair({ setHandler: (name, fn) => { login = fn; } }, repaired);
+  assert.strictEqual(await login({ apiKey: 'api_new' }), true);
+
+  assert.strictEqual(repaired.apiKey, 'api_new');
+  assert.strictEqual(sameToken.apiKey, 'api_new');
+  assert.strictEqual(sameToken.writeAccess, false, 'its own access');
+  assert.strictEqual(noAccess.apiKey, 'api_old', 'the new token can\'t reach it');
+  assert.strictEqual(otherToken.apiKey, 'api_other');
+});

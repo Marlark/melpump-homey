@@ -14,5 +14,13 @@
     "de": "Neu im Widget: heutige Werte, eine 24-Stunden-Leistungskurve, Warmwasser-Fortschritt, Warnungen und Alarme, Alter der Daten, ein kompaktes Layout und optionale Schnelltasten, mit sofortigen Aktualisierungen. Außerdem zuverlässiger und schlanker: Änderungen aus Homey sind nach etwa 20 Sekunden sichtbar, Temperaturregler senden nur den Endwert, weniger Anfragen, wenn MelPump nicht erreichbar ist, und geringerer Speicherverbrauch.",
     "da": "Nyt i widgetten: dagens tal, en effektkurve for 24 timer, opvarmning af varmt vand, advarsler og alarmer, dataenes alder, et kompakt layout og valgfrie hurtigknapper, med øjeblikkelige opdateringer. Desuden mere stabil og lettere: ændringer fra Homey vises inden for ca. 20 sekunder, temperaturskydere sender kun slutværdien, færre forespørgsler, når MelPump ikke kan nås, og lavere hukommelsesforbrug.",
     "no": "Nytt i widgeten: dagens tall, en effektkurve for 24 timer, oppvarming av varmtvann, advarsler og alarmer, dataenes alder, et kompakt oppsett og valgfrie hurtigknapper, med umiddelbare oppdateringer. Dessuten mer stabil og lettere: endringer fra Homey vises innen omtrent 20 sekunder, temperaturglidere sender bare sluttverdien, færre forespørsler når MelPump ikke kan nås, og lavere minnebruk."
+  },
+  "1.1.1": {
+    "en": "More reliable: repairing a heat pump finishes right away and also updates other heat pumps using the same token, and you get a notification if a hot water boost or holiday mode can't be switched off at its end time.",
+    "nl": "Betrouwbaarder: het repareren van een warmtepomp is direct klaar en werkt ook andere warmtepompen met hetzelfde token bij, en je krijgt een melding als een warmwaterboost of de vakantiemodus op de eindtijd niet kan worden uitgeschakeld.",
+    "sv": "Stabilare: reparation av en värmepump blir klar direkt och uppdaterar även andra värmepumpar med samma token, och du får en notis om en varmvattenboost eller semesterläget inte kan stängas av vid sluttiden.",
+    "de": "Zuverlässiger: Die Reparatur einer Wärmepumpe ist sofort abgeschlossen und aktualisiert auch andere Wärmepumpen mit demselben Token, und du erhältst eine Benachrichtigung, wenn ein Warmwasser-Boost oder der Urlaubsmodus zur Endzeit nicht ausgeschaltet werden kann.",
+    "da": "Mere stabil: reparation af en varmepumpe er færdig med det samme og opdaterer også andre varmepumper med samme token, og du får en notifikation, hvis en varmtvandsboost eller ferietilstand ikke kan slås fra på sluttidspunktet.",
+    "no": "Mer stabil: reparasjon av en varmepumpe blir ferdig med en gang og oppdaterer også andre varmepumper med samme token, og du får et varsel hvis en varmtvannsboost eller feriemodus ikke kan slås av ved sluttidspunktet."
   }
 }

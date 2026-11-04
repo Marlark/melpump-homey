@@ -38,7 +38,8 @@ test('no poll is scheduled after the device is removed during a poll', async () 
     return new Promise((resolve) => { release = resolve; });
   };
 
-  const start = device.startPolling();
+  device.startPolling();
+  const start = active(device).pop().fn();
   device.poll();
   await device.onDeleted();
   release();

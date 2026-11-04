@@ -25,6 +25,8 @@
     "no_api_key": "Dieses Gerät hat noch kein API-Token. Verwende Reparieren, um eines einzugeben.",
     "no_write_access": "Dein API-Token hat nur Lesezugriff auf diese Wärmepumpe.",
     "update_failed": "Die Wärmepumpe konnte nicht aktualisiert werden: __message__",
+    "boost_end_failed": "__name__: Der Warmwasser-Boost konnte nicht ausgeschaltet werden. Schalte ihn in MelPump aus.",
+    "holiday_end_failed": "__name__: Der Urlaubsmodus konnte nicht ausgeschaltet werden. Schalte ihn in MelPump aus.",
     "invalid_mode": "Unbekannter MelPump-Modus: __mode__",
     "invalid_function": "Unbekannte MelPump-Funktion: __fn__",
     "invalid_solar_minutes": "Die Dauer des Solarmodus muss zwischen 1 und 1440 Minuten liegen.",

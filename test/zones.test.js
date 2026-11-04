@@ -88,3 +88,20 @@ test('"night mode activated" tells when night mode ends', async () => {
   const fired = device.fired.find((f) => f.trigger === 'nightModeActivatedTrigger');
   assert.deepStrictEqual(fired.tokens, { ends: '06:00' });
 });
+
+test('a zone 2 capability that can\'t be added is not a failed poll', async () => {
+  const device = await createDevice();
+  const add = device.addCapability;
+  device.addCapability = async (id) => {
+    if (id === 'melpump_zone_active.zone2') throw new Error('Homey says no');
+    return add(id);
+  };
+  await device.updateZone2(true);
+  assert.ok(!device.hasCapability('melpump_zone_active.zone2'));
+  assert.ok(device.hasCapability('melpump_zone_mode.zone2'), 'the others are still added');
+  assert.ok(device.logs.some((line) => line.includes('Homey says no')));
+
+  device.addCapability = add;
+  await device.updateZone2(true);
+  assert.ok(device.hasCapability('melpump_zone_active.zone2'), 'tried again at the next device fetch');
+});
