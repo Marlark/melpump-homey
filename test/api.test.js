@@ -109,6 +109,35 @@ test('HTTP errors become clear messages with flags', async () => {
   }
 });
 
+test('a 200 response that is not the device is refused instead of read as one', async () => {
+  const html = (res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end('<html>Down for maintenance</html>');
+  };
+  let reply = html;
+  const srv = await server((req, res) => reply(res));
+  try {
+    const api = new MelPumpApi({ apiKey: 'api_secret', baseUrl: srv.url });
+    for (const answer of [
+      html,
+      (res) => json(res, 200, []),
+      (res) => { res.writeHead(200); res.end(); },
+    ]) {
+      reply = answer;
+      await assert.rejects(api.getDevice('42'), (err) => {
+        assert.strictEqual(err.name, 'MelPumpApiError');
+        assert.match(err.message, /unexpected response/);
+        assert.ok(!err.isAuthError);
+        return true;
+      });
+    }
+    reply = (res) => json(res, 200, { id: 42, zoneTwoActive: true });
+    assert.deepStrictEqual(await api.getDevice('42'), { id: 42, zoneTwoActive: true });
+  } finally {
+    await srv.close();
+  }
+});
+
 test('a response that stalls after the headers times out', async () => {
   const srv = await server((req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });

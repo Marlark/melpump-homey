@@ -105,3 +105,22 @@ test('a zone 2 capability that can\'t be added is not a failed poll', async () =
   await device.updateZone2(true);
   assert.ok(device.hasCapability('melpump_zone_active.zone2'), 'tried again at the next device fetch');
 });
+
+test('a device response without zoneTwoActive or feature fields keeps zone 2 and the features', async () => {
+  const device = await createDevice();
+  await device.applyDevice({ zoneTwoActive: true, canCool: false, hasThermostatZone1: true, hasThermostatZone2: true });
+  assert.ok(device.hasCapability('melpump_zone_active.zone2'));
+  assert.ok(device.hasCapability('target_temperature.zone2'));
+  assert.strictEqual(device.features.canCool, false);
+
+  // A partial response: nothing is added or removed.
+  await device.applyDevice({ name: 'partial response' });
+  assert.ok(device.hasCapability('melpump_zone_active.zone2'), 'zone 2 is kept');
+  assert.ok(device.hasCapability('target_temperature.zone2'));
+  assert.deepStrictEqual(device.features, { canCool: false, thermostatZone1: true, thermostatZone2: true });
+
+  // A reported value still changes them.
+  await device.applyDevice({ zoneTwoActive: false, canCool: true });
+  assert.ok(!device.hasCapability('melpump_zone_active.zone2'), 'zone 2 removed when MelPump says so');
+  assert.strictEqual(device.features.canCool, true);
+});

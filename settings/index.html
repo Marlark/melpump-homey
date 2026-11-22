@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <style>
+      /* Status colors are always shown together with a text, never alone. */
+      :root {
+        --mp-ok: #00876A;
+        --mp-warning: #A86200;
+        --mp-critical: #C93A32;
+        --mp-card: rgba(0, 0, 0, 0.035);
+        --mp-muted: var(--homey-text-color-light, #6b6b70);
+      }
+
+      .homey-dark-mode {
+        --mp-ok: #26A882;
+        --mp-warning: #E0A03A;
+        --mp-critical: #EF6B63;
+        --mp-card: rgba(255, 255, 255, 0.05);
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .mp-card {
+        margin: 0 0 var(--homey-su-3, 12px);
+        padding: var(--homey-su-3, 12px) var(--homey-su-4, 16px);
+        border-radius: 12px;
+        background: var(--mp-card);
+      }
+
+      .mp-card-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .mp-name {
+        font-weight: 600;
+        overflow-wrap: anywhere;
+      }
+
+      .mp-model {
+        color: var(--mp-muted);
+        font-size: 0.9em;
+      }
+
+      .mp-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex: none;
+        font-size: 0.9em;
+        font-weight: 600;
+      }
+
+      .mp-status::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      .mp-status.ok { color: var(--mp-ok); }
+      .mp-status.warning { color: var(--mp-warning); }
+      .mp-status.unavailable { color: var(--mp-critical); }
+
+      .mp-note {
+        margin: 0 0 8px;
+        overflow-wrap: anywhere;
+      }
+
+      dl {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+        gap: 4px 12px;
+        margin: 0;
+        font-size: 0.95em;
+      }
+
+      dt {
+        color: var(--mp-muted);
+      }
+
+      dd {
+        margin: 0;
+        overflow-wrap: anywhere;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .mp-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: var(--homey-su-3, 12px);
+        color: var(--mp-muted);
+        font-size: 0.9em;
+      }
+
+      .mp-link {
+        border: 0;
+        background: none;
+        padding: 4px 0;
+        color: var(--homey-color-highlight, var(--mp-ok));
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .mp-alarms {
+        margin: 10px 0 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.9em;
+      }
+
+      .mp-alarms li {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px 8px;
+        padding: 4px 0;
+        border-top: 1px solid rgba(127, 127, 127, 0.2);
+        overflow-wrap: anywhere;
+      }
+
+      .mp-alarm-time {
+        color: var(--mp-muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .mp-alarm-ack {
+        color: var(--mp-muted);
+      }
+
+      #diagnosticsText {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 12em;
+        margin: 8px 0;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 12px;
+      }
+
+      #copyResult {
+        min-height: 1.4em;
+        margin: 4px 0 0;
+        color: var(--mp-muted);
+      }
+
+      #log summary {
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      #logText {
+        max-height: 24em;
+        overflow: auto;
+        margin: 8px 0 0;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="homey-header">
+      <h1 class="homey-title" data-i18n="settings.title"></h1>
+      <p class="homey-subtitle" data-i18n="settings.subtitle"></p>
+    </header>
+
+    <div class="mp-bar">
+      <span id="updated"></span>
+      <button id="refresh" class="mp-link" type="button" data-i18n="settings.refresh"></button>
+    </div>
+
+    <p id="message" class="mp-note hidden"></p>
+    <div id="pumps"></div>
+
+    <section id="diagnostics" class="hidden">
+      <h2 class="homey-subtitle" data-i18n="settings.diagnostics_title"></h2>
+      <p class="mp-note" data-i18n="settings.diagnostics_text"></p>
+      <textarea id="diagnosticsText" class="homey-form-textarea" readonly spellcheck="false"></textarea>
+      <button id="copy" class="homey-button-primary-full" type="button" data-i18n="settings.copy"></button>
+      <p id="copyResult" aria-live="polite"></p>
+    </section>
+
+    <details id="log">
+      <summary id="logTitle"></summary>
+      <p class="mp-note" data-i18n="settings.log_text"></p>
+      <pre id="logText"></pre>
+    </details>
+
+    <script type="text/javascript">
+      // How often the overview is fetched while the page is visible; it needs no request
+      // to melpump.com, only what the app already knows.
+      const REFRESH_MS = 30 * 1000;
+
+      // Token status -> text (keys written out so the translation check can see them).
+      let TOKEN_TEXTS = {};
+
+      let H = null;
+      let timer = null;
+
+      function t(key, tokens) {
+        let text = H.__(key, tokens) || key;
+        for (const [name, value] of Object.entries(tokens || {})) {
+          text = text.split(`__${name}__`).join(String(value));
+        }
+        return text;
+      }
+
+      function el(tag, className, text) {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== undefined && text !== null) node.textContent = text;
+        return node;
+      }
+
+      function showMessage(text) {
+        const message = document.getElementById('message');
+        message.textContent = text || '';
+        message.classList.toggle('hidden', !text);
+      }
+
+      function card(hp) {
+        const box = el('div', 'mp-card');
+        const head = el('div', 'mp-card-head');
+        const title = el('div');
+        title.appendChild(el('div', 'mp-name', hp.name));
+        if (hp.model) title.appendChild(el('div', 'mp-model', hp.model));
+        head.appendChild(title);
+
+        let state = 'ok';
+        if (!hp.available) state = 'unavailable';
+        else if (hp.warning) state = 'warning';
+        const labels = {
+          ok: t('settings.status_ok'),
+          warning: t('settings.status_warning'),
+          unavailable: t('settings.status_unavailable'),
+        };
+        head.appendChild(el('span', `mp-status ${state}`, labels[state]));
+        box.appendChild(head);
+
+        const note = hp.available ? hp.warning : hp.unavailableMessage;
+        if (note) box.appendChild(el('p', 'mp-note', note));
+
+        const rows = [];
+        const token = TOKEN_TEXTS[hp.token] || hp.token;
+        rows.push([t('settings.token'), hp.tokenNumber ? `${t('settings.token_number', { number: hp.tokenNumber })}: ${token}` : token]);
+        rows.push([t('settings.last_seen'), hp.lastSeen || '-']);
+        rows.push([t('settings.last_update'), hp.lastUpdate || '-']);
+        rows.push([t('settings.requests'), t('settings.requests_value', { count: hp.requestsLastHour, budget: hp.requestBudget })]);
+        if (hp.failedPolls > 0) rows.push([t('settings.failed_polls'), String(hp.failedPolls)]);
+        if (hp.pausedUntil) rows.push([t('settings.paused_until'), hp.pausedUntil]);
+        if (hp.lastError) rows.push([t('settings.last_error'), `${hp.lastError.time}: ${hp.lastError.message}`]);
+        rows.push([t('settings.timezone'), hp.timezone]);
+        const timed = [
+          hp.boostUntil && t('settings.boost_until', { time: hp.boostUntil }),
+          hp.holidayUntil && t('settings.holiday_until', { time: hp.holidayUntil }),
+          hp.forcedSolarUntil && t('settings.solar_until', { time: hp.forcedSolarUntil }),
+        ].filter(Boolean);
+        if (timed.length) rows.push([t('settings.timed'), timed.join(', ')]);
+        rows.push([t('settings.alarms'), t('settings.alarms_value', {
+          week: hp.alarms.last7Days, total: hp.alarms.count, days: hp.alarms.days,
+        })]);
+
+        const list = el('dl');
+        for (const [label, value] of rows) {
+          list.appendChild(el('dt', null, label));
+          list.appendChild(el('dd', null, value));
+        }
+        box.appendChild(list);
+
+        // The latest alarms from the app's own history (MelPump only keeps today's).
+        if (hp.alarms.recent.length) {
+          const alarms = el('ul', 'mp-alarms');
+          for (const alarm of hp.alarms.recent) {
+            const item = el('li');
+            item.appendChild(el('span', 'mp-alarm-time', alarm.time));
+            item.appendChild(el('span', null, alarm.message ? `${alarm.label}: ${alarm.message}` : alarm.label));
+            if (alarm.acknowledged) item.appendChild(el('span', 'mp-alarm-ack', t('settings.acknowledged')));
+            alarms.appendChild(item);
+          }
+          box.appendChild(alarms);
+        }
+        return box;
+      }
+
+      function render(overview) {
+        const pumps = document.getElementById('pumps');
+        pumps.textContent = '';
+        showMessage(overview.heatPumps.length ? '' : t('settings.no_devices'));
+        for (const hp of overview.heatPumps) pumps.appendChild(card(hp));
+
+        // Also without heat pumps: the log then shows why adding one failed.
+        document.getElementById('diagnostics').classList.remove('hidden');
+        const text = document.getElementById('diagnosticsText');
+        // Don't replace the text while someone is selecting it.
+        if (document.activeElement !== text) text.value = overview.text;
+
+        // The log in this phone's / browser's time, newest last.
+        document.getElementById('logTitle').textContent = t('settings.log_title', { count: overview.log.length });
+        document.getElementById('logText').textContent = overview.log.map((line) => {
+          const at = new Date(line.time);
+          const clockTime = [at.getHours(), at.getMinutes(), at.getSeconds()].map((n) => String(n).padStart(2, '0')).join(':');
+          return `${clockTime} ${line.level === 'error' ? 'ERROR ' : ''}[${line.source}] ${line.message}`;
+        }).join('\n');
+
+        const now = new Date();
+        const clock = [now.getHours(), now.getMinutes(), now.getSeconds()].map((n) => String(n).padStart(2, '0')).join(':');
+        document.getElementById('updated').textContent = t('settings.updated', { time: clock });
+      }
+
+      function load() {
+        return new Promise((resolve) => {
+          H.api('GET', '/overview', null, (err, overview) => {
+            if (err) {
+              showMessage(t('settings.error', { message: err.message || String(err) }));
+            } else {
+              render(overview);
+            }
+            resolve();
+          });
+        });
+      }
+
+      function schedule() {
+        clearTimeout(timer);
+        if (document.visibilityState === 'hidden') return;
+        timer = setTimeout(() => load().finally(schedule), REFRESH_MS);
+      }
+
+      async function copy() {
+        const text = document.getElementById('diagnosticsText');
+        const result = document.getElementById('copyResult');
+        let copied = false;
+        try {
+          await navigator.clipboard.writeText(text.value);
+          copied = true;
+        } catch (err) {
+          // Not every Homey app view allows the clipboard API; try the older way.
+          text.focus();
+          text.select();
+          try {
+            copied = document.execCommand('copy');
+          } catch (err2) {
+            copied = false;
+          }
+        }
+        result.textContent = copied ? t('settings.copied') : t('settings.copy_failed');
+        if (!copied) {
+          text.focus();
+          text.select();
+        }
+      }
+
+      function onHomeyReady(Homey) {
+        H = Homey;
+        TOKEN_TEXTS = {
+          ok: H.__('settings.token_ok'),
+          read_only: H.__('settings.token_read_only'),
+          rejected: H.__('settings.token_rejected'),
+          subscription: H.__('settings.token_subscription'),
+          no_access: H.__('settings.token_no_access'),
+          missing: H.__('settings.token_missing'),
+        };
+        for (const node of document.querySelectorAll('[data-i18n]')) {
+          node.textContent = H.__(node.dataset.i18n);
+        }
+        document.getElementById('refresh').addEventListener('click', () => load().finally(schedule));
+        document.getElementById('copy').addEventListener('click', copy);
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible') load().finally(schedule);
+          else clearTimeout(timer);
+        });
+        load().finally(() => {
+          Homey.ready();
+          schedule();
+        });
+      }
+    </script>
+  </body>
+</html>

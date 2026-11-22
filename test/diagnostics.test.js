@@ -300,3 +300,50 @@ test('timed functions wait during a rate limit pause and while melpump.com can\'
   await device.pollOnce();
   assert.strictEqual(ends, 1, 'the poll before succeeded');
 });
+
+test('room temperature deviates: fires once also at the card\'s longest waits', async () => {
+  // Readings every minute, and every 5 minutes (the longest gap that keeps the history).
+  for (const every of [1, 5]) {
+    for (const minutes of [5, 175, 180]) {
+      const clock = fakeClock('2026-03-15T10:00:00Z');
+      try {
+        const device = await createDevice();
+        device.capabilities.set('target_temperature', 21);
+        device.capabilities.set('measure_temperature', 18);
+        device.flowArgValues.roomTemperatureDeviatesTrigger = [{ zone: '1', direction: 'below', degrees: 1, minutes }];
+
+        // 7 hours too cold: well past the wait, and past the history kept.
+        const fired = [];
+        for (let elapsed = 0; elapsed <= 420; elapsed += every) {
+          const before = device.fired.length;
+          await device.trackRoomTemperatures();
+          if (device.fired.length > before) fired.push(elapsed);
+          clock.advance(every * MINUTE);
+        }
+        assert.deepStrictEqual(fired, [Math.ceil(minutes / every) * every], `${minutes} min, a reading every ${every} min`);
+      } finally {
+        clock.restore();
+      }
+    }
+  }
+});
+
+test('short cycling: steady cycling at a Flow\'s limit fires it once an hour, not at every start', async () => {
+  const clock = fakeClock('2026-03-15T10:00:00Z');
+  try {
+    const device = await createDevice();
+    device.deviceTimezone = 'UTC';
+    // A start every 15 minutes for 3 hours: 4 starts in every hour from the 4th on.
+    const atLimit = [];
+    for (let minute = 0; minute < 180; minute += 1) {
+      const before = device.fired.length;
+      await device.trackRuns(minute === 0 ? 0 : (minute % 15 < 5 && minute % 15 > 0 ? 40 : 0), false);
+      const fired = device.fired.slice(before).find((f) => f.trigger === 'shortCyclingTrigger');
+      if (fired && fired.state.starts === 4) atLimit.push(minute);
+      clock.advance(MINUTE);
+    }
+    assert.deepStrictEqual(atLimit, [46, 106, 166]);
+  } finally {
+    clock.restore();
+  }
+});

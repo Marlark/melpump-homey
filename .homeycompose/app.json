@@ -1,6 +1,6 @@
 {
   "id": "io.github.marlark.melpump",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "compatibility": ">=12.1.0",
   "sdk": 3,
   "platforms": [
@@ -41,5 +41,11 @@
   "bugs": {
     "url": "https://github.com/Marlark/melpump-homey/issues"
   },
-  "source": "https://github.com/Marlark/melpump-homey"
+  "source": "https://github.com/Marlark/melpump-homey",
+  "api": {
+    "getOverview": {
+      "method": "GET",
+      "path": "/overview"
+    }
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "MelPump alarms, last 7 days",
+    "nl": "MelPump-alarmen, afgelopen 7 dagen",
+    "sv": "MelPump-larm, senaste 7 dagarna",
+    "de": "MelPump-Alarme, letzte 7 Tage",
+    "da": "MelPump-alarmer, seneste 7 dage",
+    "no": "MelPump-alarmer, siste 7 dager"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "decimals": 0,
+  "uiComponent": "sensor",
+  "icon": "/assets/capabilities/alarm.svg"
+}

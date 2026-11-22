@@ -1,16 +1,25 @@
 {
   "name": "io.github.marlark.melpump",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Homey Pro app for MelPump.com heat pumps",
   "main": "app.js",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "test": "npm run test:translations && npm run test:unit",
+    "test": "npm run test:translations && npm run lint && npm run test:unit",
     "test:translations": "node scripts/check-translations.js",
-    "test:unit": "node --test \"test/*.test.js\""
+    "test:unit": "node --test \"test/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-exclude=\"test/**\" --test-coverage-lines=94 --test-coverage-branches=88 --test-coverage-functions=82 \"test/*.test.js\"",
+    "lint": "eslint ."
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "eslint-plugin-homey-app": "^3.0.0",
+    "eslint-plugin-n": "^18.5.0",
+    "globals": "^17.14.0"
   }
 }

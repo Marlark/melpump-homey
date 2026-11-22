@@ -239,10 +239,22 @@ class HeatPumpDriver extends Homey.Driver {
     } catch (err) {
       this.error('Token check failed:', err.message);
       if (err instanceof MelPumpApi.MelPumpApiError && err.isAuthError) {
-        throw new Error(this.homey.__('pair.invalid_key'));
+        throw new Error(this.homey.__('pair.invalid_key'), { cause: err });
       }
-      throw new Error(err.message);
+      throw new Error(err.message, { cause: err });
     }
+  }
+
+  log(...args) {
+    const app = this.homey && this.homey.app;
+    if (app && typeof app.recordLog === 'function') app.recordLog('log', 'driver', args);
+    super.log(...args);
+  }
+
+  error(...args) {
+    const app = this.homey && this.homey.app;
+    if (app && typeof app.recordLog === 'function') app.recordLog('error', 'driver', args);
+    super.error(...args);
   }
 
 }

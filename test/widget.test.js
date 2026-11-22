@@ -109,6 +109,10 @@ test('a widget action returns the new status; an unknown heat pump is refused', 
   const { app } = appWith([device]);
   assert.strictEqual((await app.runWidgetAction('42', 'solar_1h')).deviceId, '42');
 
+  // A heat pump chosen in the widget that has been removed: no other heat pump instead.
+  assert.deepStrictEqual(app.getWidgetStatus('removed'), { deviceRemoved: true });
+  await assert.rejects(app.runWidgetAction('removed', 'solar_1h'), /widget.device_removed/);
+
   const empty = appWith([]).app;
   await assert.rejects(empty.runWidgetAction('42', 'solar_1h'), /widget\.no_device/);
   assert.strictEqual(empty.getWidgetStatus('42'), null);

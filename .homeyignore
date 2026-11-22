@@ -4,3 +4,5 @@
 scripts
 test
 .github
+docs
+eslint.config.js

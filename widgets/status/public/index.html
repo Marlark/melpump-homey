@@ -870,8 +870,8 @@
       }
 
       function render(status) {
-        if (!status) {
-          showMessage(t('widget.no_device'));
+        if (!status || status.deviceRemoved) {
+          showMessage(t(status ? 'widget.device_removed' : 'widget.no_device'));
           return;
         }
         document.getElementById('message').classList.add('hidden');

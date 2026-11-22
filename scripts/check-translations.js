@@ -8,7 +8,7 @@
  *   object ({ "en": ..., ... }) has all languages, none empty, and the same
  *   [[arg]] placeholders and !{{...}} parts as English.
  * - locales/*.json: the same keys as en.json, none empty, same __placeholders__.
- * - Keys used in code (homey.__('...') / Homey.__('...') / data-label="...") exist.
+ * - Keys used in code (homey.__('...') / Homey.__('...') / data-label="..." / data-i18n="...") exist.
  * - .homeychangelog.json: every version in all languages.
  * - Store texts: README.txt (English) and README.<lang>.txt for the others.
  */
@@ -115,6 +115,8 @@ for (const lang of LANGUAGES.filter((l) => l !== 'en' && locales[l])) {
 // 3. Keys used in code. Keys built at runtime (template strings) can't be checked.
 const codeFiles = [
   path.join(ROOT, 'app.js'),
+  path.join(ROOT, 'api.js'),
+  ...walk(path.join(ROOT, 'settings'), (name) => name.endsWith('.html')),
   ...walk(path.join(ROOT, 'drivers'), (name) => name.endsWith('.js') || name.endsWith('.html')),
   ...walk(path.join(ROOT, 'widgets'), (name) => name.endsWith('.js') || name.endsWith('.html')),
   ...walk(path.join(ROOT, 'lib'), (name) => name.endsWith('.js')),
@@ -122,8 +124,10 @@ const codeFiles = [
 for (const file of codeFiles) {
   const code = fs.readFileSync(file, 'utf8');
   const used = [
-    ...code.matchAll(/\b__\(\s*['"]([a-zA-Z0-9_.]+)['"]/g),
+    // __('key'), and t('key') in the widget and settings pages (their wrapper around Homey.__).
+    ...code.matchAll(/\b(?:__|t)\(\s*['"]([a-zA-Z0-9_.]+)['"]/g),
     ...code.matchAll(/data-label="([a-zA-Z0-9_.]+)"/g),
+    ...code.matchAll(/data-i18n="([a-zA-Z0-9_.]+)"/g),
   ].map((match) => match[1]);
   for (const key of new Set(used)) {
     if (!(key in english)) problems.push(`${rel(file)}: uses "${key}", which is not in locales/en.json`);

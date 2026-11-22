@@ -19,6 +19,7 @@ Monitor and control your heat pump from Homey Pro through [MelPump](https://melp
 - [Dashboard widget](#dashboard-widget)
 - [Homey Energy](#homey-energy)
 - [Device settings](#device-settings)
+- [App settings](#app-settings)
 - [How data is fetched](#how-data-is-fetched)
 - [Good to know](#good-to-know)
 - [Troubleshooting](#troubleshooting)
@@ -112,6 +113,7 @@ These figures are measured by the app from the live readings, because MelPump's 
 | Defrosting, immersion heater, booster heater | |
 | Heat pump error | Homey's standard alarm, with the error code in the Flow trigger |
 | Last MelPump alarm, MelPump alarms today, unacknowledged MelPump alarms | Time and text of the newest alarm, today's count and how many are not acknowledged (checked every 15 minutes) |
+| MelPump alarms, last 7 days | Alarms in the last 7 days, from the app's own alarm history (MelPump itself only lists today's alarms) |
 | Last data from heat pump | When MelPump last received fresh readings |
 
 ### Toggles
@@ -288,6 +290,18 @@ The meter never goes backwards, as Homey Energy requires. If the estimate for a 
 - **Installation (from MelPump):** read-only information about the heat pump: model, serial number, heating power, heated area, heat distribution (radiators / underfloor) and connection type.
 - **Diagnostics:** read-only: last data from the heat pump, last successful update, requests to melpump.com in the last hour and the last error. Updated every 5 minutes and on errors. Useful when reporting a problem.
 
+## App settings
+
+**Apps → MelPump → Configure app** shows all your heat pumps on one page, refreshed every 30 seconds while it is open (it makes no requests to melpump.com):
+
+- **Status:** working, a warning (offline, subscription, no data) or unavailable, with the reason.
+- **Token:** whether the token works, is read only, was rejected (use **Repair**), has no access to the heat pump, or the MelPump subscription isn't active. Heat pumps added with the same token show the same token number; the token itself is never shown.
+- **Requests and errors:** last data from MelPump, last update, requests to melpump.com in the last hour (of the app's 90), failed polls in a row, a rate limit pause and the last error.
+- **Ends automatically:** a hot water boost, holiday mode or forced solar mode the app will switch off.
+- **Alarms:** how many in the last 7 and 90 days, and the 10 latest with time, text and whether they were acknowledged. MelPump only lists today's alarms, so the app keeps its own history (90 days, at most 300 alarms per heat pump) from the moment it is installed.
+- **Diagnostics:** all of this as text, in English, with a **Copy diagnostics** button, to add to a bug report. It contains no API token.
+- **Log:** the app's last 200 log lines (also in the diagnostics), since the app log itself is hard to reach. Anything that looks like an API token is masked.
+
 ## How data is fetched
 
 The MelPump API allows **100 requests per hour per device**. The app stays well below that:
@@ -332,9 +346,11 @@ When melpump.com can't be reached, the app retries once after a minute and then 
 
 ## API reference
 
-The MelPump API is documented at [melpump.com/api/doc](https://melpump.com/api/doc) (OpenAPI spec: [`/api/doc.json`](https://melpump.com/api/doc.json)). Every API call is in [`lib/melpump_api.js`](lib/melpump_api.js); the mapping from API fields to Homey capabilities is in `applyState()` in [`drivers/heatpump/device.js`](drivers/heatpump/device.js).
+The MelPump API is documented at [melpump.com/api/doc](https://melpump.com/api/doc) (OpenAPI spec: [`/api/doc.json`](https://melpump.com/api/doc.json)). Every API call is in [`lib/melpump_api.js`](lib/melpump_api.js); the mapping from API fields to Homey capabilities is in `applyState()` in [`drivers/heatpump/lib/state.js`](drivers/heatpump/lib/state.js).
 
 ## Development
+
+**Node.js:** use Node 22 (see `.nvmrc`), the version Homey Pro runs apps on and the one CI uses. With a newer Node the tests may pass while the app uses something Homey's Node doesn't have; `npm run lint` warns about Node APIs that are newer than 22.
 
 The app uses [Homey Compose](https://apps.developer.homey.app/advanced/homey-compose): `app.json` is generated, so don't edit it directly. Edit these files instead:
 
@@ -346,10 +362,27 @@ The app uses [Homey Compose](https://apps.developer.homey.app/advanced/homey-com
 | Device settings | `drivers/heatpump/driver.settings.compose.json` |
 | Flow cards (the device argument is added automatically) | `drivers/heatpump/driver.flow.compose.json` |
 | Dashboard widget | `widgets/status/widget.compose.json` |
+| App settings page and its Web API | `settings/index.html`, `api.js` (endpoints in `.homeycompose/app.json` → `api`) |
 
 `homey app build`, `homey app run`, `homey app install` and `homey app validate` regenerate `app.json`.
 
-**Tests:** `npm test` checks the translations (see below) and runs the unit tests in `test/` with Node's built-in test runner (Node 22 or later, no packages needed). `npm run test:unit` runs only the unit tests. They use a stand-in for the Homey SDK (`test/helpers.js`) and a local server instead of melpump.com, and cover the API client, polling and back-off, statistics, solar mode, energy and month / year totals, capability groups and features, the widget, and debug logging. GitHub Actions runs `npm test` and `homey app validate --level publish` on every push and pull request.
+**Code:** the heat pump device is the class in [`drivers/heatpump/device.js`](drivers/heatpump/device.js) (start-up, capabilities, settings). Its other methods are split by topic over `drivers/heatpump/lib/` and added to that class:
+
+| File | What |
+|---|---|
+| `polling.js` | The poll loop, request budget, errors, availability and warnings |
+| `state.js` | Applying the live state, device details, settings, features and zone 2 |
+| `statistics.js` | Energy meter, estimates, daily / monthly / yearly figures, runs and heaters |
+| `alarms.js` | Alarm history, triggers, notifications and acknowledging |
+| `flows.js` | Triggers that need history or Flow arguments, and Flow conditions |
+| `control.js` | Changes to the heat pump, solar mode and timed functions (boost, holiday) |
+| `widget.js` | The dashboard widget's status and buttons |
+| `diagnostics.js` | Token status and diagnostics for the app settings page |
+| `constants.js`, `helpers.js` | Shared limits and mappings, and helpers for numbers and dates |
+
+**Tests:** `npm test` checks the translations (see below), runs ESLint and runs the unit tests in `test/` with Node's built-in test runner. `npm run test:unit` runs only the unit tests, `npm run lint` only ESLint, and `npm run test:coverage` the unit tests with a coverage report that fails below 94 % of lines, 88 % of branches or 82 % of functions. They use a stand-in for the Homey SDK (`test/helpers.js`) and a local server instead of melpump.com, and cover the API client, polling and back-off, statistics, solar mode, energy and month / year totals, capability groups and features, the widget, and debug logging. GitHub Actions runs the translation check, ESLint, the unit tests with coverage and `homey app validate --level publish` on every push and pull request.
+
+**Lint:** `eslint.config.js` only has rules that find mistakes, not style: undefined and unused names, Node APIs newer than Node 22, and Homey's practices (`this.homey.setTimeout` instead of global timers, `this.log` instead of `console`). ESLint and its plugins are development dependencies only; they aren't part of the app on Homey.
 
 **Debug logging:** with `homey app run` (which sets `DEBUG=1`), the app also logs, marked `[debug]`, every request to melpump.com (method, path, body, status, time and size; never the token), a summary of every poll, every changed value, every trigger with its tokens, every Flow action with its arguments, changes made from Homey and settings changes. An app installed with `homey app install` doesn't log these.
 

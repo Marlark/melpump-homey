@@ -171,3 +171,102 @@ test('realtime widget updates leave out an unchanged 24-hour graph', async () =>
   await flush();
   assert.deepStrictEqual(sent.map((s) => 'powerDay' in s), [true, false, true]);
 });
+
+test('alarms are also checked in the last minutes of the day, so a late alarm isn\'t missed', async () => {
+  // 23:50 in Stockholm (UTC+1); an alarm at 23:58:30 is in "today's" history until midnight.
+  const clock = fakeClock('2026-03-15T22:50:00Z');
+  try {
+    const device = await createDevice({ store: { lastAlarmId: 100 } });
+    device.deviceTimezone = 'Europe/Stockholm';
+    device.store.apiKey = 'api_x';
+    const raised = Date.parse('2026-03-15T22:58:30Z');
+    const midnight = Date.parse('2026-03-15T23:00:00Z');
+    const checks = [];
+    device.api = {
+      getDevice: async () => null,
+      getDeviceAccess: async () => ({ subscriptionActive: true }),
+      getDeviceStatus: async () => null,
+      getAlarmHistory: async () => {
+        checks.push(new Date(Date.now()).toISOString().slice(11, 16));
+        return Date.now() >= raised && Date.now() < midnight
+          ? [{ id: 101, type: 'E1', typeLabel: 'Error', message: 'Late alarm', acknowledged: false }]
+          : [];
+      },
+    };
+    device.hasBudget = () => true;
+    device.pollEnergy = async () => {};
+    device.updateDiagnostics = async () => {};
+    device.pollCount = 1; // regular alarm checks at 23:50 + 14 min, and 15 min later
+
+    for (let minute = 0; minute < 30; minute += 1) {
+      await device.pollOnce();
+      clock.advance(MINUTE);
+    }
+    // Regular checks at 00:04 and 00:19 local (23:04, 23:19 UTC); extra ones at 23:57-23:59.
+    assert.deepStrictEqual(checks, ['22:57', '22:58', '22:59', '23:04', '23:19']);
+    assert.deepStrictEqual(device.fired.filter((f) => f.trigger === 'alarmTriggeredTrigger').map((f) => f.tokens.id), [101]);
+  } finally {
+    clock.restore();
+  }
+});
+
+test('the subscription warning goes as soon as MelPump answers again after a renewal', async () => {
+  const device = await createDevice();
+  device.store.apiKey = 'api_x';
+  let active = false;
+  let checks = 0;
+  const forbidden = Object.assign(new Error('403'), { status: 403, isAuthError: true });
+  device.api = {
+    getDevice: async () => { if (!active) throw forbidden; return null; },
+    getDeviceAccess: async () => { checks += 1; return { subscriptionActive: active }; },
+    getDeviceStatus: async () => { if (!active) throw forbidden; return null; },
+  };
+  device.hasBudget = () => true;
+  device.pollAlarms = async () => {};
+  device.pollEnergy = async () => {};
+  device.updateDiagnostics = async () => {};
+  device.pollCount = 1;
+
+  await device.pollOnce();
+  assert.strictEqual(device.getAvailable(), false);
+  assert.ok(device.subscriptionWarning);
+
+  active = true;
+  checks = 0;
+  await device.pollOnce();
+  assert.strictEqual(device.subscriptionWarning, null, 'checked on the first poll that works');
+  assert.strictEqual(device.getAvailable(), true);
+  assert.strictEqual(checks, 1);
+
+  // Without the warning, the 6-hour interval applies again.
+  checks = 0;
+  for (let i = 0; i < 30; i += 1) await device.pollOnce();
+  assert.strictEqual(checks, 0);
+});
+
+test('while the subscription warning is shown and reads work, access is checked every 15 polls', async () => {
+  const device = await createDevice();
+  device.store.apiKey = 'api_x';
+  let active = false;
+  let checks = 0;
+  device.api = {
+    getDevice: async () => null,
+    getDeviceAccess: async () => { checks += 1; return { subscriptionActive: active }; },
+    getDeviceStatus: async () => null,
+  };
+  device.hasBudget = () => true;
+  device.pollAlarms = async () => {};
+  device.pollEnergy = async () => {};
+  device.updateDiagnostics = async () => {};
+  device.pollCount = 0;
+
+  await device.pollOnce();
+  assert.ok(device.subscriptionWarning, 'found at the first poll');
+  for (let i = 1; i < 60; i += 1) await device.pollOnce();
+  assert.strictEqual(checks, 4, 'polls 0, 15, 30 and 45');
+
+  active = true;
+  for (let i = 0; i < 15; i += 1) await device.pollOnce();
+  assert.strictEqual(device.subscriptionWarning, null);
+  assert.notStrictEqual(device.warning, "device.subscription_inactive", "the warning shown is no longer the subscription");
+});

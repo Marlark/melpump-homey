@@ -70,3 +70,21 @@ test('an end long past (app not running) is cleared without the trigger', async 
     clock.restore();
   }
 });
+
+test('"force solar mode until" across a daylight saving change counts the real time', async () => {
+  // 01:00 in Stockholm on March 29; at 02:00 the clocks go to 03:00.
+  const clock = fakeClock('2026-03-29T00:00:00Z');
+  try {
+    const { device, forced } = await solarDevice();
+    await device.forceSolarUntil('05:00');
+    assert.deepStrictEqual(forced, [180], 'three hours, not four');
+    assert.strictEqual(device.getCapabilityValue('melpump_solar_forced_until'), '05:00');
+
+    // And when the clocks go back (October 25, 03:00 -> 02:00): five hours until 05:00.
+    clock.set('2026-10-25T00:00:00Z'); // 02:00 summer time
+    await device.forceSolarUntil('05:00');
+    assert.strictEqual(forced[1], 240, '02:00 CEST to 05:00 CET is 4 hours');
+  } finally {
+    clock.restore();
+  }
+});

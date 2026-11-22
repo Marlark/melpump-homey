@@ -6,21 +6,28 @@ on:
 
 jobs:
   test:
-    name: Tests and translations
+    name: Tests, lint and translations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
       - run: npm ci
-      - run: npm test
+      - name: Translations
+        run: npm run test:translations
+      - name: Lint
+        run: npm run lint
+      # The unit tests, failing when coverage drops below the limits in package.json.
+      - name: Unit tests with coverage
+        run: npm run test:coverage
 
   validate:
     name: Homey app validation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: athombv/github-action-homey-app-validate@master
+      - uses: actions/checkout@v7
+      # Pinned to a commit: the action has no current release tag (v1 is older than master).
+      - uses: athombv/github-action-homey-app-validate@0f3b42c15d26aab79d7c48cde4d2805524da910e # master, 2024-08-15
         with:
           level: publish

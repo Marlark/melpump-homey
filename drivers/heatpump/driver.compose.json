@@ -90,6 +90,7 @@
     "melpump_last_alarm",
     "melpump_alarms_today",
     "melpump_alarms_unacknowledged",
+    "melpump_alarms_7d",
     "melpump_last_seen"
   ],
   "capabilitiesOptions": {

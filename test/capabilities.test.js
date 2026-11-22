@@ -82,3 +82,22 @@ test('the mode follows power when the heat pump cannot cool', async () => {
   await assert.rejects(device.setMode('cooling'), /device\.cannot_cool/);
   assert.strictEqual(sent.length, 3, 'nothing sent for a refused mode');
 });
+
+test('"Holiday until" is filled again when the switches are shown again', async () => {
+  const device = await createDevice();
+  assert.strictEqual(device.getCapabilityValue('melpump_holiday_until'), 'device.holiday_no_end');
+
+  await device.onSettings({ newSettings: { show_switches: false }, changedKeys: ['show_switches'] });
+  assert.ok(!device.hasCapability('melpump_holiday_until'));
+  await device.onSettings({ newSettings: { show_switches: true }, changedKeys: ['show_switches'] });
+  assert.strictEqual(device.getCapabilityValue('melpump_holiday_until'), 'device.holiday_no_end');
+});
+
+test('an added sensor is logged with the value the heat pump reports', async () => {
+  const device = await createDevice();
+  await device.addOptionalCapabilities({ OperationModeZone1: 2, FlowTemperatureZone1: 35.2 });
+  const added = device.logs.filter((line) => line.startsWith('Added'));
+  assert.ok(added.includes('Added melpump_zone_mode: the heat pump reports "heat_curve"'), added.join('\n'));
+  assert.ok(added.some((line) => line.startsWith('Added measure_temperature.flow_zone1: the heat pump reports 35.2')));
+  assert.ok(!added.some((line) => line.includes('undefined')));
+});
