@@ -30,5 +30,13 @@
     "de": "Neue Einstellungsseite (Apps → MelPump → App konfigurieren): der Status jeder Wärmepumpe, ob ihr Token funktioniert, Anfragen und Fehler, ein Alarmverlauf über 90 Tage, das App-Protokoll und eine Diagnose zum Einfügen in eine Fehlermeldung. Neuer Wert: MelPump-Alarme der letzten 7 Tage. Behoben: Zone 2 konnte nach einer unerwarteten Antwort von melpump.com verschwinden, die Werte des letzten Monats und des Jahres konnten zu niedrig bleiben, Alarme spät am Abend konnten verpasst werden, und Leistung und Kompressorwerte werden jetzt gelöscht, solange die Wärmepumpe offline ist. Außerdem zuverlässigere Flow-Karten für Raumtemperatur, kurze Laufzeiten und Solarmodus bei der Zeitumstellung.",
     "da": "Ny indstillingsside (Apps → MelPump → Konfigurer app): status for hver varmepumpe, om tokenet virker, forespørgsler og fejl, alarmhistorik for 90 dage, appens log og diagnostik til at indsætte i en fejlrapport. Ny værdi: MelPump-alarmer de seneste 7 dage. Rettet: zone 2 kunne forsvinde efter et uventet svar fra melpump.com, sidste måneds og årets tal kunne blive for lave, alarmer sent om aftenen kunne blive overset, og effekt og kompressorværdier ryddes nu, mens varmepumpen er offline. Desuden mere stabile Flow-kort for rumtemperatur, korte driftstider og soltilstand ved sommertid.",
     "no": "Ny innstillingsside (Apper → MelPump → Konfigurer app): status for hver varmepumpe, om tokenet fungerer, forespørsler og feil, alarmhistorikk for 90 dager, appens logg og diagnostikk å lime inn i en feilrapport. Ny verdi: MelPump-alarmer siste 7 dager. Rettet: sone 2 kunne forsvinne etter et uventet svar fra melpump.com, forrige måneds og årets tall kunne bli for lave, alarmer sent på kvelden kunne bli oversett, og effekt og kompressorverdier tømmes nå mens varmepumpen er offline. Dessuten mer stabile Flow-kort for romtemperatur, korte driftstider og solmodus ved sommertid."
+  },
+  "1.2.1": {
+    "en": "New App Store description, app image and widget preview.",
+    "nl": "Nieuwe beschrijving, app-afbeelding en widgetvoorbeeld in de App Store.",
+    "sv": "Ny beskrivning, appbild och förhandsvisning av widgeten i App Store.",
+    "de": "Neue Beschreibung, neues App-Bild und neue Widget-Vorschau im App Store.",
+    "da": "Ny beskrivelse, nyt appbillede og ny forhåndsvisning af widgetten i App Store.",
+    "no": "Ny beskrivelse, nytt appbilde og ny forhåndsvisning av widgeten i App Store."
   }
 }

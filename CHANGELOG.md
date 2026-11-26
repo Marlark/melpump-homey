@@ -7,6 +7,8 @@ All notable changes to MelPump for Homey are documented here. The format is base
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-11-26
+
 ### Changed
 
 - App Store listing: a new one-line description, a photo as the app image, store texts without setup
@@ -88,7 +90,8 @@ All notable changes to MelPump for Homey are documented here. The format is base
   statistics, alarms, a dashboard widget and Flow cards to control the heat pump through MelPump,
   in English, Dutch, Swedish, German, Danish and Norwegian.
 
-[Unreleased]: https://github.com/Marlark/melpump-homey/compare/91f1b54...HEAD
+[Unreleased]: https://github.com/Marlark/melpump-homey/compare/5d7f172...HEAD
+[1.2.1]: https://github.com/Marlark/melpump-homey/compare/91f1b54...5d7f172
 [1.2.0]: https://github.com/Marlark/melpump-homey/compare/16f20a5...91f1b54
 [1.1.1]: https://github.com/Marlark/melpump-homey/compare/5bccdc8...16f20a5
 [1.1.0]: https://github.com/Marlark/melpump-homey/commit/5bccdc8
