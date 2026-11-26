@@ -7,6 +7,11 @@ All notable changes to MelPump for Homey are documented here. The format is base
 
 ## [Unreleased]
 
+### Changed
+
+- App Store listing: a new one-line description, a photo as the app image, store texts without setup
+  instructions, and widget previews drawn as simple shapes.
+
 ## [1.2.0] - 2026-11-22
 
 ### Added

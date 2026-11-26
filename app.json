@@ -16,12 +16,12 @@
     "no": "MelPump"
   },
   "description": {
-    "en": "Monitor and control your heat pump through MelPump.com",
-    "nl": "Bewaak en bedien je warmtepomp via MelPump.com",
-    "sv": "Övervaka och styr din värmepump via MelPump.com",
-    "de": "Überwache und steuere deine Wärmepumpe über MelPump.com",
-    "da": "Overvåg og styr din varmepumpe via MelPump.com",
-    "no": "Overvåk og styr varmepumpen din via MelPump.com"
+    "en": "Cozy at home, in control of your energy",
+    "nl": "Behaaglijk thuis, grip op je energie",
+    "sv": "Varmt hemma, full koll på energin",
+    "de": "Wohlig warm, die Energie im Griff",
+    "da": "Varmt hjemme, fuldt styr på energien",
+    "no": "Varmt hjemme, full kontroll på energien"
   },
   "category": [
     "climate"
